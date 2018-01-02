@@ -1,0 +1,449 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="dns-prefetch" href="//t11.baidu.com">
+    
+  <script src="/assets/highlight.pack.js?rev=@@hash"></script>
+  <script>
+    hljs.initHighlightingOnLoad(); //初始化代码高亮 
+  </script>
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/tagcloud.js?rev=@@hash"></script>
+<script src="/js/jquery.tagcanvas.min.js"></script>
+<script src="/js/app.js?rev=@@hash"></script>
+    <!--SEO-->
+
+<meta name="description" content="没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。"/>
+<meta name="author" content="二月江北"/>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>javaEE概念介绍 | 小咸菜</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="小咸菜" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.jpg">
+
+    
+
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+    
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d21e29d838f94a86fe5dbbbd12bab116";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <!--<header class="main-header">
+    <div class="main-header-box">
+        <a class="branding" href="/" title="">
+            <img src="/img/header_logo.png" alt="Snippet 博客主题">
+        </a>
+        <h2 class="text-hide">Snippet主题</h2>
+        <img src="/img/header_logo.png" alt="Snippet 博客主题" class="hide">
+    </div>
+</header>-->
+        <!--
+
+组件说明：
+导航组件，读取主题的配置文件，生成导航
+-->
+<!--先注释掉导航，我自己要写一个右侧导航栏-->
+<!-- Sidebar -->
+<div id="wrapper">
+    <header id="header">
+        <div id="banner"></div>
+        <div id="header-outer" class="outer">
+            <div id="header-title" class="inner">
+                <h1 id="logo-wrap">
+                    <a href="/" id="logo">二月江北</a>
+                </h1>
+                <h2 id="subtitle-wrap">
+                    <a href="/" id="subtitle">没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。</a>
+                </h2>
+
+            </div>
+        </div>
+    </header>
+    <div class="overlay"></div>
+    <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" >
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+    </button>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    小咸菜
+                </a>
+            </li>
+            
+            <li><a href="/"><i class="fa fa-fw fa-home"></i>首页</a></li>
+            
+            <li><a href="/2017/06/16/about/"><i class="fa fa-fw fa-user"></i>关于</a></li>
+            
+
+        </ul>
+    </nav>
+</div>
+<!-- /#sidebar-wrapper -->
+        <section class="content-wrap" >
+                <div class="container" >
+                    <div class="row">
+                        <main class="col-md-8 main-content m-post">
+                            <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="javaEE概念介绍">
+            
+            javaEE概念介绍
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>java</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            JavaEE
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/09/23</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body">
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>这篇文章主要介绍在J2EE范例中使用的缩写词和概念。J2EE（Java2 Platform,EntrepriseEdition）代表Java企业版平台。它使得模块化的Java程序可以在服务器上部署。 JavaSE是一组Java核心库，Java应用程序在其上得以执行，而J2EE是基于Java SE的。</p>
+<h3 id="概念综述"><a href="#概念综述" class="headerlink" title="概念综述"></a>概念综述</h3><p>  在我们深入J2EE之前，先看一下综述：</p>
+<ol>
+<li><em>多层式应用（Multitier Application）</em><br> 多层式应用（或者多层式架构）分成多个逻辑部分，大多在多层服务器上实现。<br> 在多层服务器上实现。例如，三层应用模型：用户和浏览器，应用服务器，数据库服务器。其中应用服务器和数据库服务器就是分别在不同的服务器上来处理应<br> 用的请求。</li>
+<li><em>多层式服务（Multitier Service）</em><br>以三层架构模型的服务为例，应用服务器响应用户的请求。数据库服务器响应应用服务器的查询求情。</li>
+<li><em>Java Bean</em><br>由一些包含私有属性的Java类组成，对外提供get和set方法。从技术上讲，这些类必须保证有一个不含参数的构造器并且实现Serializable接口。  </li>
+</ol>
+<a id="more"></a>
+<h3 id="J2EE-5的概念"><a href="#J2EE-5的概念" class="headerlink" title="J2EE 5的概念"></a>J2EE 5的概念</h3><p><img src="/images/javaEE.jpeg" alt="image">     </p>
+<ul>
+<li><strong>Java EE应用程序模型</strong>——这个模型描述了一个实现服务的多层架构。“什么是服务”没有明确的界限。事实上，服务只是一个逻辑上的概念，它的对应实体取决于应用实现的概念。例如，客户端/服务器模型就是一种服务。  </li>
+<li><strong>Java EE 服务</strong>——这是一个J2EE中三层架构的应用服务范例。它是由网页层（服务JSP页面）和事务层（管理企业的数据层）组成的。  </li>
+<li><strong>Java EE 组件</strong>——“组件”是指独立的软件单元，可以和其他的组件组合来建立一个应用。</li>
+</ul>
+<hr>
+<pre><code>1、Web组件（Web Component）——web端生成的页面或者对用户请求的返回。代表性的有： Java Servlets, JavaServer Faces 和 Java Server Pages.   
+2、小程序（Applet）——一个小型的Java应用程序可以作为响应的一部分返回给用户，用户可以在他们的浏览器上运行此程序。这种小型的程序是Javascript的竞争对手。    
+3、户端程序（Application Client）——例如，一个用Java写的桌面应用程序。  
+4、EJB（Enterprise Java Beans）——见下文。
+</code></pre><hr>
+<ul>
+<li><strong>Java EE 客户端</strong>——这个概念中包含三个其他的概念：</li>
+</ul>
+<hr>
+<pre><code>○ 网页客户端（Web Client）或小型客户端（thin client）——以前（也不是非常久以前），客户端的请求返回的网页会包含脚本代码，这些代码会在应用服务器上执行了再将运行结果返回给客户端。这就是EE客户端。比如，用户可以查询员工的信息，并且对不同的结果按照他们喜欢的方式排列。现在，大多数开发者都不是在网页中使用脚本了，因为这不是个好习惯。他们更喜欢使用MVC设计原则，即禁止在网页中使用脚本。   
+○ 小程序（Applet）   
+○ 应用客户端（Application Client）  
+</code></pre><hr>
+<ul>
+<li><strong>Java EE 服务器通信（Java EE Server Communication）</strong>——这是指发生在小型客户端和应用客户端之间在服务器上的通信。具有代表性的是，小型客户端和小程序在Web层通信，但是应用客户端在EJB通信。 你觉得这不够清晰是吗？你觉得这很麻烦是吗？这就对了！这就是REST以及MVC设计原理现在在开发中流行的缘故。  </li>
+<li><strong>EJB (企业级Java Beans，Enterprise Java Beans)</strong>——这是一个逻辑概念，与传统的Java Beans无关。它主要试图从多重应用的后端（也就是服务器端）来压缩事务逻辑。其中一个它试图解决的问题是确保数据库中事务处理的完整性。警告：EJB有多个版本，并且3.0版本已经从早期的版本分离出来。</li>
+<li><strong>JavaBean Component</strong>——Java Bean 的同义词，主要用在JSP范例中。  </li>
+<li><strong>Java EE容器（Java EE Container）</strong>——这是部署组装Java EE组件的地方（也就是应用程序服务器）。它定义了Web容器（包含servlets和JSP），还定义了EJB容器（包含的企业级Java Bean）以及应用客户端容器（运行独立的应用程序）和在浏览器上运行的小程序容器。</li>
+<li><strong>部署描述符（Deployment Descriptor ）</strong>——这是一个为打包好的应用提供部署信息的XML文件。  </li>
+<li><strong>SOAP(简单对象访问协议，Simple Object Access Protocol)</strong>——这是一个通过网络提供的服务传输信息的协议。信息是通过XML构建的，能够通过多个传输交换层，多数情况下是HTTP。SOAP是JSON和REST-like服务的竞争对手。  </li>
+<li><strong>WSLD（网络服务描述语言，Web Service Description Language）</strong>——它用XML文件来描述了网络服务（名字，地点，通信模式）。  </li>
+<li><strong>UDDI（通用描述、发现与集成服务，Universal Description, Discovery and Integration）</strong>——一种ebXML规范，可以在线发布有关产品和服务的信息。  </li>
+<li><strong>Java Servlet</strong>——是用Java写的一个服务器端小程序，可以处理用户的HTTP请求，返回结果。  </li>
+<li><strong>JSP (JavaServer Page)</strong>——一种基于HTML文件（就是一个模板）处理之后能够生成静态内容。可以包含脚本代码的片段，以在最终生成的脚本静态文件中生成。</li>
+<li><strong>JSTL (JSP标准标签库，JavaServer Page Standard Tag Library)</strong>——一组可以模仿脚本代码功能的用在JSP的标准标签。例如，遍历客户端并显示他们对应的信息。现在，在JSP中，这样的标签已经已经取代了脚本代码。一般用于生成需要填充信息的页面。</li>
+<li><strong>JSF (Java Server Face)</strong>——包含JSF标签（类似于LSTL标签）的JSP页面。此外，JSF允许在页面中定义导航模块（类似于Spring web flow），包括Facelets。</li>
+<li><strong>Facelets</strong>——Facelets是JSF的MVC视图部分。它的主要功能是利用提供的数据（例如客户端列表）将模板转换成HTML文件。它也可以将生成的文件（例如HTML主体）提取出来一部分并到另一个模板中，相当于Sitemesh。</li>
+<li><strong>The Java API for XML-based Web Services (Java中用来创建基于XML的Web的API，JAX-WS)</strong>——对于使用XML通信的Web服务来说至关重要。</li>
+<li><strong>The Java API for XML Binding (序列化为XML的API，JAXB)</strong>——一种可以在JavaBeans和XML文件之间相互转化的方式。</li>
+<li><strong>JTA (Java事务处理API，Java Transaction API)</strong> ——划清数据库中上行和下行的通信界限。</li>
+<li><strong>JMS（Java信息服务，Java Message Service）</strong>——这个API保证服务器和应用在网络上的通信可靠、异步。ActiveMQ实现了JMS。</li>
+<li><strong>JavaMail API</strong>——提供通过应用程序发送邮件方式。</li>
+<li><strong>JAXP（加工XML文件的API，Java API for XML Processing）</strong>——提供了处理XML文件的方式。</li>
+<li><strong>JAXR（提供XML注册的API，Java API for XML Registries)</strong>——一个可以注册包含了元数据的XML的API。</li>
+<li><strong>JDBC（Java数据库连接，Java Database Connectivity）</strong>——这个API可以使应用程序直接通过SQL通信来访问数据库。</li>
+<li><strong>JCA（J2EE连接器架构，Java EE Connector Architecture)</strong>——使应用程序能和信息系统（通常是数据库）通信。</li>
+<li><strong>JPA(Java持久化API，Java Persistence API)</strong>——这是一个在数据库中存储对象的ORM（对象关系表，Object/relational mapping)定义。</li>
+<li><strong>JNDI（Java命名和目录接口）</strong>——一种能存储和检索资源或者通过名字查找信息的方式，</li>
+<li><strong>JAAS（Java鉴别与授权服务，Java Authentication and Authorization Service)</strong>——识别并控制服务权限的一张方式。<h3 id="J2EE-6的概念"><a href="#J2EE-6的概念" class="headerlink" title="J2EE 6的概念"></a>J2EE 6的概念</h3>在J2EE6中，大量的配置可以在源代码中执行。  </li>
+<li><strong>JAX-RS</strong>——定义REST（含状态传输）之类的服务的API。</li>
+<li><strong>Managed Beans</strong>——一个可以执行嵌入代码的Java对象。在Sping框架中，这是一些添加了@Autowired注释的对象。</li>
+<li><strong>CDI（上下文和依赖注入，Contexts and Dependency Injection for Java EE）</strong>——CDI是Java EE整个下一代类型安全的依赖注入的事实上的API。在Sping框架中，应用程序可以设计应用的上下文，控制反转（IoC）和依赖注入功能（DI）。Bean确认——通过设定好的规则判断Java Beans的状态是有效的。</li>
+<li><strong>JACC（Java Authorization Contract for Containers）</strong>——在J2EE应用服务器和特定的授权认证服务器之间定义的一个连接的协约。</li>
+<li><strong>JASPIC（Java认证服务提供者接口，Java Authentication Service Provider Interface）</strong>——这是与JACC互补认证的SPI（也就是服务API，Service API）。它定义了应用程序如何通过传统的认证服务。</li>
+</ul>
+<hr>
+<p>总体上说，J2EE和Spring框架慢慢的朝着一个相同的方向发展。</p>
+<hr>
+<p>原文链接：<a href="https://www.javaworld.com/article/2366964/learn-java/article.html" target="_blank" rel="noopener">javacodegeeks</a>  翻译：<a href="http://www.importnew.com/author/laixintao" target="_blank" rel="noopener">赖 信涛</a><br>译文链接：<a href="http://www.importnew.com/10716.html" target="_blank" rel="noopener">http://www.importnew.com/10716.html</a></p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明: 商业转载请联系作者获得授权,非商业转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/09/24/jvm调优/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2017/09/16/hexo2-新建文章/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2154342"></script>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+                        </main>
+                        
+    <aside class="col-md-4 sidebar">
+        
+        <!--
+组件说明：
+网站公告组件，读取主题配置文件中的网站公告
+-->
+
+
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>欢迎～～～～</p>
+        </div>
+    </div>
+
+        
+        <!--
+组件说明：
+社交信息组件，读取主题配置文件中的社交链接，页面的右侧
+-->
+
+
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/jiaxinxuan" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:jia552387367@Gmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        <!--
+组件说明：
+生成文章分类列表，在页面右侧
+-->
+
+
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo教程/"><i class="fa" aria-hidden="true">Hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/POI/"><i class="fa" aria-hidden="true">POI</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/about/"><i class="fa" aria-hidden="true">about</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/elk/"><i class="fa" aria-hidden="true">elk</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo教程/"><i class="fa" aria-hidden="true">hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/"><i class="fa" aria-hidden="true">maven</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/"><i class="fa" aria-hidden="true">redis</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/"><i class="fa" aria-hidden="true">swagger</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubantu/"><i class="fa" aria-hidden="true">ubantu</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人心情/"><i class="fa" aria-hidden="true">个人心情</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/"><i class="fa" aria-hidden="true">设计模式</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        <!--
+组件说明：
+读取文章归档信息，生成归档列表
+-->
+
+
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/"><i class="fa" aria-hidden="true">2017</i></a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/"><i class="fa" aria-hidden="true">2016</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/"><i class="fa" aria-hidden="true">2013</i></a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+<script type="text/javascript">
+    $(document).ready(function() {
+        if(!$('#myCanvas').tagcanvas({
+                textColour: '#193511',
+                outlineColour: '#d2c828',
+                reverse: true,
+                depth: 1.8,
+                maxSpeed: 0.08
+            },'tags')) {
+            // something went wrong, hide the canvas container
+            $('#myCanvasContainer').hide();
+        }
+    });
+</script>
+<div class="widget-wrap">
+  <div id="myCanvasContainer" class="widget tagcloud ">
+    <h3 class="title">标签云</h3>
+    <canvas width="250" height="250" id="myCanvas" style="width:100%">
+
+    </canvas>
+  </div>
+  <div id="tags" style="display: none;">
+    <ul>
+        <a href="/tags/poi-SXSSF/" style="font-size: 10px;">-poi -SXSSF</a> <a href="/tags/JavaEE/" style="font-size: 10px;">JavaEE</a> <a href="/tags/SpringMvc/" style="font-size: 10px;">SpringMvc</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/elk/" style="font-size: 10px;">elk</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 20px;">maven</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/swagger/" style="font-size: 15px;">swagger</a> <a href="/tags/ubantu/" style="font-size: 20px;">ubantu</a> <a href="/tags/个人心情/" style="font-size: 10px;">个人心情</a> <a href="/tags/装饰模式/" style="font-size: 10px;">装饰模式</a>
+    </ul>
+  </div>
+</div>
+
+
+
+        
+        <!--
+组件说明：
+网站右侧组件，生成友情链接
+-->
+
+
+    <div class="widget">
+        <h3 class="title">大神链接</h3>
+        <div class="content friends-link">
+        
+            <a href="https://zixingly.github.io/" class="fa" target="_blank">徐志行</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+                    </div>
+                </div>
+        </section>
+
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>
+                    二月江北
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/jiaxinxuan/" class="copyright-links" target="_blank" rel="nofollow">jiaxinxuan</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
