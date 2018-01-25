@@ -1,0 +1,763 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="dns-prefetch" href="//t11.baidu.com">
+    
+  <script src="/assets/highlight.pack.js?rev=@@hash"></script>
+  <script>
+    hljs.initHighlightingOnLoad(); //初始化代码高亮 
+  </script>
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/tagcloud.js?rev=@@hash"></script>
+<script src="/js/jquery.tagcanvas.min.js"></script>
+<script src="/js/app.js?rev=@@hash"></script>
+    <!--SEO-->
+
+<meta name="description" content="没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。"/>
+<meta name="author" content="二月江北"/>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>swagger简明教程 | 小咸菜</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="小咸菜" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.jpg">
+
+    
+
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+    
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d21e29d838f94a86fe5dbbbd12bab116";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <!--<header class="main-header">
+    <div class="main-header-box">
+        <a class="branding" href="/" title="">
+            <img src="/img/header_logo.png" alt="Snippet 博客主题">
+        </a>
+        <h2 class="text-hide">Snippet主题</h2>
+        <img src="/img/header_logo.png" alt="Snippet 博客主题" class="hide">
+    </div>
+</header>-->
+        <!--
+
+组件说明：
+导航组件，读取主题的配置文件，生成导航
+-->
+<!--先注释掉导航，我自己要写一个右侧导航栏-->
+<!-- Sidebar -->
+<div id="wrapper">
+    <header id="header">
+        <div id="banner"></div>
+        <div id="header-outer" class="outer">
+            <div id="header-title" class="inner">
+                <h1 id="logo-wrap">
+                    <a href="/" id="logo">二月江北</a>
+                </h1>
+                <h2 id="subtitle-wrap">
+                    <a href="/" id="subtitle">没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。</a>
+                </h2>
+
+            </div>
+        </div>
+    </header>
+    <div class="overlay"></div>
+    <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" >
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+    </button>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    小咸菜
+                </a>
+            </li>
+            
+            <li><a href="/"><i class="fa fa-fw fa-home"></i>首页</a></li>
+            
+            <li><a href="/2017/06/16/about/"><i class="fa fa-fw fa-user"></i>关于</a></li>
+            
+
+        </ul>
+    </nav>
+</div>
+<!-- /#sidebar-wrapper -->
+        <section class="content-wrap" >
+                <div class="container" >
+                    <div class="row">
+                        <main class="col-md-8 main-content m-post">
+                            <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="swagger简明教程">
+            
+            swagger简明教程
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>swagger</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            swagger
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/09/24</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body">
+        <p>本文转载自：<a href="https://my.oschina.net/dlam/blog/808315" target="_blank" rel="noopener">https://my.oschina.net/dlam/blog/808315</a>  </p>
+<h1 id="1：认识Swagger"><a href="#1：认识Swagger" class="headerlink" title="1：认识Swagger"></a>1：认识Swagger</h1><p>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。<br> 作用：  </p>
+<pre><code>1. 接口的文档在线自动生成。  
+2. 功能测试。  
+</code></pre><p>Swagger是一组开源项目，其中主要要项目如下：  </p>
+<a id="more"></a>
+<ol>
+<li>Swagger-tools:提供各种与Swagger进行集成和交互的工具。例如模式检验、Swagger 1.2文档转换成Swagger 2.0文档等功能。  </li>
+<li>Swagger-core: 用于Java/Scala的的Swagger实现。与JAX-RS(Jersey、Resteasy、CXF…)、Servlets和Play框架进行集成。  </li>
+<li>Swagger-js: 用于JavaScript的Swagger实现。  </li>
+<li>Swagger-node-express: Swagger模块，用于node.js的Express web应用框架。  </li>
+<li>Swagger-ui：一个无依赖的HTML、JS和CSS集合，可以为Swagger兼容API动态生成优雅文档。  </li>
+<li>Swagger-codegen：一个模板驱动引擎，通过分析用户Swagger资源声明以各种语言生成客户端代码。  </li>
+</ol>
+<h1 id="2：Maven-配置"><a href="#2：Maven-配置" class="headerlink" title="2：Maven 配置"></a>2：Maven 配置</h1><p>版本号请根据实际情况自行更改。</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+    &lt;version&gt; 2.2.2&lt;/version&gt;
+&lt;/dependency&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;io.springfox &lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+    &lt;version&gt; 2.2.2 &lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><h1 id="3：创建Swagger2配置类"><a href="#3：创建Swagger2配置类" class="headerlink" title="3：创建Swagger2配置类"></a>3：创建Swagger2配置类</h1><p>在Application.java同级创建Swagger2的配置类Swagger2    </p>
+<pre><code>package com.swaggerTest;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+/**
+ * Swagger2配置类
+ * 在与spring boot集成时，放在与Application.java同级的目录下。
+ * 通过@Configuration注解，让Spring来加载该类配置。
+ * 再通过@EnableSwagger2注解来启用Swagger2。
+ */
+@Configuration
+@EnableSwagger2
+public class Swagger2 {
+
+    /**
+     * 创建API应用
+     * apiInfo() 增加API相关信息
+     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，
+     * 本例采用指定扫描的包路径来定义指定要建立API的目录。
+     * 
+     * @return
+     */
+    @Bean
+    public Docket createRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage(&quot;com.swaggerTest.controller&quot;))
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    /**
+     * 创建该API的基本信息（这些基本信息会展现在文档页面中）
+     * 访问地址：http://项目实际地址/swagger-ui.html
+     * @return
+     */
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title(&quot;Spring Boot中使用Swagger2构建RESTful APIs&quot;)
+                .description(&quot;更多请关注http://www.baidu.com&quot;)
+                .termsOfServiceUrl(&quot;http://www.baidu.com&quot;)
+                .contact(&quot;sunf&quot;)
+                .version(&quot;1.0&quot;)
+                .build();
+    }
+}
+</code></pre><p>如上代码所示，通过createRestApi函数创建Docket的Bean之后，apiInfo()用来创建该Api的基本信息（这些基本信息会展现在文档页面中）。  </p>
+<h1 id="4：添加文档内容"><a href="#4：添加文档内容" class="headerlink" title="4：添加文档内容"></a>4：添加文档内容</h1><p>在完成了上述配置后，其实已经可以生产文档内容，但是这样的文档主要针对请求本身，描述的主要来源是函数的命名，对用户并不友好，我们通常需要自己增加一些说明来丰富文档内容。<br>Swagger使用的注解及其说明：<br>@Api：用在类上，说明该类的作用。<br>@ApiOperation：注解来给API增加方法说明。<br>@ApiImplicitParams : 用在方法上包含一组参数说明。<br>@ApiImplicitParam：用来注解来给方法入参增加说明。<br>@ApiResponses：用于表示一组响应<br>@ApiResponse：用在@ApiResponses中，一般用于表达一个错误的响应信息<br>l   code：数字，例如400<br>l   message：信息，例如”请求参数没填好”<br>l   response：抛出异常的类<br>@ApiModel：描述一个Model的信息（一般用在请求参数无法使用@ApiImplicitParam注解进行描述的时候）<br>l   @ApiModelProperty：描述一个model的属性  </p>
+<p>==注意：@ApiImplicitParam的参数说明：==   </p>
+<pre><code>paramType：指定参数放在哪个地方   
+header：请求参数放置于Request Header，使用@RequestHeader获取  
+query：请求参数放置于请求地址，使用@RequestParam获取  
+path：（用于restful接口）--&gt;请求参数的获取：@PathVariablebody：（不常用）    
+form（不常用）  
+name：参数名   
+dataType：参数类型   
+required：参数是否必须传 true | false  
+value：说明参数的意思   
+defaultValue：参数的默认值 
+</code></pre><p>例子：</p>
+<pre><code>package com.swaggerTest.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+
+/**
+ * 一个用来测试swagger注解的控制器
+ * 注意@ApiImplicitParam的使用会影响程序运行，如果使用不当可能造成控制器收不到消息
+ * 
+ * @author SUNF
+ */
+@Controller
+@RequestMapping(&quot;/say&quot;)
+@Api(value = &quot;SayController|一个用来测试swagger注解的控制器&quot;)
+public class SayController {
+
+    @ResponseBody
+    @RequestMapping(value =&quot;/getUserName&quot;, method= RequestMethod.GET)
+    @ApiOperation(value=&quot;根据用户编号获取用户姓名&quot;, notes=&quot;test: 仅1和2有正确返回&quot;)
+    @ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;userNumber&quot;, value = &quot;用户编号&quot;, required = true, dataType = &quot;Integer&quot;)
+    public String getUserName(@RequestParam Integer userNumber){
+        if(userNumber == 1){
+            return &quot;张三丰&quot;;
+        }
+        else if(userNumber == 2){
+            return &quot;慕容复&quot;;
+        }
+        else{
+            return &quot;未知&quot;;
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(&quot;/updatePassword&quot;)
+    @ApiOperation(value=&quot;修改用户密码&quot;, notes=&quot;根据用户id修改密码&quot;)
+    @ApiImplicitParams({
+        @ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;userId&quot;, value = &quot;用户ID&quot;, required = true, dataType = &quot;Integer&quot;),
+        @ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;password&quot;, value = &quot;旧密码&quot;, required = true, dataType = &quot;String&quot;),
+        @ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;newPassword&quot;, value = &quot;新密码&quot;, required = true, dataType = &quot;String&quot;)
+    })
+    public String updatePassword(@RequestParam(value=&quot;userId&quot;) Integer userId, @RequestParam(value=&quot;password&quot;) String password, 
+            @RequestParam(value=&quot;newPassword&quot;) String newPassword){
+      if(userId &lt;= 0 || userId &gt; 2){
+          return &quot;未知的用户&quot;;
+      }
+      if(StringUtils.isEmpty(password) || StringUtils.isEmpty(newPassword)){
+          return &quot;密码不能为空&quot;;
+      }
+      if(password.equals(newPassword)){
+          return &quot;新旧密码不能相同&quot;;
+      }
+      return &quot;密码修改成功!&quot;;
+    }
+}
+</code></pre><p>完成上述代码添加上，启动Spring Boot程序，访问：<a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a><br><img src="/images/swagger1.png" alt="image"><br>如上图，可以看到暴漏出来的控制器信息，点击进入可以看到详细信息。<br><img src="/images/swagger2.png" alt="image"><br>两个注意点：<br><strong>1.  paramType会直接影响程序的运行期，如果paramType与方法参数获取使用的注解不一致，会直接影响到参数的接收。</strong><br>例如：<br><img src="/images/swagger3.png" alt="image"><br>使用Sawgger UI进行测试，接收不到！<br><img src="/images/swagger4.png" alt="image"><br><strong>2.  还有一个需要注意的地方：</strong><br>Conntroller中定义的方法必须在@RequestMapper中显示的指定RequestMethod类型，否则SawggerUi会默认为全类型皆可访问， API列表中会生成多条项目。<br><img src="/images/swagger5.png" alt="image"><br>如上图：updatePassword()未指定requestMethod，结果生成了7条API信息。所以如果没有特殊需求，建议根据实际情况加上requestMethod。<br><img src="/images/swagger6.png" alt="image"> </p>
+<h1 id="5：Swagger-UI面板说明"><a href="#5：Swagger-UI面板说明" class="headerlink" title="5：Swagger UI面板说明"></a>5：Swagger UI面板说明</h1><p><img src="/images/swagger7.png" alt="image"> </p>
+<h1 id="6：参考"><a href="#6：参考" class="headerlink" title="6：参考"></a>6：参考</h1><p><a href="http://blog.didispace.com/springbootswagger2/" target="_blank" rel="noopener">http://blog.didispace.com/springbootswagger2/</a><br><a href="http://blog.csdn.net/jia20003/article/details/50700736" target="_blank" rel="noopener">http://blog.csdn.net/jia20003/article/details/50700736</a><br>Swagger官网 ：<a href="http://swagger.io/" target="_blank" rel="noopener">http://swagger.io/</a><br>Spring Boot &amp; Swagger UI ： <a href="http://fruzenshtein.com/spring-boot-swagger-ui/" target="_blank" rel="noopener">http://fruzenshtein.com/spring-boot-swagger-ui/</a></p>
+<h2 id="Github：https-github-com-swagger-api-swagger-core-wiki-Annotations"><a href="#Github：https-github-com-swagger-api-swagger-core-wiki-Annotations" class="headerlink" title="Github：https://github.com/swagger-api/swagger-core/wiki/Annotations"></a>Github：<a href="https://github.com/swagger-api/swagger-core/wiki/Annotations" target="_blank" rel="noopener">https://github.com/swagger-api/swagger-core/wiki/Annotations</a></h2><h1 id="7：接收对象传参的例子"><a href="#7：接收对象传参的例子" class="headerlink" title="7：接收对象传参的例子"></a>7：接收对象传参的例子</h1><p>在POJO上增加<br>    package com.zhongying.api.model.base;</p>
+<pre><code>import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+/**
+ * 医生对象模型，不要使用该类
+ * @author SUNF
+ *
+ */
+@ApiModel(value=&quot;医生对象模型&quot;)
+public class DemoDoctor{
+    @ApiModelProperty(value=&quot;id&quot; ,required=true)
+    private Integer id;
+    @ApiModelProperty(value=&quot;医生姓名&quot; ,required=true)
+    private String name;
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;DemoDoctor [id=&quot; + id + &quot;, name=&quot; + name + &quot;]&quot;;
+    }
+
+}
+</code></pre><p>==注意： 在后台采用对象接收参数时，Swagger自带的工具采用的是JSON传参，    测试时需要在参数上加入@RequestBody,正常运行采用form或URL提交时候请删除。==   </p>
+<pre><code>package com.zhongying.api.controller.app;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.github.pagehelper.PageInfo;
+import com.zhongying.api.exception.HttpStatus401Exception;
+import com.zhongying.api.model.base.DemoDoctor;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+
+/**
+ * 医生类（模拟）
+ * @author SUNF
+ */
+@RequestMapping(&quot;/api/v1&quot;)
+@Controller
+@Api(value = &quot;DoctorTestController-医生信息接口模拟&quot;)
+public class DoctorTestController {
+
+    /**
+     * 添加医生
+     * 
+     * 在使用对象封装参数进行传参时，需要在该对象添加注解，将其注册到swagger中
+     * @link com.zhongying.api.model.base.DemoDoctor
+     * 
+     * 注意： 在后台采用对象接收参数时，Swagger自带的工具采用的是JSON传参，
+     *     测试时需要在参数上加入@RequestBody,正常运行采用form或URL提交时候请删除。
+     *     
+     * @param doctor 医生类对象
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping(value=&quot;/doctor&quot;,  method= RequestMethod.POST )
+    @ApiOperation(value=&quot;添加医生信息&quot;, notes=&quot;&quot;)
+    public String addDoctor(@RequestBody DemoDoctor doctor) throws Exception{
+        if(null == doctor || doctor.getId() == null){
+            throw new HttpStatus401Exception(&quot;添加医生失败&quot;,&quot;DT3388&quot;,&quot;未知原因&quot;,&quot;请联系管理员&quot;);
+        }
+        try {
+          System.out.println(&quot;成功-----------&gt;&quot;+doctor.getName());  
+        } catch (Exception e) {
+            throw new HttpStatus401Exception(&quot;添加医生失败&quot;,&quot;DT3388&quot;,&quot;未知原因&quot;,&quot;请联系管理员&quot;);
+        }
+
+        return doctor.getId().toString();
+    }
+
+    /**
+     * 删除医生
+     * @param doctorId 医生ID
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value=&quot;/doctor/{doctorId}&quot;,  method= RequestMethod.DELETE )
+    @ApiOperation(value=&quot;删除医生信息&quot;, notes=&quot;&quot;)
+    @ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;doctorId&quot;, value = &quot;医生ID&quot;, required = true, dataType = &quot;Integer&quot;)
+    public String deleteDoctor(@RequestParam Integer doctorId){
+        if(doctorId &gt; 2){
+            return &quot;删除失败&quot;;
+        }
+        return &quot;删除成功&quot;;
+    }
+
+    /**
+     * 修改医生信息
+     * @param doctorId 医生ID
+     * @param doctor 医生信息
+     * @return
+     * @throws HttpStatus401Exception
+     */
+    @ResponseBody
+    @RequestMapping(value=&quot;/doctor/{doctorId}&quot;,  method= RequestMethod.POST )
+    @ApiOperation(value=&quot;修改医生信息&quot;, notes=&quot;&quot;)
+    @ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;doctorId&quot;, value = &quot;医生ID&quot;, required = true, dataType = &quot;Integer&quot;)
+    public String updateDoctor(@RequestParam Integer doctorId, @RequestBody DemoDoctor doctor) throws HttpStatus401Exception{
+        if(null == doctorId || null == doctor){
+            throw new HttpStatus401Exception(&quot;修改医生信息失败&quot;,&quot;DT3391&quot;,&quot;id不能为空&quot;,&quot;请修改&quot;);
+        }
+        if(doctorId &gt; 5 ){
+            throw new HttpStatus401Exception(&quot;医生不存在&quot;,&quot;DT3392&quot;,&quot;错误的ID&quot;,&quot;请更换ID&quot;);
+        }
+        System.out.println(doctorId);
+        System.out.println(doctor);
+        return &quot;修改成功&quot;;
+    }
+
+    /**
+     * 获取医生详细信息
+     * @param doctorId 医生ID
+     * @return
+     * @throws HttpStatus401Exception
+     */
+    @ResponseBody
+    @RequestMapping(value=&quot;/doctor/{doctorId}&quot;,  method= RequestMethod.GET )
+    @ApiOperation(value=&quot;获取医生详细信息&quot;, notes=&quot;仅返回姓名..&quot;)
+    @ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;doctorId&quot;, value = &quot;医生ID&quot;, required = true, dataType = &quot;Integer&quot;)
+    public DemoDoctor getDoctorDetail(@RequestParam Integer doctorId) throws HttpStatus401Exception{
+        System.out.println(doctorId);
+        if(null == doctorId){
+            throw new HttpStatus401Exception(&quot;查看医生信息失败&quot;,&quot;DT3390&quot;,&quot;未知原因&quot;,&quot;请联系管理员&quot;);
+        }
+        if(doctorId &gt; 3){
+            throw new HttpStatus401Exception(&quot;医生不存在&quot;,&quot;DT3392&quot;,&quot;错误的ID&quot;,&quot;请更换ID&quot;);
+        }
+        DemoDoctor doctor = new DemoDoctor();
+        doctor.setId(1);
+        doctor.setName(&quot;测试员&quot;);
+        return doctor;
+    }
+
+    /**
+     * 获取医生列表
+     * @param pageIndex 当前页数
+     * @param pageSize 每页记录数
+     * @param request
+     * @return
+     * @throws HttpStatus401Exception
+     */
+    @ResponseBody
+    @RequestMapping(value=&quot;/doctor&quot;,  method= RequestMethod.GET )
+    @ApiOperation(value=&quot;获取医生列表&quot;, notes=&quot;目前一次全部取，不分页&quot;)
+    @ApiImplicitParams({
+        @ApiImplicitParam(paramType=&quot;header&quot;, name = &quot;token&quot;, value = &quot;token&quot;, required = true, dataType = &quot;String&quot;),
+        @ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;pageIndex&quot;, value = &quot;当前页数&quot;, required = false, dataType = &quot;String&quot;),
+        @ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;pageSize&quot;, value = &quot;每页记录数&quot;, required = true, dataType = &quot;String&quot;),
+    })
+    public PageInfo&lt;DemoDoctor&gt; getDoctorList(@RequestParam(value = &quot;pageIndex&quot;, required = false, defaultValue = &quot;1&quot;) Integer pageIndex,
+            @RequestParam(value = &quot;pageSize&quot;, required = false) Integer pageSize,
+            HttpServletRequest request) throws HttpStatus401Exception{
+
+        String token = request.getHeader(&quot;token&quot;);
+        if(null == token){
+            throw new HttpStatus401Exception(&quot;没有权限&quot;,&quot;SS8888&quot;,&quot;没有权限&quot;,&quot;请查看操作文档&quot;);
+        }
+        if(null == pageSize){
+            throw new HttpStatus401Exception(&quot;每页记录数不粗安在&quot;,&quot;DT3399&quot;,&quot;不存在pageSize&quot;,&quot;请查看操作文档&quot;);
+        }
+
+        DemoDoctor doctor1 = new DemoDoctor();
+        doctor1.setId(1);
+        doctor1.setName(&quot;测试员1&quot;);
+        DemoDoctor doctor2 = new DemoDoctor();
+        doctor2.setId(2);
+        doctor2.setName(&quot;测试员2&quot;);
+
+        List&lt;DemoDoctor&gt; doctorList = new ArrayList&lt;DemoDoctor&gt;();
+        doctorList.add(doctor1);
+        doctorList.add(doctor2);
+        return new PageInfo&lt;DemoDoctor&gt;(doctorList);
+    }
+
+
+}
+</code></pre><p>增加header:<br>现在很多请求需要在header增加额外参数，可以参考getDoctorList()的做法，使用request接收。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明: 其间内容仅个人见解，些许地方参考前辈内容，如有错漏请见谅！欢迎转载点评。
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/09/24/swagger注解说明/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2017/09/24/maven详细介绍/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="统一标识" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cysro4OAE';
+        var conf = 'prod_f54849b5c5e3c62375dbcaa5ebf809b8';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+                        </main>
+                        
+    <aside class="col-md-4 sidebar">
+        
+        <!--
+组件说明：
+网站公告组件，读取主题配置文件中的网站公告
+-->
+
+
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>欢迎～～～～互链请在评论区域留下链接</p>
+        </div>
+    </div>
+
+        
+        <!--
+组件说明：
+社交信息组件，读取主题配置文件中的社交链接，页面的右侧
+-->
+
+
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/jiaxinxuan" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:jia552387367@Gmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        <!--
+组件说明：
+生成文章分类列表，在页面右侧
+-->
+
+
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo教程/"><i class="fa" aria-hidden="true">Hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/POI/"><i class="fa" aria-hidden="true">POI</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/about/"><i class="fa" aria-hidden="true">about</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/elk/"><i class="fa" aria-hidden="true">elk</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo教程/"><i class="fa" aria-hidden="true">hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/"><i class="fa" aria-hidden="true">maven</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/"><i class="fa" aria-hidden="true">redis</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring源码阅读/"><i class="fa" aria-hidden="true">spring源码阅读</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/"><i class="fa" aria-hidden="true">swagger</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/"><i class="fa" aria-hidden="true">ubuntu</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/"><i class="fa" aria-hidden="true">vue</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人心情/"><i class="fa" aria-hidden="true">个人心情</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/"><i class="fa" aria-hidden="true">杂记</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/"><i class="fa" aria-hidden="true">设计模式</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        <!--
+组件说明：
+读取文章归档信息，生成归档列表
+-->
+
+
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/"><i class="fa" aria-hidden="true">2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/"><i class="fa" aria-hidden="true">2017</i></a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/"><i class="fa" aria-hidden="true">2016</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/"><i class="fa" aria-hidden="true">2013</i></a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+<script type="text/javascript">
+    $(document).ready(function() {
+        if(!$('#myCanvas').tagcanvas({
+                textColour: '#193511',
+                outlineColour: '#d2c828',
+                reverse: true,
+                depth: 1.8,
+                maxSpeed: 0.08
+            },'tags')) {
+            // something went wrong, hide the canvas container
+            $('#myCanvasContainer').hide();
+        }
+    });
+</script>
+<div class="widget-wrap">
+  <div id="myCanvasContainer" class="widget tagcloud ">
+    <h3 class="title">标签云</h3>
+    <canvas width="250" height="250" id="myCanvas" style="width:100%">
+
+    </canvas>
+  </div>
+  <div id="tags" style="display: none;">
+    <ul>
+        <a href="/tags/poi-SXSSF/" style="font-size: 10px;">-poi -SXSSF</a> <a href="/tags/JavaEE/" style="font-size: 10px;">JavaEE</a> <a href="/tags/SpringMvc/" style="font-size: 10px;">SpringMvc</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/elk/" style="font-size: 10px;">elk</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 16.67px;">maven</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/swagger/" style="font-size: 13.33px;">swagger</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/个人心情/" style="font-size: 10px;">个人心情</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/红楼梦/" style="font-size: 10px;">红楼梦</a> <a href="/tags/装饰模式/" style="font-size: 10px;">装饰模式</a>
+    </ul>
+  </div>
+</div>
+
+
+
+        
+        <!--
+组件说明：
+网站右侧组件，生成友情链接
+-->
+
+
+    <div class="widget">
+        <h3 class="title">大神链接</h3>
+        <div class="content friends-link">
+        
+            <a href="https://zixingly.github.io/" class="fa" target="_blank">徐志行</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+                    </div>
+                </div>
+        </section>
+
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>
+                    二月江北
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/jiaxinxuan/" class="copyright-links" target="_blank" rel="nofollow">jiaxinxuan</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

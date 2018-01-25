@@ -1,0 +1,409 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="dns-prefetch" href="//t11.baidu.com">
+    
+  <script src="/assets/highlight.pack.js?rev=@@hash"></script>
+  <script>
+    hljs.initHighlightingOnLoad(); //初始化代码高亮 
+  </script>
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/tagcloud.js?rev=@@hash"></script>
+<script src="/js/jquery.tagcanvas.min.js"></script>
+<script src="/js/app.js?rev=@@hash"></script>
+    <!--SEO-->
+
+<meta name="description" content="没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。"/>
+<meta name="author" content="二月江北"/>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>装饰模式 | 小咸菜</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="小咸菜" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.jpg">
+
+    
+
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+    
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d21e29d838f94a86fe5dbbbd12bab116";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <!--<header class="main-header">
+    <div class="main-header-box">
+        <a class="branding" href="/" title="">
+            <img src="/img/header_logo.png" alt="Snippet 博客主题">
+        </a>
+        <h2 class="text-hide">Snippet主题</h2>
+        <img src="/img/header_logo.png" alt="Snippet 博客主题" class="hide">
+    </div>
+</header>-->
+        <!--
+
+组件说明：
+导航组件，读取主题的配置文件，生成导航
+-->
+<!--先注释掉导航，我自己要写一个右侧导航栏-->
+<!-- Sidebar -->
+<div id="wrapper">
+    <header id="header">
+        <div id="banner"></div>
+        <div id="header-outer" class="outer">
+            <div id="header-title" class="inner">
+                <h1 id="logo-wrap">
+                    <a href="/" id="logo">二月江北</a>
+                </h1>
+                <h2 id="subtitle-wrap">
+                    <a href="/" id="subtitle">没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。</a>
+                </h2>
+
+            </div>
+        </div>
+    </header>
+    <div class="overlay"></div>
+    <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" >
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+    </button>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    小咸菜
+                </a>
+            </li>
+            
+            <li><a href="/"><i class="fa fa-fw fa-home"></i>首页</a></li>
+            
+            <li><a href="/2017/06/16/about/"><i class="fa fa-fw fa-user"></i>关于</a></li>
+            
+
+        </ul>
+    </nav>
+</div>
+<!-- /#sidebar-wrapper -->
+        <section class="content-wrap" >
+                <div class="container" >
+                    <div class="row">
+                        <main class="col-md-8 main-content m-post">
+                            <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="装饰模式">
+            
+            装饰模式
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>设计模式</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            装饰模式
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/09/25</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body">
+        <p><strong><em>装饰设计模式</em></strong></p>
+<h1 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h1><p>装饰模式指的是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能。它是通过创建一个包装对象，也就是装饰来包裹真实的对象。<br>（1） 装饰对象和真实对象有相同的接口。这样客户端对象就能以和真实对象相同的方式和装饰对象交互。<br>（2） 装饰对象包含一个真实对象的引用（reference）<br>（3） 装饰对象接受所有来自客户端的请求。它把这些请求转发给真实的对象。<br>（4） 装饰对象可以在转发这些请求以前或以后增加一些附加功能。这样就确保了在运行时，不用修改给定对象的结构就可以在外部增加附加的功能。在面向对象的设计中，通常是通过继承来实现对给定类的功能扩展。</p>
+<a id="more"></a>
+<h1 id="理论详解"><a href="#理论详解" class="headerlink" title="理论详解"></a>理论详解</h1><p>要求：自定义一些Reader类，读取不同的数据(装饰和继承的区别)<br>MyReader //专门用于读取数据的类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">|--MyTextReader</div><div class="line">        |--MyBufferTextReader</div><div class="line">|--MyMediaReader</div><div class="line">        |--MyBufferMediaReader</div><div class="line">|--MyDataReader</div><div class="line">        |--MyBufferDataReader</div></pre></td></tr></table></figure>
+<p>如果将他们抽取出来，设计一个MyBufferReader，可以根据传入的类型进行增强</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class MyBufferReader &#123;</div><div class="line">    MyBufferReader (MyTextReader text) &#123;&#125;</div><div class="line">    MyBufferReader (MyMediaReader media) &#123;&#125;</div><div class="line">    MyBufferReader (MyDataReader data) &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是上面的类拓展性很差。找到其参数的共同类型即共同实现的接口或者继承的类，通过多态的形式，可以提高拓展性.这样以后的类只要继承共同的类型,都能用这个增强类增强自身的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">class MyBufferReader  extends MyReader&#123;</div><div class="line">    private MyReader r;                        //从继承变为了组成模式  装饰设计模式</div><div class="line">    MyBufferReader(MyReader r) &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优化后的体系：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">|--MyTextReader</div><div class="line">    |--MyMediaReader</div><div class="line">    |--MyDataReader</div><div class="line">    |--MyBufferReader</div></pre></td></tr></table></figure>
+<p> //增强上面三个。装饰模式比继承灵活，避免继承体系的臃肿。降低类与类之间的耦合性</p>
+<p>装饰类只能增强已有的对象，具备的功能是相同的。所以装饰类和被装饰类属于同一个体系.</p>
+<p>MyBuffereReader类：  自己写一个MyBuffereReader类，功能与BuffereReader相同</p>
+<h1 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a>代码示例：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">import java.io.FileInputStream;</div><div class="line">import java.io.FileNotFoundException;</div><div class="line">import java.io.IOException;</div><div class="line">import java.io.InputStreamReader;</div><div class="line">import java.io.Reader;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 基于i/o流的装饰模式练习</div><div class="line"> * @author Administrator</div><div class="line"> * 2017年8月18日  下午4:32:00</div><div class="line"> */</div><div class="line">public class MyBufferReader extends Reader&#123;</div><div class="line"></div><div class="line">     private Reader r;  </div><div class="line">     MyBufferReader(Reader r)&#123;  </div><div class="line">          this.r  = r;  </div><div class="line">     &#125;</div><div class="line">	@Override</div><div class="line">	public int read(char[] cbuf, int off, int len) throws IOException &#123;</div><div class="line">		return  r.read(cbuf,off,len);  </div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void close() throws IOException &#123;</div><div class="line">		 r.close();  </div><div class="line">	&#125;</div><div class="line">   //一次读一行数据的方法  </div><div class="line">   public String myReaderline()  throws IOException &#123;  </div><div class="line">       //定义一个临时容器，原BufferReader封装的是字符数组。  </div><div class="line">       //为了演示方便。定义一个StringBuilder容器。最终要将数据变成字符串  </div><div class="line">       StringBuilder sb = new StringBuilder();  </div><div class="line">       int ch = 0;  </div><div class="line">       while((ch = r.read()) != -1)  </div><div class="line">       &#123;  </div><div class="line">           if(ch == &apos;\r&apos;)   </div><div class="line">               continue;  </div><div class="line">           if(ch == &apos;\n&apos;)                    //遇到换行符\n,返回字符串  </div><div class="line">               return sb.toString();  </div><div class="line">           else  </div><div class="line">           sb.append((char)ch);  </div><div class="line">       &#125;  </div><div class="line">       if(sb.length()!=0)                    //当最后一行不是以\n结束时候，这里需要判断  </div><div class="line">           return sb.toString();  </div><div class="line">       return null;  </div><div class="line">   &#125;  </div><div class="line"></div><div class="line">   @SuppressWarnings(&quot;resource&quot;)</div><div class="line">public static void main(String[] args) throws Exception &#123;</div><div class="line">	   MyBufferReader myReader=new MyBufferReader(new InputStreamReader(new FileInputStream(&quot;E:/files.txt&quot;)));</div><div class="line">	   System.out.println(myReader.myReaderline());</div><div class="line">	   myReader.close();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>装饰模式相当于对房屋进行装修，不过在设计的时候，要避免对一个房屋装修，应该通过接口，定义一类房屋，对实现了这个接口的一类房屋进行装修。这样设计出来的装饰类，更具拓展性。只要符合这个接口的新建房屋都可以使用这个装修队来装修。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明: 其间内容仅个人见解，些许地方参考前辈内容，如有错漏请见谅！欢迎转载点评。
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/10/09/ubuntu优盘安装/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2017/09/24/SpringMVC之参数绑定/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="统一标识" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cysro4OAE';
+        var conf = 'prod_f54849b5c5e3c62375dbcaa5ebf809b8';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+                        </main>
+                        
+    <aside class="col-md-4 sidebar">
+        
+        <!--
+组件说明：
+网站公告组件，读取主题配置文件中的网站公告
+-->
+
+
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>欢迎～～～～互链请在评论区域留下链接</p>
+        </div>
+    </div>
+
+        
+        <!--
+组件说明：
+社交信息组件，读取主题配置文件中的社交链接，页面的右侧
+-->
+
+
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/jiaxinxuan" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:jia552387367@Gmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        <!--
+组件说明：
+生成文章分类列表，在页面右侧
+-->
+
+
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo教程/"><i class="fa" aria-hidden="true">Hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/POI/"><i class="fa" aria-hidden="true">POI</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/about/"><i class="fa" aria-hidden="true">about</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/elk/"><i class="fa" aria-hidden="true">elk</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo教程/"><i class="fa" aria-hidden="true">hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/"><i class="fa" aria-hidden="true">maven</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/"><i class="fa" aria-hidden="true">redis</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring源码阅读/"><i class="fa" aria-hidden="true">spring源码阅读</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/"><i class="fa" aria-hidden="true">swagger</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/"><i class="fa" aria-hidden="true">ubuntu</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/"><i class="fa" aria-hidden="true">vue</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人心情/"><i class="fa" aria-hidden="true">个人心情</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/"><i class="fa" aria-hidden="true">杂记</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/"><i class="fa" aria-hidden="true">设计模式</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        <!--
+组件说明：
+读取文章归档信息，生成归档列表
+-->
+
+
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/"><i class="fa" aria-hidden="true">2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/"><i class="fa" aria-hidden="true">2017</i></a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/"><i class="fa" aria-hidden="true">2016</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/"><i class="fa" aria-hidden="true">2013</i></a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+<script type="text/javascript">
+    $(document).ready(function() {
+        if(!$('#myCanvas').tagcanvas({
+                textColour: '#193511',
+                outlineColour: '#d2c828',
+                reverse: true,
+                depth: 1.8,
+                maxSpeed: 0.08
+            },'tags')) {
+            // something went wrong, hide the canvas container
+            $('#myCanvasContainer').hide();
+        }
+    });
+</script>
+<div class="widget-wrap">
+  <div id="myCanvasContainer" class="widget tagcloud ">
+    <h3 class="title">标签云</h3>
+    <canvas width="250" height="250" id="myCanvas" style="width:100%">
+
+    </canvas>
+  </div>
+  <div id="tags" style="display: none;">
+    <ul>
+        <a href="/tags/poi-SXSSF/" style="font-size: 10px;">-poi -SXSSF</a> <a href="/tags/JavaEE/" style="font-size: 10px;">JavaEE</a> <a href="/tags/SpringMvc/" style="font-size: 10px;">SpringMvc</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/elk/" style="font-size: 10px;">elk</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 16.67px;">maven</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/swagger/" style="font-size: 13.33px;">swagger</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/个人心情/" style="font-size: 10px;">个人心情</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/红楼梦/" style="font-size: 10px;">红楼梦</a> <a href="/tags/装饰模式/" style="font-size: 10px;">装饰模式</a>
+    </ul>
+  </div>
+</div>
+
+
+
+        
+        <!--
+组件说明：
+网站右侧组件，生成友情链接
+-->
+
+
+    <div class="widget">
+        <h3 class="title">大神链接</h3>
+        <div class="content friends-link">
+        
+            <a href="https://zixingly.github.io/" class="fa" target="_blank">徐志行</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+                    </div>
+                </div>
+        </section>
+
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>
+                    二月江北
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/jiaxinxuan/" class="copyright-links" target="_blank" rel="nofollow">jiaxinxuan</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

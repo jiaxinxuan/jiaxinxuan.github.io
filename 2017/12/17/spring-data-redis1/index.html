@@ -1,0 +1,415 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="dns-prefetch" href="//t11.baidu.com">
+    
+  <script src="/assets/highlight.pack.js?rev=@@hash"></script>
+  <script>
+    hljs.initHighlightingOnLoad(); //初始化代码高亮 
+  </script>
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/tagcloud.js?rev=@@hash"></script>
+<script src="/js/jquery.tagcanvas.min.js"></script>
+<script src="/js/app.js?rev=@@hash"></script>
+    <!--SEO-->
+
+<meta name="description" content="没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。"/>
+<meta name="author" content="二月江北"/>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>spring-data-redis1 | 小咸菜</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="小咸菜" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.jpg">
+
+    
+
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+    
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d21e29d838f94a86fe5dbbbd12bab116";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <!--<header class="main-header">
+    <div class="main-header-box">
+        <a class="branding" href="/" title="">
+            <img src="/img/header_logo.png" alt="Snippet 博客主题">
+        </a>
+        <h2 class="text-hide">Snippet主题</h2>
+        <img src="/img/header_logo.png" alt="Snippet 博客主题" class="hide">
+    </div>
+</header>-->
+        <!--
+
+组件说明：
+导航组件，读取主题的配置文件，生成导航
+-->
+<!--先注释掉导航，我自己要写一个右侧导航栏-->
+<!-- Sidebar -->
+<div id="wrapper">
+    <header id="header">
+        <div id="banner"></div>
+        <div id="header-outer" class="outer">
+            <div id="header-title" class="inner">
+                <h1 id="logo-wrap">
+                    <a href="/" id="logo">二月江北</a>
+                </h1>
+                <h2 id="subtitle-wrap">
+                    <a href="/" id="subtitle">没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。</a>
+                </h2>
+
+            </div>
+        </div>
+    </header>
+    <div class="overlay"></div>
+    <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" >
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+    </button>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    小咸菜
+                </a>
+            </li>
+            
+            <li><a href="/"><i class="fa fa-fw fa-home"></i>首页</a></li>
+            
+            <li><a href="/2017/06/16/about/"><i class="fa fa-fw fa-user"></i>关于</a></li>
+            
+
+        </ul>
+    </nav>
+</div>
+<!-- /#sidebar-wrapper -->
+        <section class="content-wrap" >
+                <div class="container" >
+                    <div class="row">
+                        <main class="col-md-8 main-content m-post">
+                            <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="spring-data-redis1">
+            
+            spring-data-redis1
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>redis</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            spring
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/12/17</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body">
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>常常用到redis做缓存，每次在新项目用的时候，总是copy以前写过的代码，对其中的原理并不是很清楚，趁着最近有空研究一下，做点笔记以备忘。  </p>
+<h1 id="redis的数据库的存储格式"><a href="#redis的数据库的存储格式" class="headerlink" title="redis的数据库的存储格式"></a>redis的数据库的存储格式</h1><p>redis支持的数据格式主要有以下几种：  </p>
+<ul>
+<li>String——字符串</li>
+<li>Hash——字典</li>
+<li>List——列表</li>
+<li>Set——集合</li>
+<li>Sorted Set(zset)——有序集合<br>关于这几种数据的解释请看   <a href="http://www.jb51.net/article/54774.htm" target="_blank" rel="noopener">链接</a>    </li>
+</ul>
+<h1 id="spring与redis的集成"><a href="#spring与redis的集成" class="headerlink" title="spring与redis的集成"></a>spring与redis的集成</h1><p>由于jedisclientAPI不好操作，spring对其进行了封装，在spring-data-redis包中提供了两种操作redis的封装类，一种是RedisTemplate和他的子类<br>StringRedisTemplate，这两个类的只有一个地方是不相同的，就是对数据的序列化方式，RedisTemplate对数据的序列化方式是使用JdkSerializationRedisSerializer这个类。下面这段代码会在获取到redis链接之前执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">public void afterPropertiesSet() &#123;</div><div class="line"></div><div class="line">		super.afterPropertiesSet();</div><div class="line"></div><div class="line">		boolean defaultUsed = false;</div><div class="line"></div><div class="line">		if (defaultSerializer == null) &#123;</div><div class="line"></div><div class="line">			defaultSerializer = new JdkSerializationRedisSerializer(</div><div class="line">					classLoader != null ? classLoader : this.getClass().getClassLoader());</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if (enableDefaultSerializer) &#123;</div><div class="line"></div><div class="line">			if (keySerializer == null) &#123;</div><div class="line">				keySerializer = defaultSerializer;</div><div class="line">				defaultUsed = true;</div><div class="line">			&#125;</div><div class="line">			if (valueSerializer == null) &#123;</div><div class="line">				valueSerializer = defaultSerializer;</div><div class="line">				defaultUsed = true;</div><div class="line">			&#125;</div><div class="line">			if (hashKeySerializer == null) &#123;</div><div class="line">				hashKeySerializer = defaultSerializer;</div><div class="line">				defaultUsed = true;</div><div class="line">			&#125;</div><div class="line">			if (hashValueSerializer == null) &#123;</div><div class="line">				hashValueSerializer = defaultSerializer;</div><div class="line">				defaultUsed = true;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if (enableDefaultSerializer &amp;&amp; defaultUsed) &#123;</div><div class="line">			Assert.notNull(defaultSerializer, &quot;default serializer null and not all serializers initialized&quot;);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if (scriptExecutor == null) &#123;</div><div class="line">			this.scriptExecutor = new DefaultScriptExecutor&lt;&gt;(this);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		initialized = true;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>StringRedisTemplate作为子类，在构造方法里面就指定StringRedisSerializer类来做序列化，代码如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public StringRedisTemplate() &#123;</div><div class="line">		RedisSerializer&lt;String&gt; stringSerializer = new StringRedisSerializer();</div><div class="line">		setKeySerializer(stringSerializer);</div><div class="line">		setValueSerializer(stringSerializer);</div><div class="line">		setHashKeySerializer(stringSerializer);</div><div class="line">		setHashValueSerializer(stringSerializer);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>两者有什么不同之处呢，StringRedisSerializer会将数据数列化成字符串，是在redis客户端中是可读的，JdkSerializationRedisSerializer类会将数据序列化为字节数据是不可读的。</p>
+<p>请看下列代码:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">   * redis 单机模式测试</div><div class="line">   */</div><div class="line">  private static void redisStandaloneTest()&#123;</div><div class="line">      //以单机模式创建redis链接工厂</div><div class="line">      RedisStandaloneConfiguration config=new RedisStandaloneConfiguration();</div><div class="line">      config.setPassword(RedisPassword.of(&quot;123456&quot;));</div><div class="line">      RedisConnectionFactory redisConnectionFactory=new JedisConnectionFactory(config);</div><div class="line"></div><div class="line">      //创建redis的spring封装类RedisTemplate</div><div class="line">      RedisTemplate redisTemplate=new RedisTemplate();</div><div class="line">      redisTemplate.setConnectionFactory(redisConnectionFactory);</div><div class="line">      redisTemplate.setKeySerializer(new StringRedisSerializer());</div><div class="line">      //必须执行初始化操作，否则不会设置序列化，就无法存取值</div><div class="line">      redisTemplate.afterPropertiesSet();</div><div class="line">      //存取值，并打印</div><div class="line">      redisTemplate.opsForValue().set(&quot;jia&quot;,&quot;xinxuain&quot;);</div><div class="line">      System.out.println(redisTemplate.opsForValue().get(&quot;jia&quot;));</div><div class="line"></div><div class="line">      //创建redis的spring封装类StringRedisTemplate</div><div class="line">      StringRedisTemplate stringRedisTemplate=new StringRedisTemplate(redisConnectionFactory);</div><div class="line">      stringRedisTemplate.opsForValue().set(&quot;xin&quot;,&quot;xuan&quot;);</div><div class="line">      System.out.println(stringRedisTemplate.opsForValue().get(&quot;xin&quot;));</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>在redis中的值:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">127.0.0.1:6379&gt; keys *</div><div class="line">1) &quot;test&quot;</div><div class="line">2) &quot;jia&quot;</div><div class="line">3) &quot;foo&quot;</div><div class="line">4) &quot;\xac\xed\x00\x05t\x00\x03jia&quot;</div><div class="line">127.0.0.1:6379&gt; get jia</div><div class="line">&quot;\xac\xed\x00\x05t\x00\bxinxuain&quot;</div><div class="line">127.0.0.1:6379&gt;</div></pre></td></tr></table></figure>
+<p>程序运行后的值:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/home/jia/java/bin/java ...</div><div class="line">xinxuain</div><div class="line"></div><div class="line">Process finished with exit code 0</div></pre></td></tr></table></figure>
+<p>对于RedisTemplate的对象，设置其key值使用StringRedisSerializer序列化，其value使用默认的JdkSerializationRedisSerializer序列化。在存取同一个值的时候，如果是不同系统，一定要约定序列化的方式。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>spring在操作redis的时候，给提供的这两个封装类，stringRedisTemplate基本上就可以满足大部分需求了。RedisTemplate提供了更为灵活的配置。<br>在学习的过程中，遇到一个版本兼容的问题，一开始我使用的是jedis2.9版本，spring使用的是4.3版本，这时候sping-data-jedis的版本是2.0.2的。最新版本的dedis和spring-data-redis是支持Java8的，其中Java8里面有个重要的lambda表达式，而spring4.3是不支持Java8的。这样就出现bug了，后来把spring提升到5.0版本才好。<br>顺便再提一句，不知道什么时候，sprin-data-redis在创建RedisTemplate的时候，做了修改，反正就是对集群哨兵单机这三种情况，提供了配置文件的封装。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明: 其间内容仅个人见解，些许地方参考前辈内容，如有错漏请见谅！欢迎转载点评。
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/12/17/spring-data-redis2/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2017/11/24/使用py抓取b站影评/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="统一标识" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cysro4OAE';
+        var conf = 'prod_f54849b5c5e3c62375dbcaa5ebf809b8';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+                        </main>
+                        
+    <aside class="col-md-4 sidebar">
+        
+        <!--
+组件说明：
+网站公告组件，读取主题配置文件中的网站公告
+-->
+
+
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>欢迎～～～～互链请在评论区域留下链接</p>
+        </div>
+    </div>
+
+        
+        <!--
+组件说明：
+社交信息组件，读取主题配置文件中的社交链接，页面的右侧
+-->
+
+
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/jiaxinxuan" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:jia552387367@Gmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        <!--
+组件说明：
+生成文章分类列表，在页面右侧
+-->
+
+
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo教程/"><i class="fa" aria-hidden="true">Hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/POI/"><i class="fa" aria-hidden="true">POI</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/about/"><i class="fa" aria-hidden="true">about</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/elk/"><i class="fa" aria-hidden="true">elk</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo教程/"><i class="fa" aria-hidden="true">hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/"><i class="fa" aria-hidden="true">maven</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/"><i class="fa" aria-hidden="true">redis</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring源码阅读/"><i class="fa" aria-hidden="true">spring源码阅读</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/"><i class="fa" aria-hidden="true">swagger</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/"><i class="fa" aria-hidden="true">ubuntu</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/"><i class="fa" aria-hidden="true">vue</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人心情/"><i class="fa" aria-hidden="true">个人心情</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/"><i class="fa" aria-hidden="true">杂记</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/"><i class="fa" aria-hidden="true">设计模式</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        <!--
+组件说明：
+读取文章归档信息，生成归档列表
+-->
+
+
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/"><i class="fa" aria-hidden="true">2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/"><i class="fa" aria-hidden="true">2017</i></a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/"><i class="fa" aria-hidden="true">2016</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/"><i class="fa" aria-hidden="true">2013</i></a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+<script type="text/javascript">
+    $(document).ready(function() {
+        if(!$('#myCanvas').tagcanvas({
+                textColour: '#193511',
+                outlineColour: '#d2c828',
+                reverse: true,
+                depth: 1.8,
+                maxSpeed: 0.08
+            },'tags')) {
+            // something went wrong, hide the canvas container
+            $('#myCanvasContainer').hide();
+        }
+    });
+</script>
+<div class="widget-wrap">
+  <div id="myCanvasContainer" class="widget tagcloud ">
+    <h3 class="title">标签云</h3>
+    <canvas width="250" height="250" id="myCanvas" style="width:100%">
+
+    </canvas>
+  </div>
+  <div id="tags" style="display: none;">
+    <ul>
+        <a href="/tags/poi-SXSSF/" style="font-size: 10px;">-poi -SXSSF</a> <a href="/tags/JavaEE/" style="font-size: 10px;">JavaEE</a> <a href="/tags/SpringMvc/" style="font-size: 10px;">SpringMvc</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/elk/" style="font-size: 10px;">elk</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 16.67px;">maven</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/swagger/" style="font-size: 13.33px;">swagger</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/个人心情/" style="font-size: 10px;">个人心情</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/红楼梦/" style="font-size: 10px;">红楼梦</a> <a href="/tags/装饰模式/" style="font-size: 10px;">装饰模式</a>
+    </ul>
+  </div>
+</div>
+
+
+
+        
+        <!--
+组件说明：
+网站右侧组件，生成友情链接
+-->
+
+
+    <div class="widget">
+        <h3 class="title">大神链接</h3>
+        <div class="content friends-link">
+        
+            <a href="https://zixingly.github.io/" class="fa" target="_blank">徐志行</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+                    </div>
+                </div>
+        </section>
+
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>
+                    二月江北
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/jiaxinxuan/" class="copyright-links" target="_blank" rel="nofollow">jiaxinxuan</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

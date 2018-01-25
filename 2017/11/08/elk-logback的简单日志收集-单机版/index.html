@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="dns-prefetch" href="//t11.baidu.com">
+    
+  <script src="/assets/highlight.pack.js?rev=@@hash"></script>
+  <script>
+    hljs.initHighlightingOnLoad(); //初始化代码高亮 
+  </script>
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/tagcloud.js?rev=@@hash"></script>
+<script src="/js/jquery.tagcanvas.min.js"></script>
+<script src="/js/app.js?rev=@@hash"></script>
+    <!--SEO-->
+
+<meta name="description" content="没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。"/>
+<meta name="author" content="二月江北"/>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>elk+logback的简单日志收集-单机版 | 小咸菜</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="小咸菜" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.jpg">
+
+    
+
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+    
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d21e29d838f94a86fe5dbbbd12bab116";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <!--<header class="main-header">
+    <div class="main-header-box">
+        <a class="branding" href="/" title="">
+            <img src="/img/header_logo.png" alt="Snippet 博客主题">
+        </a>
+        <h2 class="text-hide">Snippet主题</h2>
+        <img src="/img/header_logo.png" alt="Snippet 博客主题" class="hide">
+    </div>
+</header>-->
+        <!--
+
+组件说明：
+导航组件，读取主题的配置文件，生成导航
+-->
+<!--先注释掉导航，我自己要写一个右侧导航栏-->
+<!-- Sidebar -->
+<div id="wrapper">
+    <header id="header">
+        <div id="banner"></div>
+        <div id="header-outer" class="outer">
+            <div id="header-title" class="inner">
+                <h1 id="logo-wrap">
+                    <a href="/" id="logo">二月江北</a>
+                </h1>
+                <h2 id="subtitle-wrap">
+                    <a href="/" id="subtitle">没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。</a>
+                </h2>
+
+            </div>
+        </div>
+    </header>
+    <div class="overlay"></div>
+    <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" >
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+    </button>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    小咸菜
+                </a>
+            </li>
+            
+            <li><a href="/"><i class="fa fa-fw fa-home"></i>首页</a></li>
+            
+            <li><a href="/2017/06/16/about/"><i class="fa fa-fw fa-user"></i>关于</a></li>
+            
+
+        </ul>
+    </nav>
+</div>
+<!-- /#sidebar-wrapper -->
+        <section class="content-wrap" >
+                <div class="container" >
+                    <div class="row">
+                        <main class="col-md-8 main-content m-post">
+                            <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="elk+logback的简单日志收集-单机版">
+            
+            elk+logback的简单日志收集-单机版
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>elk</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            elk
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/11/08</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body">
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>微服务架构中，多个服务都是分离部署的，在实际的操作中，常常需要实时监测运行日志，或者查找日志记录，以确定程序bug的所在位置。服务的分离部署就增加了查找难度，必须登录多台主机打开多个终端查看日志。elk日志搜集系统能够很好的解决这个问题，网上教程已是相当的多，这里仅仅是贴合自己的实际开发来搭建的，只是为了更好的同时监测多台服务器的日志。本文只是单机搭建实验，准备最近在公司测试环境搭建一份。</p>
+<a id="more"></a>
+<h1 id="组件介绍与安装"><a href="#组件介绍与安装" class="headerlink" title="组件介绍与安装"></a>组件介绍与安装</h1><p>日志流行图：</p>
+<p><img src="/images/elk/elk-1.png" alt=""></p>
+<p>从左边看起，每一台webserver上都会部署一个logstash-agent,它的作用是用类似tailf的方式监听日志文件，然后把新添加的日志发送到redis队列里面，logstash-indexer负责从redis相应的队列里面取出日志，对日志进进行加工后输出到elasticsearch中，elasticsearch会根据要求对日志进行索引归集，最后用户可以通过kibana来查看和分析日志。</p>
+<p>在ELK官网下载相应的压缩包</p>
+<p><a href="https://www.elastic.co/downloads" target="_blank" rel="noopener">https://www.elastic.co/downloads</a></p>
+<h2 id="logstash和logbach的结合"><a href="#logstash和logbach的结合" class="headerlink" title="logstash和logbach的结合"></a>logstash和logbach的结合</h2><p>公司里面使用的是logback日志，通过在maven中添加logback-redis-appender依赖来结合logstash,进行日志收集。步骤如下：</p>
+<p>1、加入apender jar包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;com.cwbase&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;logback-redis-appender&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.1.5&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<p>2、配置logback.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;configuration&gt;</div><div class="line">  &lt;property name=&quot;type.name&quot; value=&quot;&quot; /&gt;</div><div class="line">  &lt;appender name=&quot;TEST&quot; class=&quot;com.cwbase.logback.RedisAppender&quot;&gt;</div><div class="line">    &lt;source&gt;test-application&lt;/source&gt;</div><div class="line">    &lt;!--type 可定为项目类型--&gt;</div><div class="line">    &lt;type&gt;$&#123;type.name&#125;&lt;/type&gt;</div><div class="line">    &lt;!--redis ip--&gt;</div><div class="line">    &lt;host&gt;192.168.1.218&lt;/host&gt;</div><div class="line">    &lt;!--redis存放的key--&gt;</div><div class="line">    &lt;key&gt;logstash:redis&lt;/key&gt;</div><div class="line">    &lt;tags&gt;test-2&lt;/tags&gt;</div><div class="line">    &lt;mdc&gt;true&lt;/mdc&gt;</div><div class="line">    &lt;location&gt;true&lt;/location&gt;</div><div class="line">    &lt;callerStackIndex&gt;0&lt;/callerStackIndex&gt;</div><div class="line">    &lt;!--additionalField添加附加字段 用于head插件显示--&gt;</div><div class="line">    &lt;additionalField&gt;</div><div class="line">      &lt;key&gt;MyKey&lt;/key&gt;</div><div class="line">      &lt;value&gt;MyValue&lt;/value&gt;</div><div class="line">    &lt;/additionalField&gt;</div><div class="line">    &lt;additionalField&gt;</div><div class="line">      &lt;key&gt;MySecondKey&lt;/key&gt;</div><div class="line">      &lt;value&gt;MyOtherValue&lt;/value&gt;</div><div class="line">    &lt;/additionalField&gt;</div><div class="line">  &lt;/appender&gt;</div><div class="line">  &lt;!--日志输出--&gt;</div><div class="line">  &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</div><div class="line">    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</div><div class="line">      &lt;fileNamePattern&gt;logFile.%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</div><div class="line">      &lt;!--日志回滚周期30天--&gt;</div><div class="line">      &lt;maxHistory&gt;30&lt;/maxHistory&gt;</div><div class="line">    &lt;/rollingPolicy&gt;</div><div class="line">    &lt;!-- &lt;encoder&gt;</div><div class="line">       &lt;pattern&gt;%logger&#123;15&#125; - %message%n%xException&#123;5&#125;&lt;/pattern&gt;</div><div class="line">     &lt;/encoder&gt;--&gt;</div><div class="line">    &lt;encoder&gt;</div><div class="line">      &lt;pattern&gt;%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; %-4relative [%thread] %-5level %logger&#123;35&#125; %caller&#123;3&#125; - %msg%n%xException&#123;5&#125;&lt;/pattern&gt;</div><div class="line">    &lt;/encoder&gt;</div><div class="line"></div><div class="line">  &lt;/appender&gt;</div><div class="line"></div><div class="line">  &lt;logger name=&quot;application&quot; level=&quot;DEBUG&quot; /&gt;</div><div class="line"></div><div class="line">  &lt;root level=&quot;DEBUG&quot;&gt;</div><div class="line">    &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;</div><div class="line">    &lt;appender-ref ref=&quot;TEST&quot; /&gt;</div><div class="line">  &lt;/root&gt;</div><div class="line"></div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
+<h2 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h2><p>安装命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ wget http://download.redis.io/releases/redis-4.0.2.tar.gz</div><div class="line">$ tar xzf redis-4.0.2.tar.gz</div><div class="line">$ cd redis-4.0.2</div><div class="line">$ make</div></pre></td></tr></table></figure>
+<p>启动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ src/redis-server</div></pre></td></tr></table></figure>
+<p>链接测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ src/redis-cli</div><div class="line">redis&gt; set foo bar</div><div class="line">OK</div><div class="line">redis&gt; get foo</div><div class="line">&quot;bar&quot;</div></pre></td></tr></table></figure>
+<p>后台启动脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#!bin/bash</div><div class="line">nohup ./src/redis-server &gt; /data/logs/redis.log 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure>
+<h2 id="logstash"><a href="#logstash" class="headerlink" title="logstash"></a>logstash</h2><p>配置logstash的时候，log4j或者其他方式的日志收集，可能需要在webserver上配置logstash-agent。logback的话按照上面的方式在maven依赖添加相关jar包就可以了。然后在日志server上配置logstash-indexer.<br><strong>在日志server上安装logstash-indexer</strong></p>
+<p>1.解压 tar -zxvf logstash<em>**</em></p>
+<p>2.检验安装是否成功 bin/logstash -e “input{stdin{}}output{stdout{}}”,然后在终端输入hello，看看有没有内容返回<br>3.编写logstash-indexer.conf文件，保存至conf目录中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">#输入日志</div><div class="line">input &#123;</div><div class="line">    redis &#123;</div><div class="line">    host =&gt; &quot;localhost&quot;#redis地址</div><div class="line">    data_type =&gt; &quot;list&quot;</div><div class="line">    key =&gt; &quot;logstash:redis:customer&quot;</div><div class="line">    type =&gt; &quot;redis-input&quot;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">#过滤日志</div><div class="line">#filter &#123;</div><div class="line">#    grok &#123;</div><div class="line">#    match =&gt; &#123;</div><div class="line">#    &quot;message&quot; =&gt; &quot;%&#123;TIMESTAMP_ISO8601:date&#125; \[(?.+?)\] (?\w+)\s*(?     #  &#125;</div><div class="line">#&#125;</div><div class="line">#定义时间格式</div><div class="line">date &#123;</div><div class="line">    match =&gt; [&quot;timestamp&quot;, &quot;dd/MMM/YYYY:HH:mm:ss Z&quot;]</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">#输出日志</div><div class="line">output &#123;</div><div class="line">    if[type] == &quot;customer_service&quot; &#123;</div><div class="line">                    elasticsearch &#123;</div><div class="line">                        #embedded =&gt; false</div><div class="line">                        #protocol =&gt; &quot;http&quot;</div><div class="line">                        hosts =&gt; &quot;localhost:9200&quot;</div><div class="line">                        index =&gt; &quot;customer-%&#123;+YYYY.MM.dd&#125;&quot;</div><div class="line">                    &#125;</div><div class="line">    &#125;else if[type] == &quot;其他类型&quot; &#123;</div><div class="line"></div><div class="line">                    elasticsearch &#123;</div><div class="line">                    #embedded =&gt; false</div><div class="line">                    #protocol =&gt; &quot;http&quot;</div><div class="line">                    hosts =&gt; &quot;localhost:9200&quot;</div><div class="line">                    index =&gt; &quot;其他类型索引名字-%&#123;+YYYY.MM.dd&#125;&quot;</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">    &#125;else &#123;</div><div class="line">                    //做其他处理</div><div class="line">    &#125;</div><div class="line">    stdout&#123; #输出到标准输出，可以去掉</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上配置，需要自行修改，方可使用。</p>
+<p>启动logstash-indexer:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nohup ./bin/logstash -f conf/logstash-indexer.conf 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure>
+<p>可以仿照redis的方式，写个启动脚本。</p>
+<h2 id="elelasticsearch"><a href="#elelasticsearch" class="headerlink" title="elelasticsearch"></a>elelasticsearch</h2><p>1.解压tar -zxvf elasticsearch-2.3.1.tar.gz</p>
+<p>2.修改安装目录下的配置文件config/elasticsearch.yml</p>
+<p>把network.host字段给反注释掉，把地址改为0.0.0.0（官方并没明确说要去改这配置，默认配置应该就可以了，不过实测的时候发现如果不做这修改，elasticsearch访问不了）</p>
+<p><img src="/images/elk/elk-3.png" alt=""></p>
+<p>3.后台启动elasticsearch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nohup ./bin/elasticsearch &gt;  &amp;</div></pre></td></tr></table></figure>
+<h2 id="安装elasticsearch-head插件"><a href="#安装elasticsearch-head插件" class="headerlink" title="安装elasticsearch-head插件"></a>安装elasticsearch-head插件</h2><p>在使用该插件时，请实现安装好nodejs。<br>1.下载安装包<br>下载地址:<a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a><br>2.解压elasticsearch-head 包<br>3.全局安装grunt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g grunt -cli --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<p>4.在elasticsearch-head-master文件下的Gruntfile.js文件中增加server</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">connect: &#123;</div><div class="line">    server: &#123;</div><div class="line">        options: &#123;</div><div class="line">            hostname: &apos;0.0.0.0&apos;,</div><div class="line">            port: 9100,</div><div class="line">            base: &apos;.&apos;,</div><div class="line">            keepalive: true</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>5.elasticsearch.yml 添加如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 是否支持跨域</div><div class="line">http.cors.enabled: true</div><div class="line"># *表示支持所有域名</div><div class="line">http.cors.allow-origin: &quot;*&quot;</div></pre></td></tr></table></figure>
+<p>安装完成以后，要注意重启elasticsearch,以让修改后的配置文件生效。</p>
+<p>6.运行grunt服务<br>进入elasticsearch-head-master文件夹运行grunt server命令<br><img src="/images/elk/elk-4.png" alt=""><br><img src="/images/elk/elk-2.png" alt=""></p>
+<h2 id="kibana"><a href="#kibana" class="headerlink" title="kibana"></a>kibana</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>1.解压tar -zxvf kibana<strong>*</strong></p>
+<p>2.后台启动kibana nohup ./bin/kibana &amp;</p>
+<p>这里没有特别去配置kibana要访问的elasticsearch地址，默认它会找本地的，如果需要，可以到conf/kibana.yml修改</p>
+<h3 id="访问kibana主页"><a href="#访问kibana主页" class="headerlink" title="访问kibana主页"></a>访问kibana主页</h3><p>1.打开kibana主页<a href="http://your-kibana-ip:5601/" target="_blank" rel="noopener">http://your-kibana-ip:5601/</a></p>
+<p>2.按照页面提示输入，并点击create<br><img src="/images/elk/elk-5.png" alt=""></p>
+<h2 id="编写日志服务器启动脚本"><a href="#编写日志服务器启动脚本" class="headerlink" title="编写日志服务器启动脚本"></a>编写日志服务器启动脚本</h2>
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明: 其间内容仅个人见解，些许地方参考前辈内容，如有错漏请见谅！欢迎转载点评。
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/11/24/linux日志查询技巧/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2017/10/22/POI之SXSSF导出图片/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="统一标识" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cysro4OAE';
+        var conf = 'prod_f54849b5c5e3c62375dbcaa5ebf809b8';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+                        </main>
+                        
+    <aside class="col-md-4 sidebar">
+        
+        <!--
+组件说明：
+网站公告组件，读取主题配置文件中的网站公告
+-->
+
+
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>欢迎～～～～互链请在评论区域留下链接</p>
+        </div>
+    </div>
+
+        
+        <!--
+组件说明：
+社交信息组件，读取主题配置文件中的社交链接，页面的右侧
+-->
+
+
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/jiaxinxuan" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:jia552387367@Gmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        <!--
+组件说明：
+生成文章分类列表，在页面右侧
+-->
+
+
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo教程/"><i class="fa" aria-hidden="true">Hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/POI/"><i class="fa" aria-hidden="true">POI</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/about/"><i class="fa" aria-hidden="true">about</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/elk/"><i class="fa" aria-hidden="true">elk</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo教程/"><i class="fa" aria-hidden="true">hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/"><i class="fa" aria-hidden="true">maven</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/"><i class="fa" aria-hidden="true">redis</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring源码阅读/"><i class="fa" aria-hidden="true">spring源码阅读</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/"><i class="fa" aria-hidden="true">swagger</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/"><i class="fa" aria-hidden="true">ubuntu</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/"><i class="fa" aria-hidden="true">vue</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人心情/"><i class="fa" aria-hidden="true">个人心情</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/"><i class="fa" aria-hidden="true">杂记</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/"><i class="fa" aria-hidden="true">设计模式</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        <!--
+组件说明：
+读取文章归档信息，生成归档列表
+-->
+
+
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/"><i class="fa" aria-hidden="true">2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/"><i class="fa" aria-hidden="true">2017</i></a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/"><i class="fa" aria-hidden="true">2016</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/"><i class="fa" aria-hidden="true">2013</i></a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+<script type="text/javascript">
+    $(document).ready(function() {
+        if(!$('#myCanvas').tagcanvas({
+                textColour: '#193511',
+                outlineColour: '#d2c828',
+                reverse: true,
+                depth: 1.8,
+                maxSpeed: 0.08
+            },'tags')) {
+            // something went wrong, hide the canvas container
+            $('#myCanvasContainer').hide();
+        }
+    });
+</script>
+<div class="widget-wrap">
+  <div id="myCanvasContainer" class="widget tagcloud ">
+    <h3 class="title">标签云</h3>
+    <canvas width="250" height="250" id="myCanvas" style="width:100%">
+
+    </canvas>
+  </div>
+  <div id="tags" style="display: none;">
+    <ul>
+        <a href="/tags/poi-SXSSF/" style="font-size: 10px;">-poi -SXSSF</a> <a href="/tags/JavaEE/" style="font-size: 10px;">JavaEE</a> <a href="/tags/SpringMvc/" style="font-size: 10px;">SpringMvc</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/elk/" style="font-size: 10px;">elk</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 16.67px;">maven</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/swagger/" style="font-size: 13.33px;">swagger</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/个人心情/" style="font-size: 10px;">个人心情</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/红楼梦/" style="font-size: 10px;">红楼梦</a> <a href="/tags/装饰模式/" style="font-size: 10px;">装饰模式</a>
+    </ul>
+  </div>
+</div>
+
+
+
+        
+        <!--
+组件说明：
+网站右侧组件，生成友情链接
+-->
+
+
+    <div class="widget">
+        <h3 class="title">大神链接</h3>
+        <div class="content friends-link">
+        
+            <a href="https://zixingly.github.io/" class="fa" target="_blank">徐志行</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+                    </div>
+                </div>
+        </section>
+
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>
+                    二月江北
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/jiaxinxuan/" class="copyright-links" target="_blank" rel="nofollow">jiaxinxuan</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

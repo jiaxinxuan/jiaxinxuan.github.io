@@ -1,0 +1,708 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="dns-prefetch" href="//t11.baidu.com">
+    
+  <script src="/assets/highlight.pack.js?rev=@@hash"></script>
+  <script>
+    hljs.initHighlightingOnLoad(); //初始化代码高亮 
+  </script>
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/tagcloud.js?rev=@@hash"></script>
+<script src="/js/jquery.tagcanvas.min.js"></script>
+<script src="/js/app.js?rev=@@hash"></script>
+    <!--SEO-->
+
+<meta name="description" content="没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。"/>
+<meta name="author" content="二月江北"/>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>swagger注解说明 | 小咸菜</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="小咸菜" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.jpg">
+
+    
+
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+    
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d21e29d838f94a86fe5dbbbd12bab116";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <!--<header class="main-header">
+    <div class="main-header-box">
+        <a class="branding" href="/" title="">
+            <img src="/img/header_logo.png" alt="Snippet 博客主题">
+        </a>
+        <h2 class="text-hide">Snippet主题</h2>
+        <img src="/img/header_logo.png" alt="Snippet 博客主题" class="hide">
+    </div>
+</header>-->
+        <!--
+
+组件说明：
+导航组件，读取主题的配置文件，生成导航
+-->
+<!--先注释掉导航，我自己要写一个右侧导航栏-->
+<!-- Sidebar -->
+<div id="wrapper">
+    <header id="header">
+        <div id="banner"></div>
+        <div id="header-outer" class="outer">
+            <div id="header-title" class="inner">
+                <h1 id="logo-wrap">
+                    <a href="/" id="logo">二月江北</a>
+                </h1>
+                <h2 id="subtitle-wrap">
+                    <a href="/" id="subtitle">没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。</a>
+                </h2>
+
+            </div>
+        </div>
+    </header>
+    <div class="overlay"></div>
+    <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" >
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+    </button>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    小咸菜
+                </a>
+            </li>
+            
+            <li><a href="/"><i class="fa fa-fw fa-home"></i>首页</a></li>
+            
+            <li><a href="/2017/06/16/about/"><i class="fa fa-fw fa-user"></i>关于</a></li>
+            
+
+        </ul>
+    </nav>
+</div>
+<!-- /#sidebar-wrapper -->
+        <section class="content-wrap" >
+                <div class="container" >
+                    <div class="row">
+                        <main class="col-md-8 main-content m-post">
+                            <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="swagger注解说明">
+            
+            swagger注解说明
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>swagger</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            swagger
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/09/24</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body">
+        <h1 id="常用到的注解有："><a href="#常用到的注解有：" class="headerlink" title="常用到的注解有："></a>常用到的注解有：</h1><p>  ● Api<br>  ● ApiModel<br>  ● ApiModelProperty<br>  ● ApiOperation<br>  ● ApiParam<br>  ● ApiResponse<br>  ● ApiResponses<br>  ● ResponseHeader<br>  <a id="more"></a></p>
+<h1 id="1-api标记"><a href="#1-api标记" class="headerlink" title="1. api标记"></a>1. api标记</h1><p>Api 用在类上，说明该类的作用。可以标记一个Controller类做为swagger 文档资源，使用方式：</p>
+<pre><code>@Api(value = &quot;/user&quot;, description = &quot;Operations about user&quot;)
+</code></pre><p>与Controller注解并列使用。 属性配置：</p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>url的路径值</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>如果设置这个值、value的值会被覆盖</td>
+</tr>
+<tr>
+<td>description</td>
+<td>对api资源的描述</td>
+</tr>
+<tr>
+<td>basePath</td>
+<td>基本路径可以不配置</td>
+</tr>
+<tr>
+<td>position</td>
+<td>如果配置多个Api 想改变显示的顺序位置</td>
+</tr>
+<tr>
+<td>produces</td>
+<td>For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td>consumes</td>
+<td>For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td>protocols</td>
+<td>Possible values: http, https, ws, wss.</td>
+</tr>
+<tr>
+<td>authorizations</td>
+<td>高级特性认证时配置</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>配置为true 将在文档中隐藏</td>
+</tr>
+</tbody>
+</table>
+<p>在SpringMvc中的配置如下：  </p>
+<pre><code>@Controller    
+@RequestMapping(value = &quot;/api/pet&quot;, produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE})  
+@Api(value = &quot;/pet&quot;, description = &quot;Operations about pets&quot;)  
+public class PetController {
+
+}
+</code></pre><h1 id="2-ApiOperation标记"><a href="#2-ApiOperation标记" class="headerlink" title="2. ApiOperation标记"></a>2. ApiOperation标记</h1><p>ApiOperation：用在方法上，说明方法的作用，每一个url资源的定义,使用方式：</p>
+<pre><code>@ApiOperation(
+value = &quot;Find purchase order by ID&quot;,
+notes = &quot;For valid response try integer IDs with value &lt;= 5 or &gt; 10. Other values will generated exceptions&quot;,
+response = Order,          
+tags = {&quot;Pet Store&quot;})
+</code></pre><p>与Controller中的方法并列使用。</p>
+<p>属性配置：  </p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>url的路径值</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>如果设置这个值、value的值会被覆盖</td>
+</tr>
+<tr>
+<td>description</td>
+<td>对api资源的描述</td>
+</tr>
+<tr>
+<td>basePath</td>
+<td>基本路径可以不配置</td>
+</tr>
+<tr>
+<td>position</td>
+<td>如果配置多个Api 想改变显示的顺序位置</td>
+</tr>
+<tr>
+<td>produces</td>
+<td>For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td>consumes</td>
+<td>For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td>protocols</td>
+<td>Possible values: http, https, ws, wss.</td>
+</tr>
+<tr>
+<td>authorizations</td>
+<td>高级特性认证时配置</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>配置为true 将在文档中隐藏</td>
+</tr>
+<tr>
+<td>response</td>
+<td>返回的对象</td>
+</tr>
+<tr>
+<td>responseContainer</td>
+<td>这些对象是有效的 “List”, “Set” or “Map”.，其他无效</td>
+</tr>
+<tr>
+<td>httpMethod</td>
+<td>“GET”, “HEAD”, “POST”, “PUT”, “DELETE”, “OPTIONS” and “PATCH”</td>
+</tr>
+<tr>
+<td>code</td>
+<td>http的状态码 默认 200</td>
+</tr>
+<tr>
+<td>extensions</td>
+<td>扩展属性</td>
+</tr>
+</tbody>
+</table>
+<p>在SpringMvc中的配置如下：</p>
+<pre><code>@RequestMapping(value = &quot;/order/{orderId}&quot;, method = GET)
+@ApiOperation(
+    value = &quot;Find purchase order by ID&quot;,
+    notes = &quot;For valid response try integer IDs with value &lt;= 5 or &gt; 10. Other values will generated exceptions&quot;,
+    response = Order.class,
+    tags = { &quot;Pet Store&quot; })    
+public ResponseEntity getOrderById(@PathVariable(&quot;orderId&quot;) String orderId)      throws NotFoundException {
+    Order order = storeData.get(Long.valueOf(orderId));
+    if (null != order) {
+    return ok(order);    
+    } else {
+    throw new NotFoundException(404, &quot;Order not found&quot;);
+    }
+}
+</code></pre><h1 id="3-ApiParam标记"><a href="#3-ApiParam标记" class="headerlink" title="3. ApiParam标记"></a>3. ApiParam标记</h1><p>ApiParam请求属性,使用方式：  </p>
+<pre><code>public ResponseEntity createUser(@RequestBody @ApiParam(value = &quot;Created user object&quot;, required = true)  User user)
+</code></pre><p>与Controller中的方法并列使用。</p>
+<p>属性配置：</p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>属性名称</td>
+</tr>
+<tr>
+<td>value</td>
+<td>属性值</td>
+</tr>
+<tr>
+<td>defaultValue</td>
+<td>默认属性值</td>
+</tr>
+<tr>
+<td>allowableValues</td>
+<td>可以不配置</td>
+</tr>
+<tr>
+<td>required</td>
+<td>是否属性必填</td>
+</tr>
+<tr>
+<td>access</td>
+<td>不过多描述</td>
+</tr>
+<tr>
+<td>allowMultiple</td>
+<td>默认为false</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>隐藏该属性</td>
+</tr>
+<tr>
+<td>example</td>
+<td>举例子</td>
+</tr>
+</tbody>
+</table>
+<p>在SpringMvc中的配置如下：</p>
+<pre><code>public ResponseEntity getOrderById(
+@ApiParam(value = &quot;ID of pet that needs to be fetched&quot;, allowableValues = &quot;range[1,5]&quot;, required = true)
+@PathVariable(&quot;orderId&quot;) String orderId)
+</code></pre><h1 id="4-ApiResponse"><a href="#4-ApiResponse" class="headerlink" title="4. ApiResponse"></a>4. ApiResponse</h1><p>ApiResponse：响应配置，使用方式：</p>
+<pre><code>@ApiResponse(code = 400, message = &quot;Invalid user supplied&quot;)
+</code></pre><p>与Controller中的方法并列使用。 属性配置：</p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>http的状态码</td>
+</tr>
+<tr>
+<td>message</td>
+<td>描述</td>
+</tr>
+<tr>
+<td>response</td>
+<td>默认响应类 Void</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>参考ApiOperation中配置</td>
+</tr>
+<tr>
+<td>responseHeaders</td>
+<td>参考 ResponseHeader 属性配置说明</td>
+</tr>
+<tr>
+<td>responseContainer</td>
+<td>参考ApiOperation中配置</td>
+</tr>
+</tbody>
+</table>
+<p>在SpringMvc中的配置如下：</p>
+<pre><code>@RequestMapping(value = &quot;/order&quot;, method = POST)
+@ApiOperation(value = &quot;Place an order for a pet&quot;, response = Order.class)  
+@ApiResponses({ @ApiResponse(code = 400, message = &quot;Invalid Order&quot;) })  
+public ResponseEntity placeOrder(
+@ApiParam(value = &quot;order placed for purchasing the pet&quot;, required = true) Order order) {
+storeData.add(order);
+return ok(&quot;&quot;);
+}
+</code></pre><h1 id="5-ApiResponses"><a href="#5-ApiResponses" class="headerlink" title="5. ApiResponses"></a>5. ApiResponses</h1><p>ApiResponses：响应集配置，使用方式：</p>
+<pre><code>@ApiResponses({ @ApiResponse(code = 400, message = &quot;Invalid Order&quot;) })
+</code></pre><p>与Controller中的方法并列使用。 属性配置：</p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>多个ApiResponse配置</td>
+</tr>
+</tbody>
+</table>
+<p>在SpringMvc中的配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(value = &quot;/order&quot;, method = POST)   </div><div class="line">@ApiOperation(value = &quot;Place an order for a pet&quot;, response = Order.class)</div><div class="line">@ApiResponses(&#123; @ApiResponse(code = 400, message = &quot;Invalid Order&quot;) &#125;)  </div><div class="line">public ResponseEntity placeOrder(</div><div class="line">@ApiParam(value = &quot;order placed for purchasing the pet&quot;, required = true) Order order) &#123;</div><div class="line">storeData.add(order);</div><div class="line">return ok(&quot;&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="6-ResponseHeader"><a href="#6-ResponseHeader" class="headerlink" title="6. ResponseHeader"></a>6. ResponseHeader</h1><p>响应头设置，使用方法</p>
+<pre><code>@ResponseHeader(name=&quot;head1&quot;,description=&quot;response head conf&quot;)
+</code></pre><p>与Controller中的方法并列使用。 属性配置：</p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>响应头名称</td>
+</tr>
+<tr>
+<td>description</td>
+<td>头描述</td>
+</tr>
+<tr>
+<td>response</td>
+<td>默认响应类 Void</td>
+</tr>
+<tr>
+<td>responseContainer</td>
+<td>参考ApiOperation中配置</td>
+</tr>
+</tbody>
+</table>
+<p>在SpringMvc中的配置如下：</p>
+<pre><code>@ApiModel(description = &quot;群组&quot;)
+</code></pre><h1 id="7-其他"><a href="#7-其他" class="headerlink" title="7. 其他"></a>7. 其他</h1><p>● @ApiImplicitParams：用在方法上包含一组参数说明；<br>● @ApiImplicitParam：用在@ApiImplicitParams注解中，指定一个请求参数的各个方面</p>
+<pre><code>○ paramType：参数放在哪个地方  
+○ name：参数代表的含义  
+○ value：参数名称  
+○ dataType： 参数类型，有String/int，无用  
+○ required ： 是否必要  
+○ defaultValue：参数的默认值  
+</code></pre><p>● @ApiResponses：用于表示一组响应；<br>● @ApiResponse：用在@ApiResponses中，一般用于表达一个错误的响应信息；</p>
+<pre><code>○ code： 响应码(int型)，可自定义  
+○ message：状态码对应的响应信息  
+</code></pre><p>● @ApiModel：描述一个Model的信息（这种一般用在post创建的时候，使用@RequestBody这样的场景，请求参数无法使用@ApiImplicitParam注解进行描述的时候；<br>● @ApiModelProperty：描述一个model的属性。  </p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明: 其间内容仅个人见解，些许地方参考前辈内容，如有错漏请见谅！欢迎转载点评。
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/09/24/SpringMVC之参数绑定/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2017/09/24/swagger简明教程/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="统一标识" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cysro4OAE';
+        var conf = 'prod_f54849b5c5e3c62375dbcaa5ebf809b8';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+                        </main>
+                        
+    <aside class="col-md-4 sidebar">
+        
+        <!--
+组件说明：
+网站公告组件，读取主题配置文件中的网站公告
+-->
+
+
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>欢迎～～～～互链请在评论区域留下链接</p>
+        </div>
+    </div>
+
+        
+        <!--
+组件说明：
+社交信息组件，读取主题配置文件中的社交链接，页面的右侧
+-->
+
+
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/jiaxinxuan" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:jia552387367@Gmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        <!--
+组件说明：
+生成文章分类列表，在页面右侧
+-->
+
+
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo教程/"><i class="fa" aria-hidden="true">Hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/POI/"><i class="fa" aria-hidden="true">POI</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/about/"><i class="fa" aria-hidden="true">about</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/elk/"><i class="fa" aria-hidden="true">elk</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo教程/"><i class="fa" aria-hidden="true">hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/"><i class="fa" aria-hidden="true">maven</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/"><i class="fa" aria-hidden="true">redis</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring源码阅读/"><i class="fa" aria-hidden="true">spring源码阅读</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/"><i class="fa" aria-hidden="true">swagger</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/"><i class="fa" aria-hidden="true">ubuntu</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/"><i class="fa" aria-hidden="true">vue</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人心情/"><i class="fa" aria-hidden="true">个人心情</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/"><i class="fa" aria-hidden="true">杂记</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/"><i class="fa" aria-hidden="true">设计模式</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        <!--
+组件说明：
+读取文章归档信息，生成归档列表
+-->
+
+
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/"><i class="fa" aria-hidden="true">2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/"><i class="fa" aria-hidden="true">2017</i></a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/"><i class="fa" aria-hidden="true">2016</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/"><i class="fa" aria-hidden="true">2013</i></a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+<script type="text/javascript">
+    $(document).ready(function() {
+        if(!$('#myCanvas').tagcanvas({
+                textColour: '#193511',
+                outlineColour: '#d2c828',
+                reverse: true,
+                depth: 1.8,
+                maxSpeed: 0.08
+            },'tags')) {
+            // something went wrong, hide the canvas container
+            $('#myCanvasContainer').hide();
+        }
+    });
+</script>
+<div class="widget-wrap">
+  <div id="myCanvasContainer" class="widget tagcloud ">
+    <h3 class="title">标签云</h3>
+    <canvas width="250" height="250" id="myCanvas" style="width:100%">
+
+    </canvas>
+  </div>
+  <div id="tags" style="display: none;">
+    <ul>
+        <a href="/tags/poi-SXSSF/" style="font-size: 10px;">-poi -SXSSF</a> <a href="/tags/JavaEE/" style="font-size: 10px;">JavaEE</a> <a href="/tags/SpringMvc/" style="font-size: 10px;">SpringMvc</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/elk/" style="font-size: 10px;">elk</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 16.67px;">maven</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/swagger/" style="font-size: 13.33px;">swagger</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/个人心情/" style="font-size: 10px;">个人心情</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/红楼梦/" style="font-size: 10px;">红楼梦</a> <a href="/tags/装饰模式/" style="font-size: 10px;">装饰模式</a>
+    </ul>
+  </div>
+</div>
+
+
+
+        
+        <!--
+组件说明：
+网站右侧组件，生成友情链接
+-->
+
+
+    <div class="widget">
+        <h3 class="title">大神链接</h3>
+        <div class="content friends-link">
+        
+            <a href="https://zixingly.github.io/" class="fa" target="_blank">徐志行</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+                    </div>
+                </div>
+        </section>
+
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>
+                    二月江北
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/jiaxinxuan/" class="copyright-links" target="_blank" rel="nofollow">jiaxinxuan</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

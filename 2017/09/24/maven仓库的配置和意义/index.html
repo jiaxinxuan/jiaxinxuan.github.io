@@ -1,0 +1,532 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="dns-prefetch" href="//t11.baidu.com">
+    
+  <script src="/assets/highlight.pack.js?rev=@@hash"></script>
+  <script>
+    hljs.initHighlightingOnLoad(); //初始化代码高亮 
+  </script>
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/tagcloud.js?rev=@@hash"></script>
+<script src="/js/jquery.tagcanvas.min.js"></script>
+<script src="/js/app.js?rev=@@hash"></script>
+    <!--SEO-->
+
+<meta name="description" content="没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。"/>
+<meta name="author" content="二月江北"/>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>maven仓库的配置和意义 | 小咸菜</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="小咸菜" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.jpg">
+
+    
+
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+    
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d21e29d838f94a86fe5dbbbd12bab116";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <!--<header class="main-header">
+    <div class="main-header-box">
+        <a class="branding" href="/" title="">
+            <img src="/img/header_logo.png" alt="Snippet 博客主题">
+        </a>
+        <h2 class="text-hide">Snippet主题</h2>
+        <img src="/img/header_logo.png" alt="Snippet 博客主题" class="hide">
+    </div>
+</header>-->
+        <!--
+
+组件说明：
+导航组件，读取主题的配置文件，生成导航
+-->
+<!--先注释掉导航，我自己要写一个右侧导航栏-->
+<!-- Sidebar -->
+<div id="wrapper">
+    <header id="header">
+        <div id="banner"></div>
+        <div id="header-outer" class="outer">
+            <div id="header-title" class="inner">
+                <h1 id="logo-wrap">
+                    <a href="/" id="logo">二月江北</a>
+                </h1>
+                <h2 id="subtitle-wrap">
+                    <a href="/" id="subtitle">没有征服不了的山，没有不能横渡的海，只有不肯脚踏实地的人。</a>
+                </h2>
+
+            </div>
+        </div>
+    </header>
+    <div class="overlay"></div>
+    <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" >
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+    </button>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    小咸菜
+                </a>
+            </li>
+            
+            <li><a href="/"><i class="fa fa-fw fa-home"></i>首页</a></li>
+            
+            <li><a href="/2017/06/16/about/"><i class="fa fa-fw fa-user"></i>关于</a></li>
+            
+
+        </ul>
+    </nav>
+</div>
+<!-- /#sidebar-wrapper -->
+        <section class="content-wrap" >
+                <div class="container" >
+                    <div class="row">
+                        <main class="col-md-8 main-content m-post">
+                            <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="maven仓库的配置和意义">
+            
+            maven仓库的配置和意义
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>maven</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            maven
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017/09/24</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body">
+        <h1 id="什么是Maven仓库"><a href="#什么是Maven仓库" class="headerlink" title="什么是Maven仓库"></a>什么是Maven仓库</h1><p>在不用Maven的时候，比如说以前我们用Ant构建项目，在项目目录下，往往会看到一个名为/lib的子目录，那里存放着各类第三方依赖jar文件，如log4j.jar，junit.jar等等。每建立一个项目，你都需要建立这样的一个/lib目录，然后复制一对jar文件，这是很明显的重复。重复永远是噩梦的起点，多个项目不共用相同的jar文件，不仅会造成磁盘资源的浪费，也使得版本的一致性管理变得困难。此外，如果你使用版本管理工具，如SVN（你没有使用版本管理工具？马上试试SVN吧，它能帮你解决很多头疼的问题），你需要将大量的jar文件提交到代码库里，可是版本管理工具在处理二进制文件方面并不出色。  </p>
+<a id="more"></a>
+<p>Maven仓库就是放置所有JAR文件（WAR，ZIP，POM等等）的地方，所有Maven项目可以从同一个Maven仓库中获取自己所需要的依赖JAR，这节省了磁盘资源。此外，由于Maven仓库中所有的JAR都有其自己的坐标，该坐标告诉Maven它的组ID，构件ID，版本，打包方式等等，因此Maven项目可以方便的进行依赖版本管理。你也不在需要提交JAR文件到SCM仓库中，你可以建立一个组织层次的Maven仓库，供所有成员使用。简言之，Maven仓库能帮助我们管理构件（主要是JAR）。   </p>
+<h1 id="本地仓库-vs-远程仓库"><a href="#本地仓库-vs-远程仓库" class="headerlink" title="本地仓库 vs. 远程仓库"></a>本地仓库 vs. 远程仓库</h1><p>运行Maven的时候，Maven所需要的任何构件都是直接从本地仓库获取的。如果本地仓库没有，它会首先尝试从远程仓库下载构件至本地仓库，然后再使用本地仓库的构件。<br>比如说，你的项目配置了junit-3.8的依赖，在你运行mvn test 的时候，Maven需要使用junit-3.8的jar文件，它首先根据坐标查找本地仓库，如果找到，就直接使用。如果没有，Maven会检查可用的远程仓库配置，然后逐个尝试这些远程仓库去下载junit-3.8的jar文件，如果远程仓库存在该文件，Maven会将其下载到本地仓库中，继而使用。如果尝试过所有远程仓库之后，Maven还是没能够下载到该文件，它就会报错。  </p>
+<p>Maven缺省的本地仓库地址为${user.home}/.m2/repository。也就是说，一个用户会对应的拥有一个本地仓库。<br>你也可以自定义本地仓库的位置，修改${user.home}/.m2/settings.xml ：<br><strong>Xml代码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1. &lt;settings&gt;</div><div class="line">2.   ...   </div><div class="line">3. &lt;localRepository&gt;D:/java/repositorylocalRepository&gt;</div><div class="line">4.   ...   </div><div class="line">5. settings&gt;</div></pre></td></tr></table></figure></p>
+<p>你还可以在运行时指定本地仓库位置： </p>
+<pre><code>mvn clean install -Dmaven.repo.local=/home/juven/myrepo/  
+</code></pre><p>还有一点需要理解的是，当我们运行install的时候，Maven实际上是将项目生成的构件安装到了本地仓库，也就是说，只有install了之后，其它项目才能使用此项目生成的构件。   </p>
+<p>了解了本地仓库，接着了解一下Maven缺省的远程仓库，即Maven中央仓库。   </p>
+<p>安装好Maven之后，我们可以建立一个简单的项目，配置一些简单的依赖，然后运行mvn clean install，项目就构建好了。我们没有手工的去下载任何jar文件，这一切都是因为Maven中央仓库的存在，当Maven在本地仓库找不到需要的jar文件时，它会查找远程仓库，而一个原始的Maven安装就自带了一个远程仓库——Maven中央仓库。  </p>
+<p>这个Maven中央仓库是在哪里定义的呢？在我的机器上，我安装了maven-2.0.10，我可以找到这个文件：${M2_HOME}/lib/maven-2.0.10-uber.jar，打开该文件，能找到超级POM：/org/apache/maven/project/pom-4.0.0.xml ，它是所有Maven POM的父POM，所有Maven项目继承该配置，你可以在这个POM中发现如下配置：<br><strong>Xml代码</strong></p>
+<pre><code>1. &lt;repositories&gt;
+2. &lt;repository&gt;
+3. &lt;id&gt;centralid&gt;
+4. &lt;name&gt;Maven Repository Switchboardname&gt;
+5. &lt;layout&gt;defaultlayout&gt;
+6. &lt;url&gt;http://repo1.maven.org/maven2url&gt;
+7. &lt;snapshots&gt;
+8. &lt;enabled&gt;falseenabled&gt;
+9. snapshots&gt;
+10. repository&gt;
+11. repositories&gt;
+</code></pre><p>关于远程仓库的配置，下面的小节我会详细解释，这里我们只要知道，中央仓库的id为central，远程url地址为<a href="http://repo1.maven.org/maven2，它关闭了snapshot版本构件下载的支持。" target="_blank" rel="noopener">http://repo1.maven.org/maven2，它关闭了snapshot版本构件下载的支持。</a>  </p>
+<h1 id="在POM中配置远程仓库"><a href="#在POM中配置远程仓库" class="headerlink" title="在POM中配置远程仓库"></a>在POM中配置远程仓库</h1><p>前面我们看到超级POM配置了ID为central的远程仓库，我们可以在POM中配置其它的远程仓库。这样做的原因有很多，比如你有一个局域网的远程仓库，使用该仓库能大大提高下载速度，继而提高构建速度，也有可能你依赖的一个jar在central中找不到，它只存在于某个特定的公共仓库，这样你也不得不添加那个远程仓库的配置。<br>这里我配置一个远程仓库指向中央仓库的中国镜像：  </p>
+<pre><code>Xml代码
+1. &lt;project&gt;
+2. ...   
+3. &lt;repositories&gt;
+4. &lt;repository&gt;
+5.       &lt;id&gt;maven-net-cnid&gt;
+6.       &lt;name&gt;Maven China Mirrorname&gt;
+7.       &lt;url&gt;http://maven.net.cn/content/groups/public &lt;/url&gt;
+8.    &lt;releases&gt; 
+9.       &lt;enabled&gt;true&lt;/enabled&gt;
+10.   &lt;/releases&gt;
+11.   &lt;snapshots&gt;
+12.      &lt;enabled&gt;false&lt;/enabled&gt;
+13.   &lt;/snapshots&gt;
+14. &lt;/repository&gt;
+15. &lt;/repositories&gt;
+16. &lt;pluginRepositories&gt;
+17.   &lt;pluginRepository&gt;
+18.   &lt;id&gt;maven-net-cnid&gt;
+19.   &lt;name&gt;Maven China Mirror&lt;/name&gt;
+20.   &lt;url&gt;http://maven.net.cn/content/groups/public/&lt;/url&gt;
+21. &lt;releases&gt;
+22. &lt;enabled&gt;trueenabled&gt;
+23. &lt;/releases&gt;
+24. &lt;snapshots&gt;
+25. &lt;enabled&gt;falseenabled&gt;
+26. &lt;/snapshots&gt;
+27. &lt;/pluginRepository&gt;
+28. &lt;/pluginRepositories&gt;
+29.  ...   
+30. &lt;/project&gt;
+</code></pre><p>我们先看一下的配置，你可以在它下面添加多个，每个都有它唯一的ID，一个描述性的name，以及最重要的，远程仓库的url。此外，true告诉Maven可以从这个仓库下载releases版本的构件，而false告诉Maven不要从这个仓库下载snapshot版本的构件。禁止从公共仓库下载snapshot构件是推荐的做法，因为这些构件不稳定，且不受你控制，你应该避免使用。当然，如果你想使用局域网内组织内部的仓库，你可以激活snapshot的支持。<br>关于的更详细的配置及相关解释，请参考：<a href="http://www.sonatype.com/books/maven-book/reference_zh/apas02s08.html。" target="_blank" rel="noopener">http://www.sonatype.com/books/maven-book/reference_zh/apas02s08.html。</a><br>至于，这是配置Maven从什么地方下载插件构件（Maven的所有实际行为都由其插件完成）。该元素的内部配置和完全一样，不再解释。  </p>
+<h1 id="在settings-xml中配置远程仓库"><a href="#在settings-xml中配置远程仓库" class="headerlink" title="在settings.xml中配置远程仓库"></a>在settings.xml中配置远程仓库</h1><p>我们知道了如何在POM中配置远程仓库，但考虑这样的情况：在一个公司内部，同时进行这3个项目，而且以后随着这几个项目的结束，越来越多的项目会开始；同时，公司内部建立一个Maven仓库。我们统一为所有这些项目配置该仓库，于是不得不为每个项目提供同样的配置。问题出现了，这是重复！其实我们可以做到只配置一次，在哪里配置呢？就是settings.xml,不过事情没有那么简单，不是简单的将POM中的及元素复制到settings.xml中就可以，setting.xml不直接支持这两个元素。但我们还是有一个并不复杂的解决方案，就是利用profile，如下：  </p>
+<pre><code>Xml代码
+  1. &lt;settings&gt;
+  2.   ...   
+  3. &lt;profiles&gt;
+  4. &lt;profile&gt;
+  5.    &lt;id&gt;dev&lt;/id&gt;
+  6. &lt;/profile&gt;
+  7. &lt;/profiles&gt;
+  8. &lt;activeProfiles&gt;
+  9.    &lt;activeProfile&gt;devactive&lt;/Profile&gt;
+  10. &lt;/activeProfiles&gt;
+  11.   ...   
+  12. settings&gt;
+</code></pre><p>这里我们定义一个id为dev的profile，将所有repositories以及pluginRepositories元素放到这个profile中，然后，使用元素自动激活该profile。这样，你就不用再为每个POM重复配置仓库。    </p>
+<p>使用profile为settings.xml添加仓库提供了一种用户全局范围的仓库配置。</p>
+<h1 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h1><p>如果你的地理位置附近有一个速度更快的central镜像，或者你想覆盖central仓库配置，或者你想为所有POM使用唯一的一个远程仓库（这个远程仓库代理的所有必要的其它仓库），你可以使用settings.xml中的mirror配置。<br>以下的mirror配置用maven.NET.cn覆盖了Maven自带的central：  </p>
+<pre><code>Xml代码
+  1. &lt;settings&gt;
+  2. ...   
+  3. &lt;mirrors&gt;
+  4. &lt;mirror&gt;
+  5. &lt;id&gt;maven-net-cnid&gt;
+  6. &lt;name&gt;Maven China Mirrorname&gt;
+  7. &lt;url&gt;http://maven.net.cn/content/groups/public/&lt;/url&gt;
+  8. &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+  9. &lt;/mirror&gt;
+  10. &lt;/mirrors&gt;
+  11. ...   
+  12. settings&gt;
+</code></pre><p>这里唯一需要解释的是，这里我们配置central的镜像，我们也可以配置一个所有仓库的镜像，以保证该镜像是Maven唯一使用的仓库：  </p>
+<pre><code>Xml代码
+  1. &lt;settings&gt;
+  2. ...   
+  3. &lt;mirrors&gt;
+  4.   &lt;mirror&gt;
+  5.    &lt;id&gt;my-org-repo&lt;/id&gt;
+  6.    &lt;name&gt;Repository in My Orgnization&lt;/name&gt;
+  7.    &lt;url&gt;http://192.168.1.100/maven2&lt;/url&gt;
+  8.    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+  9.   &lt;/mirror&gt;
+  10. &lt;/mirrors&gt;
+  11. ...   
+  12. &lt;/settings&gt;
+</code></pre><p>关于更加高级的镜像配置，可以参考：<a href="http://maven.apache.org/guides/mini/guide-mirror-settings.html。" target="_blank" rel="noopener">http://maven.apache.org/guides/mini/guide-mirror-settings.html。</a> </p>
+<h1 id="分发构件至远程仓库"><a href="#分发构件至远程仓库" class="headerlink" title="分发构件至远程仓库"></a>分发构件至远程仓库</h1><p><strong>mvn install</strong>会将项目生成的构件安装到本地Maven仓库，<strong>mvn deploy</strong> 用来将项目生成的构件分发到远程Maven仓库。本地Maven仓库的构件只能供当前用户使用，在分发到远程Maven仓库之后，所有能访问该仓库的用户都能使用你的构件。<br>我们需要配置POM的distributionManagement来指定Maven分发构件的位置，如下： </p>
+<pre><code>Xml代码
+  1. &lt;project&gt;
+  2.   ...     
+  3. &lt;distributionManagement&gt;
+  4. &lt;repository&gt;
+  5.    &lt;id&gt;nexus-releases&lt;/id&gt;
+  6.    &lt;name&gt;Nexus Release Repositoryname&gt;
+  7.    &lt;url&gt;http://127.0.0.1:8080/nexus/content/repositories/releases/&lt;/url&gt;
+  8. &lt;/repository&gt;
+  9. &lt;snapshotRepository&gt;
+  10.    &lt;id&gt;nexus-snapshotsid&gt;
+  11.    &lt;name&gt;Nexus Snapshot Repositoryname&gt;
+  12.    &lt;url&gt;http://127.0.0.1:8080/nexus/content/repositories/snapshots/&lt;/url&gt;
+  13. &lt;/snapshotRepository&gt;
+  14.&lt;/distributionManagement&gt;
+  15.   ...     
+  16. &lt;/project&gt;
+</code></pre><p>Maven区别对待release版本的构件和snapshot版本的构件，snapshot为开发过程中的版本，实时，但不稳定，release版本则比较稳定。Maven会根据你项目的版本来判断将构件分发到哪个仓库。<br>一般来说，分发构件到远程仓库需要认证，如果你没有配置任何认证信息，你往往会得到401错误。这个时候，如下在settings.xml中配置认证信息： </p>
+<pre><code>Xml代码
+  1. &lt;settings&gt;
+  2.   ...     
+  3. &lt;servers&gt;
+  4.   &lt;server&gt;
+  5.     &lt;id&gt;nexus-releases&lt;/id&gt;
+  6.     &lt;username&gt;admin&lt;/username&gt;
+  7.     &lt;password&gt;admin123&lt;/password&gt;
+  8.   &lt;/server&gt;
+  9.   &lt;server&gt;
+  10.    &lt;id&gt;nexus-snapshots&lt;/id&gt;
+  11.    &lt;username&gt;admin&lt;/username&gt;
+  12.    &lt;password&gt;admin123&lt;/password&gt;
+  13.  &lt;/server&gt;
+  14. &lt;/servers&gt;
+  15.   ...     
+  16. &lt;/settings&gt;
+</code></pre><p>==需要注意的是，settings.xml中server元素下id的值必须与POM中repository或snapshotRepository下id的值完全一致。将认证信息放到settings下而非POM中，是因为POM往往是它人可见的，而settings.xml是本地的。==  </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文介绍了Maven仓库，它是什么？本地仓库，远程仓库，中央仓库具体是指什么？并介绍了如何在POM中配置项目层次的仓库，在settings中配置用户层次的仓库，以及mirror。本文还介绍了如何安装构件到本地仓库，如何分发构件至仓库。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明: 其间内容仅个人见解，些许地方参考前辈内容，如有错漏请见谅！欢迎转载点评。
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/09/24/maven详细介绍/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2017/09/24/maven阿里云设置/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="统一标识" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cysro4OAE';
+        var conf = 'prod_f54849b5c5e3c62375dbcaa5ebf809b8';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+                        </main>
+                        
+    <aside class="col-md-4 sidebar">
+        
+        <!--
+组件说明：
+网站公告组件，读取主题配置文件中的网站公告
+-->
+
+
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>欢迎～～～～互链请在评论区域留下链接</p>
+        </div>
+    </div>
+
+        
+        <!--
+组件说明：
+社交信息组件，读取主题配置文件中的社交链接，页面的右侧
+-->
+
+
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/jiaxinxuan" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:jia552387367@Gmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        <!--
+组件说明：
+生成文章分类列表，在页面右侧
+-->
+
+
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo教程/"><i class="fa" aria-hidden="true">Hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/POI/"><i class="fa" aria-hidden="true">POI</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/about/"><i class="fa" aria-hidden="true">about</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/elk/"><i class="fa" aria-hidden="true">elk</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo教程/"><i class="fa" aria-hidden="true">hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/"><i class="fa" aria-hidden="true">maven</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/"><i class="fa" aria-hidden="true">redis</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring源码阅读/"><i class="fa" aria-hidden="true">spring源码阅读</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/"><i class="fa" aria-hidden="true">swagger</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/"><i class="fa" aria-hidden="true">ubuntu</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/"><i class="fa" aria-hidden="true">vue</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人心情/"><i class="fa" aria-hidden="true">个人心情</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/"><i class="fa" aria-hidden="true">杂记</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/"><i class="fa" aria-hidden="true">设计模式</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        <!--
+组件说明：
+读取文章归档信息，生成归档列表
+-->
+
+
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/"><i class="fa" aria-hidden="true">2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/"><i class="fa" aria-hidden="true">2017</i></a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/"><i class="fa" aria-hidden="true">2016</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/"><i class="fa" aria-hidden="true">2013</i></a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+<script type="text/javascript">
+    $(document).ready(function() {
+        if(!$('#myCanvas').tagcanvas({
+                textColour: '#193511',
+                outlineColour: '#d2c828',
+                reverse: true,
+                depth: 1.8,
+                maxSpeed: 0.08
+            },'tags')) {
+            // something went wrong, hide the canvas container
+            $('#myCanvasContainer').hide();
+        }
+    });
+</script>
+<div class="widget-wrap">
+  <div id="myCanvasContainer" class="widget tagcloud ">
+    <h3 class="title">标签云</h3>
+    <canvas width="250" height="250" id="myCanvas" style="width:100%">
+
+    </canvas>
+  </div>
+  <div id="tags" style="display: none;">
+    <ul>
+        <a href="/tags/poi-SXSSF/" style="font-size: 10px;">-poi -SXSSF</a> <a href="/tags/JavaEE/" style="font-size: 10px;">JavaEE</a> <a href="/tags/SpringMvc/" style="font-size: 10px;">SpringMvc</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/elk/" style="font-size: 10px;">elk</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 16.67px;">maven</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/swagger/" style="font-size: 13.33px;">swagger</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/个人心情/" style="font-size: 10px;">个人心情</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/红楼梦/" style="font-size: 10px;">红楼梦</a> <a href="/tags/装饰模式/" style="font-size: 10px;">装饰模式</a>
+    </ul>
+  </div>
+</div>
+
+
+
+        
+        <!--
+组件说明：
+网站右侧组件，生成友情链接
+-->
+
+
+    <div class="widget">
+        <h3 class="title">大神链接</h3>
+        <div class="content friends-link">
+        
+            <a href="https://zixingly.github.io/" class="fa" target="_blank">徐志行</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+                    </div>
+                </div>
+        </section>
+
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>
+                    二月江北
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/jiaxinxuan/" class="copyright-links" target="_blank" rel="nofollow">jiaxinxuan</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
