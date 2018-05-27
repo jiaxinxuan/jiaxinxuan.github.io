@@ -34,7 +34,7 @@
     <!--Title-->
 
 
-<title>立感网络架构概述 | 小咸菜</title>
+<title>Rancher1.6环境的搭建 | 小咸菜</title>
 
 
     <link rel="alternate" href="/atom.xml" title="小咸菜" type="application/atom+xml">
@@ -146,9 +146,9 @@
                             <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="立感网络架构概述">
+        <h1 id="Rancher1.6环境的搭建">
             
-            立感网络架构概述
+            Rancher1.6环境的搭建
             
         </h1>
         <div class="post-meta">
@@ -156,7 +156,7 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <span>无</span>
+        <span>立感网络</span>
     </span>
     
     
@@ -164,7 +164,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            null
+            rancher
             
         </span>
     </span>
@@ -181,7 +181,41 @@
     </div>
     
     <div class="post-body">
-        
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>docker容器的编排技术有好几种。比如Swarm、Kubernetes、Mesos,这几种都是比较成熟，用户量也是比较多的，其中swarm是docker公司的亲儿子，k8s是谷歌公司的，mesos是著名开源组织Apache的。我们公司偏偏选了个Rancher/Cattle，确实我很搞不懂，但是就我目前接触到的，自我感觉这个rancher还是很好用的。<br>ps1:知乎上关于编排工具的帖子 <a href="https://www.zhihu.com/question/55391506" target="_blank" rel="noopener">https://www.zhihu.com/question/55391506</a><br>ps2:容器编排工具 <a href="http://www.infoq.com/cn/articles/container-landscape-2016" target="_blank" rel="noopener">http://www.infoq.com/cn/articles/container-landscape-2016</a></p>
+<h2 id="我的理解"><a href="#我的理解" class="headerlink" title="我的理解"></a>我的理解</h2><p>在创作这篇文章的过程中，我发现一个问题，docker容器和容器编排工具以及图形管理界面到底是什么关系呢？比如rancher支持如下四种编排环境：Cattle/Kubernetes/Mesos/Swarm, Cattle是Rancher自己内置的缺省的编排环境，缺省的Default的即为Cattle类型的。这些编排工具又是运行在docker容器之上的。还有一些容器的辅助工具，这些有待一一理清。下面说的也许有不严禁之处，不过都是我个人见解，请见谅！</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>在安装rancherr之前，必须先有一台安装好docker的Linux系统哦。我的是在本机做的实践。大致如下：  </p>
+<ul>
+<li>运行run命令，-d表示后台运行容器 -p 把容器的端口映射到主机的端口</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -d --restart=always -p 8080:8080 rancher/server</span><br></pre></td></tr></table></figure>
+<p><img src="http://jiaxiaoxuan.top/images/liganwangluo/rancher1.png" alt="image"></p>
+<ul>
+<li>运行ps命令查看容器状态， -a是表示显示所有已创建容器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker ps -a</span><br></pre></td></tr></table></figure>
+<p><img src="http://jiaxiaoxuan.top/images/liganwangluo/rancher2.png" alt="image">  </p>
+<ul>
+<li>查看本机内网IP（如果有公网IP最好）<a href="http://IP:8080,不要使用localhost和127.0.0.1这种本机IP" target="_blank" rel="noopener">http://IP:8080,不要使用localhost和127.0.0.1这种本机IP</a><br>你可以看右下角是可以选择语言的哦，如果你的英文不好，请选择汉语  </li>
+</ul>
+<p><img src="http://jiaxiaoxuan.top/images/liganwangluo/rancher3.png" alt="image">   </p>
+<ul>
+<li>创建权限认证<br>系统管理-》访问控制，选择本地认证  </li>
+</ul>
+<p><img src="http://jiaxiaoxuan.top/images/liganwangluo/rancher4.png" alt="image">     </p>
+<ul>
+<li>把自己的主机交给rancher管理<br>这一步rancher做的很人性化，每个步骤都提示的好好地，按照步骤来就可以了，不够要注意的是第四步，一定要填写公网IP或者域名，内网IP也可以，不过内网IP你切换网络可能就没有了。最重要的是不要填写127.0.0.1或者localhost这种地址</li>
+</ul>
+<p><img src="http://jiaxiaoxuan.top/images/liganwangluo/rancher5.png" alt="image">   </p>
+<ul>
+<li>在docker主机上运行rancher提供的命令安装rancher-agent<br><img src="http://jiaxiaoxuan.top/images/liganwangluo/rancher6.png" alt="image"> </li>
+<li>运行命令 sudo docker logs -f 容器ID 查看rancher-agent安装日志<br><img src="http://jiaxiaoxuan.top/images/liganwangluo/rancher7.png" alt="image"> </li>
+<li>如果出现了这个问题<br><img src="http://jiaxiaoxuan.top/images/liganwangluo/rancher8.png" alt="image"> <ul>
+<li>答案在这里—》<a href="https://blog.csdn.net/qq_37146850/article/details/80089298" target="_blank" rel="noopener">https://blog.csdn.net/qq_37146850/article/details/80089298</a></li>
+</ul>
+</li>
+<li>至此安装完毕<br><img src="http://jiaxiaoxuan.top/images/liganwangluo/rancher9.png" alt="image"> </li>
+</ul>
+
     </div>
 
     <div class="post-footer">   
@@ -283,7 +317,7 @@
 
     <div class="widget">
         <h3 class="title">分类</h3>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo教程/"><i class="fa" aria-hidden="true">Hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/POI/"><i class="fa" aria-hidden="true">POI</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/about/"><i class="fa" aria-hidden="true">about</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/elk/"><i class="fa" aria-hidden="true">elk</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo教程/"><i class="fa" aria-hidden="true">hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/"><i class="fa" aria-hidden="true">maven</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/"><i class="fa" aria-hidden="true">redis</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring源码阅读/"><i class="fa" aria-hidden="true">spring源码阅读</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/"><i class="fa" aria-hidden="true">swagger</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/"><i class="fa" aria-hidden="true">ubuntu</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/"><i class="fa" aria-hidden="true">vue</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人心情/"><i class="fa" aria-hidden="true">个人心情</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/"><i class="fa" aria-hidden="true">杂记</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/"><i class="fa" aria-hidden="true">设计模式</i></a><span class="category-list-count">1</span></li></ul>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo教程/"><i class="fa" aria-hidden="true">Hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/POI/"><i class="fa" aria-hidden="true">POI</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/about/"><i class="fa" aria-hidden="true">about</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/elk/"><i class="fa" aria-hidden="true">elk</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo教程/"><i class="fa" aria-hidden="true">hexo教程</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/"><i class="fa" aria-hidden="true">java</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/"><i class="fa" aria-hidden="true">maven</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/"><i class="fa" aria-hidden="true">python</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/"><i class="fa" aria-hidden="true">redis</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring源码阅读/"><i class="fa" aria-hidden="true">spring源码阅读</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/"><i class="fa" aria-hidden="true">swagger</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/"><i class="fa" aria-hidden="true">ubuntu</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/"><i class="fa" aria-hidden="true">vue</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人心情/"><i class="fa" aria-hidden="true">个人心情</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/"><i class="fa" aria-hidden="true">杂记</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/立感网络/"><i class="fa" aria-hidden="true">立感网络</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/"><i class="fa" aria-hidden="true">设计模式</i></a><span class="category-list-count">1</span></li></ul>
     </div>
 
 
@@ -325,7 +359,7 @@
   </div>
   <div id="tags" style="display: none;">
     <ul>
-        <a href="/tags/poi-SXSSF/" style="font-size: 10px;">-poi -SXSSF</a> <a href="/tags/JavaEE/" style="font-size: 10px;">JavaEE</a> <a href="/tags/SpringMvc/" style="font-size: 10px;">SpringMvc</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/elk/" style="font-size: 10px;">elk</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 16.67px;">maven</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/swagger/" style="font-size: 13.33px;">swagger</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/个人心情/" style="font-size: 10px;">个人心情</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/红楼梦/" style="font-size: 10px;">红楼梦</a> <a href="/tags/装饰模式/" style="font-size: 10px;">装饰模式</a>
+        <a href="/tags/poi-SXSSF/" style="font-size: 10px;">-poi -SXSSF</a> <a href="/tags/JavaEE/" style="font-size: 10px;">JavaEE</a> <a href="/tags/SpringMvc/" style="font-size: 10px;">SpringMvc</a> <a href="/tags/about/" style="font-size: 10px;">about</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/elk/" style="font-size: 10px;">elk</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 16.67px;">maven</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rancher/" style="font-size: 10px;">rancher</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/swagger/" style="font-size: 13.33px;">swagger</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/个人心情/" style="font-size: 10px;">个人心情</a> <a href="/tags/杂记/" style="font-size: 10px;">杂记</a> <a href="/tags/红楼梦/" style="font-size: 10px;">红楼梦</a> <a href="/tags/装饰模式/" style="font-size: 10px;">装饰模式</a>
     </ul>
   </div>
 </div>
