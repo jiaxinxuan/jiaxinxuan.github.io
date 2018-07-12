@@ -185,7 +185,7 @@
         <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>微服务架构中，多个服务都是分离部署的，在实际的操作中，常常需要实时监测运行日志，或者查找日志记录，以确定程序bug的所在位置。服务的分离部署就增加了查找难度，必须登录多台主机打开多个终端查看日志。elk日志搜集系统能够很好的解决这个问题，网上教程已是相当的多，这里仅仅是贴合自己的实际开发来搭建的，只是为了更好的同时监测多台服务器的日志。本文只是单机搭建实验，准备最近在公司测试环境搭建一份。</p>
 <a id="more"></a>
 <h1 id="组件介绍与安装"><a href="#组件介绍与安装" class="headerlink" title="组件介绍与安装"></a>组件介绍与安装</h1><p>日志流行图：</p>
-<p><img src="/images/elk/elk-1.png" alt=""></p>
+<p><img src="http://jiaxiaoxuan.top/images/elk/elk-1.png" alt=""></p>
 <p>从左边看起，每一台webserver上都会部署一个logstash-agent,它的作用是用类似tailf的方式监听日志文件，然后把新添加的日志发送到redis队列里面，logstash-indexer负责从redis相应的队列里面取出日志，对日志进进行加工后输出到elasticsearch中，elasticsearch会根据要求对日志进行索引归集，最后用户可以通过kibana来查看和分析日志。</p>
 <p>在ELK官网下载相应的压缩包</p>
 <p><a href="https://www.elastic.co/downloads" target="_blank" rel="noopener">https://www.elastic.co/downloads</a></p>
@@ -213,7 +213,7 @@
 <h2 id="elelasticsearch"><a href="#elelasticsearch" class="headerlink" title="elelasticsearch"></a>elelasticsearch</h2><p>1.解压tar -zxvf elasticsearch-2.3.1.tar.gz</p>
 <p>2.修改安装目录下的配置文件config/elasticsearch.yml</p>
 <p>把network.host字段给反注释掉，把地址改为0.0.0.0（官方并没明确说要去改这配置，默认配置应该就可以了，不过实测的时候发现如果不做这修改，elasticsearch访问不了）</p>
-<p><img src="/images/elk/elk-3.png" alt=""></p>
+<p><img src="http://jiaxiaoxuan.top/images/elk/elk-3.png" alt=""></p>
 <p>3.后台启动elasticsearch</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./bin/elasticsearch &gt;  &amp;</span><br></pre></td></tr></table></figure>
 <h2 id="安装elasticsearch-head插件"><a href="#安装elasticsearch-head插件" class="headerlink" title="安装elasticsearch-head插件"></a>安装elasticsearch-head插件</h2><p>在使用该插件时，请实现安装好nodejs。<br>1.下载安装包<br>下载地址:<a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a><br>2.解压elasticsearch-head 包<br>3.全局安装grunt</p>
@@ -223,13 +223,13 @@
 <p>5.elasticsearch.yml 添加如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 是否支持跨域</span><br><span class="line">http.cors.enabled: true</span><br><span class="line"># *表示支持所有域名</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br></pre></td></tr></table></figure>
 <p>安装完成以后，要注意重启elasticsearch,以让修改后的配置文件生效。</p>
-<p>6.运行grunt服务<br>进入elasticsearch-head-master文件夹运行grunt server命令<br><img src="/images/elk/elk-4.png" alt=""><br><img src="/images/elk/elk-2.png" alt=""></p>
+<p>6.运行grunt服务<br>进入elasticsearch-head-master文件夹运行grunt server命令<br><img src="http://jiaxiaoxuan.top/images/elk/elk-4.png" alt=""><br><img src="http://jiaxiaoxuan.top/images/elk/elk-2.png" alt=""></p>
 <h2 id="kibana"><a href="#kibana" class="headerlink" title="kibana"></a>kibana</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>1.解压tar -zxvf kibana<strong>*</strong></p>
 <p>2.后台启动kibana nohup ./bin/kibana &amp;</p>
 <p>这里没有特别去配置kibana要访问的elasticsearch地址，默认它会找本地的，如果需要，可以到conf/kibana.yml修改</p>
 <h3 id="访问kibana主页"><a href="#访问kibana主页" class="headerlink" title="访问kibana主页"></a>访问kibana主页</h3><p>1.打开kibana主页<a href="http://your-kibana-ip:5601/" target="_blank" rel="noopener">http://your-kibana-ip:5601/</a></p>
-<p>2.按照页面提示输入，并点击create<br><img src="/images/elk/elk-5.png" alt=""></p>
-<h2 id="编写日志服务器启动脚本"><a href="#编写日志服务器启动脚本" class="headerlink" title="编写日志服务器启动脚本"></a>编写日志服务器启动脚本</h2>
+<p>2.按照页面提示输入，并点击create<br><img src="http://jiaxiaoxuan.top/images/elk/elk-5.png" alt=""></p>
+
     </div>
 
     <div class="post-footer">   

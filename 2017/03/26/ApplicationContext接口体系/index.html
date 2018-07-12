@@ -188,7 +188,7 @@
     <div class="post-body">
         <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>由下面的继承结构图可以看出，ApplicationContext接口为什么作为IOC容器的顶级接口了，它继承了EnvironmentCapable,ListableBeanFactory,HierarchicalBeanFactory,MessageSource,ApplicationEventPublisher,ResourcePatternResolver一系列接口，也就是说它包含了这些功能。对bean的操作，国际化，事件传播控制，资源访问等我未曾发现的功能。理所当然并毫无疑问所有继承了或实现了这个顶级接口的类和接口也将具有这些功能。在继承接口的时候，必定要实现的，不过具体实现可以用静态代理的方式解决。</p>
 <p>接口体系截图</p>
-<p><img src="/images/spring/ApplicationContext.png" alt="接口体系截图"></p>
+<p><img src="http://jiaxiaoxuan.top/images/spring/ApplicationContext.png" alt="接口体系截图"></p>
 <h1 id="ApplicationContext接口："><a href="#ApplicationContext接口：" class="headerlink" title="ApplicationContext接口："></a>ApplicationContext接口：</h1><ul>
 <li>除了包含BeanFactory的所有功能之外，在国际化支持(MessageSource)、资源访问（如URL和文件）(ResourcePatternResolver)、事件传播(ApplicationEventPublisher)等方面进行了良好的支持<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,</span><br><span class="line">    MessageSource, ApplicationEventPublisher, ResourcePatternResolver &#123;</span><br><span class="line">    //IOC容器的唯一id</span><br><span class="line">    String getId();</span><br><span class="line">    //返回此上下文属于的部署应用程序的名称。父级容器的名称</span><br><span class="line">   String getApplicationName();</span><br><span class="line">    //容器的上下文名称</span><br><span class="line">    String getDisplayName();</span><br><span class="line">    //环境第一次加载的时间</span><br><span class="line">    long getStartupDate();</span><br><span class="line">    //继承自HierarchicalBeanFactory</span><br><span class="line">    ApplicationContext getParent();</span><br><span class="line">    //相当于web环境实现的bean工厂</span><br><span class="line">    AutowireCapableBeanFactory getAutowireCapableBeanFactory() ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -215,7 +215,7 @@
 <p>ClassPathXmlApplicationContext[只能读放在web-info/classes目录下的配置文件]，classpath:前缀是不需要的,默认就是指项目的classpath路径下面;如果要使用绝对路径,需要加上file:前缀表示这是绝对路径;</p>
 <p>对于FileSystemXmlApplicationContext，默认表示的是两种，如果要使用classpath路径,需要前缀classpath:</p>
 <p>1.没有盘符的是项目工作路径,即项目的根目录;</p>
-<p>2.有盘符表示的是文件绝对路径.<br><img src="/images/spring/ClassPationContext.png" alt="类区别截图">  </p>
+<p>2.有盘符表示的是文件绝对路径.<br><img src="http://jiaxiaoxuan.top/images/spring/ClassPationContext.png" alt="类区别截图">  </p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个接口体系最主要的就是对容器的生命周期的管理，其中最重要的当是容器的初始化部分。也就是refresh()这个方法。其他的也算要紧，不过也赶不上这个方法。</p>
 
     </div>
