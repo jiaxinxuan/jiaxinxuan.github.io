@@ -807,7 +807,7 @@ pre {
   text-align: center;
   color: #666666;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   border-top: 1px solid #303030;
 }
 .copyright span {
@@ -1261,4 +1261,7 @@ header {
   -moz-background-size: cover;
   background-size: cover;
   z-index: -1;
+}
+.container{
+  margin: auto;
 }
