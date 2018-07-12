@@ -1218,7 +1218,7 @@ pre {
 
 /*banner 样式*/
 header {
-  height: 200px;
+  height: 100px;
   position: relative;
   border-bottom: 1px solid #ddd;
   margin-bottom: 25px;
@@ -1238,7 +1238,7 @@ header {
   text-align: center;
   height: 40px;
   position: absolute;
-  top: 30%;
+  top: 10%;
   left: 0;
   margin-top: -20px;
 }
@@ -1264,4 +1264,5 @@ header {
 }
 .container{
   margin: auto;
+  opacity: 0.6;
 }
