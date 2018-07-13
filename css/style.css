@@ -18,7 +18,6 @@ html {
   font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
 }
 body {
-  color: #ee1a26;
   line-height: 1.75em;
   position:relative;
   z-index: 2;
@@ -1097,9 +1096,9 @@ pre {
   border: none;
   display: block;
   height: 32px;
-  margin-left: 15px;
+  margin-left: 0px;
   position: fixed;
-  top: 20px;
+  top: 50%;;
   width: 32px;
   z-index: 999;
 }
@@ -1221,7 +1220,7 @@ header {
   height: 100px;
   position: relative;
   border-bottom: 1px solid #ddd;
-  margin-bottom: 25px;
+  margin-bottom: 2px;
 }
 
 #header-outer {
@@ -1256,7 +1255,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background:  #d6c6e9;
+  background:  url("http://jiaxiaoxuan.top/img/nav_back.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
