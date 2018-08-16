@@ -139,7 +139,7 @@
     </nav>
 </div>
 <!-- /#sidebar-wrapper -->
-        <section class="content-wrap" style="background:url(/images/love/baner.png) 0% 0% / cover fixed;">
+        <section class="content-wrap">
             <div style="width:100%;">
                 <div class="container" >
                     <div class="row">
@@ -183,8 +183,24 @@
     
     <div class="post-body">
         <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>在Java中经常要导出报表，基本上用的都是poi提供的解决方法。在实际操作中excel有两种格式的，一种是2003-xls,一种是2007-xlsx,poi在设计中提供了HSSF和XSSF分别对应，从poi3点几以后的版本有提供了SXSSF的方式。这种方式避免了直接创建workbook对象，而是以接口的形式。具体是的实例是根据读到的文件属性来创建。高明了许多。<br><a id="more"></a></p>
-<h2 id="poi图片导出"><a href="#poi图片导出" class="headerlink" title="poi图片导出"></a>poi图片导出</h2><p>最近在项目中遇到使用SXSSF接口的形式导出图片，代码简记如下！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//创建字节输出流对象</span><br><span class="line">byteArrayOut = new ByteArrayOutputStream();</span><br><span class="line">bufferImg = ImageIO.read(new File(&quot;/data/www/&quot;+o.toString().substring(o.toString().lastIndexOf(&quot;//&quot;)+1)));</span><br><span class="line">ImageIO.write(bufferImg, &quot;jpg&quot;, byteArrayOut);</span><br><span class="line">int pictureIdx = wb.addPicture(byteArrayOut.toByteArray(), Workbook.PICTURE_TYPE_PNG);</span><br><span class="line">CreationHelper helper = wb.getCreationHelper();</span><br><span class="line">//获取绘制管理器</span><br><span class="line">Drawing drawing = sheet1.createDrawingPatriarch();</span><br><span class="line">ClientAnchor anchor = helper.createClientAnchor();</span><br><span class="line">// 图片插入坐标</span><br><span class="line">anchor.setCol1(h);</span><br><span class="line">anchor.setRow1(m);</span><br><span class="line">// 插入图片</span><br><span class="line">Picture pict = drawing.createPicture(anchor, pictureIdx);</span><br><span class="line">//一定要重新绘制图片大小</span><br><span class="line">pict.resize(1,1);</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在实现中有些代码是直接创建HSSF或者XSSF类型的对象来输出图片。这样做代码就不具有健壮性，不同够同时适应2003和2007两种格式的导出需求。图片导出以后，其实是浮现在excel表格之上的，excel中表格中，并不能存放图片。</p>
+<h2 id="poi图片导出"><a href="#poi图片导出" class="headerlink" title="poi图片导出"></a>poi图片导出</h2><p>最近在项目中遇到使用SXSSF接口的形式导出图片，代码简记如下！  </p>
+<pre><code>//创建字节输出流对象
+byteArrayOut = new ByteArrayOutputStream();
+bufferImg = ImageIO.read(new File(&quot;/data/www/&quot;+o.toString().substring(o.toString().lastIndexOf(&quot;//&quot;)+1)));
+ImageIO.write(bufferImg, &quot;jpg&quot;, byteArrayOut);
+int pictureIdx = wb.addPicture(byteArrayOut.toByteArray(), Workbook.PICTURE_TYPE_PNG);
+CreationHelper helper = wb.getCreationHelper();
+//获取绘制管理器
+Drawing drawing = sheet1.createDrawingPatriarch();
+ClientAnchor anchor = helper.createClientAnchor();
+// 图片插入坐标
+anchor.setCol1(h);
+anchor.setRow1(m);
+// 插入图片
+Picture pict = drawing.createPicture(anchor, pictureIdx);
+//一定要重新绘制图片大小
+pict.resize(1,1);
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在实现中有些代码是直接创建HSSF或者XSSF类型的对象来输出图片。这样做代码就不具有健壮性，不同够同时适应2003和2007两种格式的导出需求。图片导出以后，其实是浮现在excel表格之上的，excel中表格中，并不能存放图片。</p>
 
     </div>
 
@@ -311,7 +327,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         if(!$('#myCanvas').tagcanvas({
-                textColour: '#193511',
+                textColour: '#3dc02b',
                 outlineColour: '#d2c828',
                 reverse: true,
                 depth: 1.8,

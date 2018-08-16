@@ -139,7 +139,7 @@
     </nav>
 </div>
 <!-- /#sidebar-wrapper -->
-        <section class="content-wrap" style="background:url(/images/love/baner.png) 0% 0% / cover fixed;">
+        <section class="content-wrap">
             <div style="width:100%;">
                 <div class="container" >
                     <div class="row">
@@ -180,7 +180,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>306</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>326</strong>天之前发表，文中内容可能已经过时。
             </p>
             
     </div>
@@ -446,8 +446,18 @@
 <p>-XX:+UseAdaptiveSizePolicy：设置此选项后，并行收集器会自动选择年轻代区大小和相应的Survivor区比例，以达到目标系统规定的最低相应时间或者收集频率等，此值建议使用并行收集器时，一直打开。</p>
 <p>-XX:MaxTenuringThreshold=0：设置垃圾最大年龄。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代。对于年老代比较多的应用，可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象再年轻代的存活时间，增加在年轻代即被回收的概论。</p>
 <p>-XX:MaxGCPauseMillis=100:设置每次年轻代垃圾回收的最长时间，如果无法满足此时间，JVM会自动调整年轻代大小，以满足此值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/jdk/bin/java</span><br><span class="line">-Dresin.home=/usr/local/resin -server -Xms1800M -Xmx1800M -Xmn300M</span><br><span class="line">-Xss512K -XX:PermSize=300M -XX:MaxPermSize=300M -XX:SurvivorRatio=8</span><br><span class="line">-XX:MaxTenuringThreshold=5 -XX:GCTimeRatio=19 -Xnoclassgc</span><br><span class="line">-XX:+DisableExplicitGC -XX:+UseParNewGC -XX:+UseConcMarkSweepGC</span><br><span class="line">-XX:+UseCMSCompactAtFullCollection -XX:CMSFullGCsBeforeCompaction=0</span><br><span class="line">-XX:-CMSParallelRemarkEnabled -XX:CMSInitiatingOccupancyFraction=70</span><br><span class="line">-XX:SoftRefLRUPolicyMSPerMB=0 -XX:+PrintClassHistogram</span><br><span class="line">-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC</span><br><span class="line">-Xloggc:log/gc.log</span><br></pre></td></tr></table></figure>
-<h2 id="堆大小设置"><a href="#堆大小设置" class="headerlink" title="堆大小设置"></a>堆大小设置</h2><p>JVM 中最大堆大小有三方面限制：相关操作系统的数据模型（32-bt还是64-bit）限制；系统的可用虚拟内存限制；系统的可用物理内存限制。32位系统下，一般限制在1.5G~2G；64为操作系统对内存无限制。我在Windows Server 2003 系统，3.5G物理内存，JDK5.0下测试，最大可设置为1478m。</p>
+<pre><code>/usr/local/jdk/bin/java
+-Dresin.home=/usr/local/resin -server -Xms1800M -Xmx1800M -Xmn300M
+-Xss512K -XX:PermSize=300M -XX:MaxPermSize=300M -XX:SurvivorRatio=8
+-XX:MaxTenuringThreshold=5 -XX:GCTimeRatio=19 -Xnoclassgc
+-XX:+DisableExplicitGC -XX:+UseParNewGC -XX:+UseConcMarkSweepGC
+-XX:+UseCMSCompactAtFullCollection -XX:CMSFullGCsBeforeCompaction=0
+-XX:-CMSParallelRemarkEnabled -XX:CMSInitiatingOccupancyFraction=70
+-XX:SoftRefLRUPolicyMSPerMB=0 -XX:+PrintClassHistogram
+-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC
+-Xloggc:log/gc.log
+
+</code></pre><h2 id="堆大小设置"><a href="#堆大小设置" class="headerlink" title="堆大小设置"></a>堆大小设置</h2><p>JVM 中最大堆大小有三方面限制：相关操作系统的数据模型（32-bt还是64-bit）限制；系统的可用虚拟内存限制；系统的可用物理内存限制。32位系统下，一般限制在1.5G~2G；64为操作系统对内存无限制。我在Windows Server 2003 系统，3.5G物理内存，JDK5.0下测试，最大可设置为1478m。</p>
 <p><strong>典型JVM参数设置：</strong></p>
 <p>java -Xmx3550m -Xms3550m -Xmn2g -Xss128k</p>
 <p>-Xmx3550m：设置JVM最大可用内存为3550M。</p>
@@ -727,7 +737,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         if(!$('#myCanvas').tagcanvas({
-                textColour: '#193511',
+                textColour: '#3dc02b',
                 outlineColour: '#d2c828',
                 reverse: true,
                 depth: 1.8,

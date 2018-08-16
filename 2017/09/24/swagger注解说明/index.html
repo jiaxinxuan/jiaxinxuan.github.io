@@ -139,7 +139,7 @@
     </nav>
 </div>
 <!-- /#sidebar-wrapper -->
-        <section class="content-wrap" style="background:url(/images/love/baner.png) 0% 0% / cover fixed;">
+        <section class="content-wrap">
             <div style="width:100%;">
                 <div class="container" >
                     <div class="row">
@@ -180,7 +180,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>305</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>325</strong>天之前发表，文中内容可能已经过时。
             </p>
             
     </div>
@@ -391,9 +391,9 @@ public ResponseEntity getOrderById(@PathVariable(&quot;orderId&quot;) String ord
 </tbody>
 </table>
 <p>在SpringMvc中的配置如下：</p>
-<pre><code>public ResponseEntity getOrderById(
-@ApiParam(value = &quot;ID of pet that needs to be fetched&quot;, allowableValues = &quot;range[1,5]&quot;, required = true)
-@PathVariable(&quot;orderId&quot;) String orderId)
+<pre><code> public ResponseEntity getOrderById(
+ @ApiParam(value = &quot;ID of pet that needs to be fetched&quot;, allowableValues = &quot;range[1,5]&quot;, required = true)
+ @PathVariable(&quot;orderId&quot;) String orderId)
 </code></pre><h1 id="4-ApiResponse"><a href="#4-ApiResponse" class="headerlink" title="4. ApiResponse"></a>4. ApiResponse</h1><p>ApiResponse：响应配置，使用方式：</p>
 <pre><code>@ApiResponse(code = 400, message = &quot;Invalid user supplied&quot;)
 </code></pre><p>与Controller中的方法并列使用。 属性配置：</p>
@@ -458,8 +458,15 @@ return ok(&quot;&quot;);
 </tbody>
 </table>
 <p>在SpringMvc中的配置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = &quot;/order&quot;, method = POST)   </span><br><span class="line">@ApiOperation(value = &quot;Place an order for a pet&quot;, response = Order.class)</span><br><span class="line">@ApiResponses(&#123; @ApiResponse(code = 400, message = &quot;Invalid Order&quot;) &#125;)  </span><br><span class="line">public ResponseEntity placeOrder(</span><br><span class="line">@ApiParam(value = &quot;order placed for purchasing the pet&quot;, required = true) Order order) &#123;</span><br><span class="line">storeData.add(order);</span><br><span class="line">return ok(&quot;&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="6-ResponseHeader"><a href="#6-ResponseHeader" class="headerlink" title="6. ResponseHeader"></a>6. ResponseHeader</h1><p>响应头设置，使用方法</p>
+<pre><code>@RequestMapping(value = &quot;/order&quot;, method = POST)   
+@ApiOperation(value = &quot;Place an order for a pet&quot;, response = Order.class)
+@ApiResponses({ @ApiResponse(code = 400, message = &quot;Invalid Order&quot;) })  
+public ResponseEntity placeOrder(
+@ApiParam(value = &quot;order placed for purchasing the pet&quot;, required = true) Order order) {
+storeData.add(order);
+return ok(&quot;&quot;);
+}
+</code></pre><h1 id="6-ResponseHeader"><a href="#6-ResponseHeader" class="headerlink" title="6. ResponseHeader"></a>6. ResponseHeader</h1><p>响应头设置，使用方法</p>
 <pre><code>@ResponseHeader(name=&quot;head1&quot;,description=&quot;response head conf&quot;)
 </code></pre><p>与Controller中的方法并列使用。 属性配置：</p>
 <table>
@@ -627,7 +634,7 @@ return ok(&quot;&quot;);
 <script type="text/javascript">
     $(document).ready(function() {
         if(!$('#myCanvas').tagcanvas({
-                textColour: '#193511',
+                textColour: '#3dc02b',
                 outlineColour: '#d2c828',
                 reverse: true,
                 depth: 1.8,

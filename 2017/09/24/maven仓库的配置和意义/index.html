@@ -139,7 +139,7 @@
     </nav>
 </div>
 <!-- /#sidebar-wrapper -->
-        <section class="content-wrap" style="background:url(/images/love/baner.png) 0% 0% / cover fixed;">
+        <section class="content-wrap">
             <div style="width:100%;">
                 <div class="container" >
                     <div class="row">
@@ -180,7 +180,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>305</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>325</strong>天之前发表，文中内容可能已经过时。
             </p>
             
     </div>
@@ -190,8 +190,13 @@
 <a id="more"></a>
 <p>Maven仓库就是放置所有JAR文件（WAR，ZIP，POM等等）的地方，所有Maven项目可以从同一个Maven仓库中获取自己所需要的依赖JAR，这节省了磁盘资源。此外，由于Maven仓库中所有的JAR都有其自己的坐标，该坐标告诉Maven它的组ID，构件ID，版本，打包方式等等，因此Maven项目可以方便的进行依赖版本管理。你也不在需要提交JAR文件到SCM仓库中，你可以建立一个组织层次的Maven仓库，供所有成员使用。简言之，Maven仓库能帮助我们管理构件（主要是JAR）。   </p>
 <h1 id="本地仓库-vs-远程仓库"><a href="#本地仓库-vs-远程仓库" class="headerlink" title="本地仓库 vs. 远程仓库"></a>本地仓库 vs. 远程仓库</h1><p>运行Maven的时候，Maven所需要的任何构件都是直接从本地仓库获取的。如果本地仓库没有，它会首先尝试从远程仓库下载构件至本地仓库，然后再使用本地仓库的构件。<br>比如说，你的项目配置了junit-3.8的依赖，在你运行mvn test 的时候，Maven需要使用junit-3.8的jar文件，它首先根据坐标查找本地仓库，如果找到，就直接使用。如果没有，Maven会检查可用的远程仓库配置，然后逐个尝试这些远程仓库去下载junit-3.8的jar文件，如果远程仓库存在该文件，Maven会将其下载到本地仓库中，继而使用。如果尝试过所有远程仓库之后，Maven还是没能够下载到该文件，它就会报错。  </p>
-<p>Maven缺省的本地仓库地址为${user.home}/.m2/repository。也就是说，一个用户会对应的拥有一个本地仓库。<br>你也可以自定义本地仓库的位置，修改${user.home}/.m2/settings.xml ：<br><strong>Xml代码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. &lt;settings&gt;</span><br><span class="line">2.   ...   </span><br><span class="line">3. &lt;localRepository&gt;D:/java/repositorylocalRepository&gt;</span><br><span class="line">4.   ...   </span><br><span class="line">5. settings&gt;</span><br></pre></td></tr></table></figure></p>
-<p>你还可以在运行时指定本地仓库位置： </p>
+<p>Maven缺省的本地仓库地址为${user.home}/.m2/repository。也就是说，一个用户会对应的拥有一个本地仓库。<br>你也可以自定义本地仓库的位置，修改${user.home}/.m2/settings.xml ：<br><strong>Xml代码</strong></p>
+<pre><code>1. &lt;settings&gt;
+2.   ...   
+3. &lt;localRepository&gt;D:/java/repositorylocalRepository&gt;
+4.   ...   
+5. settings&gt;
+</code></pre><p>你还可以在运行时指定本地仓库位置： </p>
 <pre><code>mvn clean install -Dmaven.repo.local=/home/juven/myrepo/  
 </code></pre><p>还有一点需要理解的是，当我们运行install的时候，Maven实际上是将项目生成的构件安装到了本地仓库，也就是说，只有install了之后，其它项目才能使用此项目生成的构件。   </p>
 <p>了解了本地仓库，接着了解一下Maven缺省的远程仓库，即Maven中央仓库。   </p>
@@ -210,37 +215,37 @@
 11. repositories&gt;
 </code></pre><p>关于远程仓库的配置，下面的小节我会详细解释，这里我们只要知道，中央仓库的id为central，远程url地址为<a href="http://repo1.maven.org/maven2，它关闭了snapshot版本构件下载的支持。" target="_blank" rel="noopener">http://repo1.maven.org/maven2，它关闭了snapshot版本构件下载的支持。</a>  </p>
 <h1 id="在POM中配置远程仓库"><a href="#在POM中配置远程仓库" class="headerlink" title="在POM中配置远程仓库"></a>在POM中配置远程仓库</h1><p>前面我们看到超级POM配置了ID为central的远程仓库，我们可以在POM中配置其它的远程仓库。这样做的原因有很多，比如你有一个局域网的远程仓库，使用该仓库能大大提高下载速度，继而提高构建速度，也有可能你依赖的一个jar在central中找不到，它只存在于某个特定的公共仓库，这样你也不得不添加那个远程仓库的配置。<br>这里我配置一个远程仓库指向中央仓库的中国镜像：  </p>
-<pre><code>Xml代码
-1. &lt;project&gt;
-2. ...   
-3. &lt;repositories&gt;
-4. &lt;repository&gt;
-5.       &lt;id&gt;maven-net-cnid&gt;
-6.       &lt;name&gt;Maven China Mirrorname&gt;
-7.       &lt;url&gt;http://maven.net.cn/content/groups/public &lt;/url&gt;
-8.    &lt;releases&gt; 
-9.       &lt;enabled&gt;true&lt;/enabled&gt;
-10.   &lt;/releases&gt;
-11.   &lt;snapshots&gt;
-12.      &lt;enabled&gt;false&lt;/enabled&gt;
-13.   &lt;/snapshots&gt;
-14. &lt;/repository&gt;
-15. &lt;/repositories&gt;
-16. &lt;pluginRepositories&gt;
-17.   &lt;pluginRepository&gt;
-18.   &lt;id&gt;maven-net-cnid&gt;
-19.   &lt;name&gt;Maven China Mirror&lt;/name&gt;
-20.   &lt;url&gt;http://maven.net.cn/content/groups/public/&lt;/url&gt;
-21. &lt;releases&gt;
-22. &lt;enabled&gt;trueenabled&gt;
-23. &lt;/releases&gt;
-24. &lt;snapshots&gt;
-25. &lt;enabled&gt;falseenabled&gt;
-26. &lt;/snapshots&gt;
-27. &lt;/pluginRepository&gt;
-28. &lt;/pluginRepositories&gt;
-29.  ...   
-30. &lt;/project&gt;
+<pre><code>  Xml代码
+  1. &lt;project&gt;
+  2. ...   
+  3. &lt;repositories&gt;
+  4. &lt;repository&gt;
+  5.       &lt;id&gt;maven-net-cnid&gt;
+  6.       &lt;name&gt;Maven China Mirrorname&gt;
+  7.       &lt;url&gt;http://maven.net.cn/content/groups/public &lt;/url&gt;
+  8.    &lt;releases&gt; 
+  9.       &lt;enabled&gt;true&lt;/enabled&gt;
+  10.   &lt;/releases&gt;
+  11.   &lt;snapshots&gt;
+  12.      &lt;enabled&gt;false&lt;/enabled&gt;
+  13.   &lt;/snapshots&gt;
+  14. &lt;/repository&gt;
+  15. &lt;/repositories&gt;
+  16. &lt;pluginRepositories&gt;
+  17.   &lt;pluginRepository&gt;
+  18.   &lt;id&gt;maven-net-cnid&gt;
+  19.   &lt;name&gt;Maven China Mirror&lt;/name&gt;
+  20.   &lt;url&gt;http://maven.net.cn/content/groups/public/&lt;/url&gt;
+  21. &lt;releases&gt;
+  22. &lt;enabled&gt;trueenabled&gt;
+  23. &lt;/releases&gt;
+  24. &lt;snapshots&gt;
+  25. &lt;enabled&gt;falseenabled&gt;
+  26. &lt;/snapshots&gt;
+  27. &lt;/pluginRepository&gt;
+  28. &lt;/pluginRepositories&gt;
+  29.  ...   
+  30. &lt;/project&gt;
 </code></pre><p>我们先看一下的配置，你可以在它下面添加多个，每个都有它唯一的ID，一个描述性的name，以及最重要的，远程仓库的url。此外，true告诉Maven可以从这个仓库下载releases版本的构件，而false告诉Maven不要从这个仓库下载snapshot版本的构件。禁止从公共仓库下载snapshot构件是推荐的做法，因为这些构件不稳定，且不受你控制，你应该避免使用。当然，如果你想使用局域网内组织内部的仓库，你可以激活snapshot的支持。<br>关于的更详细的配置及相关解释，请参考：<a href="http://www.sonatype.com/books/maven-book/reference_zh/apas02s08.html。" target="_blank" rel="noopener">http://www.sonatype.com/books/maven-book/reference_zh/apas02s08.html。</a><br>至于，这是配置Maven从什么地方下载插件构件（Maven的所有实际行为都由其插件完成）。该元素的内部配置和完全一样，不再解释。  </p>
 <h1 id="在settings-xml中配置远程仓库"><a href="#在settings-xml中配置远程仓库" class="headerlink" title="在settings.xml中配置远程仓库"></a>在settings.xml中配置远程仓库</h1><p>我们知道了如何在POM中配置远程仓库，但考虑这样的情况：在一个公司内部，同时进行这3个项目，而且以后随着这几个项目的结束，越来越多的项目会开始；同时，公司内部建立一个Maven仓库。我们统一为所有这些项目配置该仓库，于是不得不为每个项目提供同样的配置。问题出现了，这是重复！其实我们可以做到只配置一次，在哪里配置呢？就是settings.xml,不过事情没有那么简单，不是简单的将POM中的及元素复制到settings.xml中就可以，setting.xml不直接支持这两个元素。但我们还是有一个并不复杂的解决方案，就是利用profile，如下：  </p>
 <pre><code>Xml代码
@@ -451,7 +456,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         if(!$('#myCanvas').tagcanvas({
-                textColour: '#193511',
+                textColour: '#3dc02b',
                 outlineColour: '#d2c828',
                 reverse: true,
                 depth: 1.8,

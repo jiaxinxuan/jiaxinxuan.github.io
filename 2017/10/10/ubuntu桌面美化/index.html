@@ -139,7 +139,7 @@
     </nav>
 </div>
 <!-- /#sidebar-wrapper -->
-        <section class="content-wrap" style="background:url(/images/love/baner.png) 0% 0% / cover fixed;">
+        <section class="content-wrap">
             <div style="width:100%;">
                 <div class="container" >
                     <div class="row">
@@ -179,6 +179,10 @@
 
             
             
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>309</strong>天之前发表，文中内容可能已经过时。
+            </p>
+            
     </div>
     
     <div class="post-body">
@@ -186,12 +190,29 @@
 <h2 id="ubuntu桌面环境的美化"><a href="#ubuntu桌面环境的美化" class="headerlink" title="ubuntu桌面环境的美化"></a>ubuntu桌面环境的美化</h2><p>当你安装好ubuntu系统以后，肯定是欣喜若狂的，都听大婶说Linux操作系统妙用无穷，是程序员居家旅行必备良品。可是当你进入这系统以后，尝试着使用的时候，你却发现这么垃圾反人类的系统是给人用的嘛？当然喽，我第一次也就是这种感觉，垃圾的桌面环境，不友好的图形化操作！唯一看顺眼的就是ubuntu内置的火狐浏览器。不过当你喜欢上它以后就再也离不开他了！</p>
 <a id="more"></a>
 <h3 id="ubuntu-unity桌面"><a href="#ubuntu-unity桌面" class="headerlink" title="ubuntu unity桌面"></a>ubuntu unity桌面</h3><p>当你进入乌班图系统后，接触到的其实是unity桌面，根据百度百科的解释，它是脱胎于gnome桌面的，它使用了一些gnome桌面的一些组件，但是并没有完全使用gnome shell。<br><strong><em>百科解释</em></strong><br><img src="http://jiaxiaoxuan.top/images/ubuntu/ubuntu16.png" alt=""></p>
-<h3 id="ubuntu-gnome-桌面的安装"><a href="#ubuntu-gnome-桌面的安装" class="headerlink" title="ubuntu gnome 桌面的安装"></a>ubuntu gnome 桌面的安装</h3><p>gnome桌面是很美的，你再选择一个美美哒的桌面背景，那美轮美奂的感觉，很快你就会忘记在失去Windows的痛苦，沉醉在这简洁的环境中，就像婴儿肌肤般的润滑。和Windows相比，它就行豆蔻年华的少女，通红的胴体，任由你去探索，而万恶的Windows就像浓妆艳抹的恶妇，臃肿不堪！<br>安装gnome桌面只需要以下几条命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">安装之前先添加库并更新，已保证后面的安装顺利</span><br><span class="line">sudo add-apt-repository ppa:gnome3-team/gnome3-staging</span><br><span class="line">sudo add-apt-repository ppa:gnome3-team/gnome3</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get dist-upgrade</span><br><span class="line"></span><br><span class="line">sudo apt-get install gnome-shell</span><br><span class="line">sudo apt-get install ubuntu-gnome-desktop</span><br></pre></td></tr></table></figure></p>
-<p>安装时弹出窗选择如下:<br><img src="http://jiaxiaoxuan.top/images/ubuntu/ubuntu17.png" alt=""><br>当然萝卜白菜各有所爱，卸载命令如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove gnome-shell</span><br><span class="line">sudo apt-get remove ubuntu-gnome-desktop</span><br></pre></td></tr></table></figure></p>
-<p>安装重启的时候要注意,登录的时候要选择第一项哦,千万不要尝试第二项，否则会开不了机，不要怪我没有告诉你！<br><img src="http://jiaxiaoxuan.top/images/ubuntu/ubuntu18.png" alt="">  </p>
+<h3 id="ubuntu-gnome-桌面的安装"><a href="#ubuntu-gnome-桌面的安装" class="headerlink" title="ubuntu gnome 桌面的安装"></a>ubuntu gnome 桌面的安装</h3><p>gnome桌面是很美的，你再选择一个美美哒的桌面背景，那美轮美奂的感觉，很快你就会忘记在失去Windows的痛苦，沉醉在这简洁的环境中，就像婴儿肌肤般的润滑。和Windows相比，它就行豆蔻年华的少女，通红的胴体，任由你去探索，而万恶的Windows就像浓妆艳抹的恶妇，臃肿不堪！<br>安装gnome桌面只需要以下几条命令:  </p>
+<pre><code>安装之前先添加库并更新，已保证后面的安装顺利
+sudo add-apt-repository ppa:gnome3-team/gnome3-staging
+sudo add-apt-repository ppa:gnome3-team/gnome3
+sudo apt-get update
+sudo apt-get dist-upgrade
+
+sudo apt-get install gnome-shell
+sudo apt-get install ubuntu-gnome-desktop
+</code></pre><p>安装时弹出窗选择如下:<br><img src="http://jiaxiaoxuan.top/images/ubuntu/ubuntu17.png" alt=""><br>当然萝卜白菜各有所爱，卸载命令如下:</p>
+<pre><code>sudo apt-get remove gnome-shell
+sudo apt-get remove ubuntu-gnome-desktop
+</code></pre><p>安装重启的时候要注意,登录的时候要选择第一项哦,千万不要尝试第二项，否则会开不了机，不要怪我没有告诉你！<br><img src="http://jiaxiaoxuan.top/images/ubuntu/ubuntu18.png" alt="">  </p>
 <p>重启进入系统如下:<br><img src="http://jiaxiaoxuan.top/images/ubuntu/ubuntu14.png" alt=""></p>
-<p>选择安装ARC主题:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">arc-theme安装方法：</span><br><span class="line">sudo add-apt-repository ppa:noobslab/themes</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install arc-theme</span><br><span class="line">安装gnome-tweak-tool用于切换主题：</span><br><span class="line">sudo apt-get install gnome-tweak-tool</span><br><span class="line">运行gnome-tweak-tool选择Arc-Dark为GTK+主题。</span><br></pre></td></tr></table></figure></p>
-<p>arc主题提供了很多选择，各种颜色搭配。可以让你定制自己喜欢的桌面。  </p>
+<p>选择安装ARC主题:</p>
+<pre><code>arc-theme安装方法：
+sudo add-apt-repository ppa:noobslab/themes
+sudo apt-get update
+sudo apt-get install arc-theme
+安装gnome-tweak-tool用于切换主题：
+sudo apt-get install gnome-tweak-tool
+运行gnome-tweak-tool选择Arc-Dark为GTK+主题。
+</code></pre><p>arc主题提供了很多选择，各种颜色搭配。可以让你定制自己喜欢的桌面。  </p>
 <h2 id="系统美化总结"><a href="#系统美化总结" class="headerlink" title="系统美化总结"></a>系统美化总结</h2><p>如果你喜欢Mac桌面下的那个dock风格，你也可以在乌班图下安装，就在乌班图的软件中心搜索dock即可，不过我个人认为那个工具很鸡肋，消耗内存，和乌班图系统融合的也不是很好，不太建议使用。arc-theme主题还在使用中感觉也很不错。配置高的话可以安装一个试试。</p>
 
     </div>
@@ -319,7 +340,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         if(!$('#myCanvas').tagcanvas({
-                textColour: '#193511',
+                textColour: '#3dc02b',
                 outlineColour: '#d2c828',
                 reverse: true,
                 depth: 1.8,

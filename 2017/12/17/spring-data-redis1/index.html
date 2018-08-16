@@ -139,7 +139,7 @@
     </nav>
 </div>
 <!-- /#sidebar-wrapper -->
-        <section class="content-wrap" style="background:url(/images/love/baner.png) 0% 0% / cover fixed;">
+        <section class="content-wrap">
             <div style="width:100%;">
                 <div class="container" >
                     <div class="row">
@@ -192,17 +192,100 @@
 <li>Sorted Set(zset)——有序集合<br>关于这几种数据的解释请看   <a href="http://www.jb51.net/article/54774.htm" target="_blank" rel="noopener">链接</a>    </li>
 </ul>
 <h1 id="spring与redis的集成"><a href="#spring与redis的集成" class="headerlink" title="spring与redis的集成"></a>spring与redis的集成</h1><p>由于jedisclientAPI不好操作，spring对其进行了封装，在spring-data-redis包中提供了两种操作redis的封装类，一种是RedisTemplate和他的子类<br>StringRedisTemplate，这两个类的只有一个地方是不相同的，就是对数据的序列化方式，RedisTemplate对数据的序列化方式是使用JdkSerializationRedisSerializer这个类。下面这段代码会在获取到redis链接之前执行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public void afterPropertiesSet() &#123;</span><br><span class="line"></span><br><span class="line">		super.afterPropertiesSet();</span><br><span class="line"></span><br><span class="line">		boolean defaultUsed = false;</span><br><span class="line"></span><br><span class="line">		if (defaultSerializer == null) &#123;</span><br><span class="line"></span><br><span class="line">			defaultSerializer = new JdkSerializationRedisSerializer(</span><br><span class="line">					classLoader != null ? classLoader : this.getClass().getClassLoader());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (enableDefaultSerializer) &#123;</span><br><span class="line"></span><br><span class="line">			if (keySerializer == null) &#123;</span><br><span class="line">				keySerializer = defaultSerializer;</span><br><span class="line">				defaultUsed = true;</span><br><span class="line">			&#125;</span><br><span class="line">			if (valueSerializer == null) &#123;</span><br><span class="line">				valueSerializer = defaultSerializer;</span><br><span class="line">				defaultUsed = true;</span><br><span class="line">			&#125;</span><br><span class="line">			if (hashKeySerializer == null) &#123;</span><br><span class="line">				hashKeySerializer = defaultSerializer;</span><br><span class="line">				defaultUsed = true;</span><br><span class="line">			&#125;</span><br><span class="line">			if (hashValueSerializer == null) &#123;</span><br><span class="line">				hashValueSerializer = defaultSerializer;</span><br><span class="line">				defaultUsed = true;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (enableDefaultSerializer &amp;&amp; defaultUsed) &#123;</span><br><span class="line">			Assert.notNull(defaultSerializer, &quot;default serializer null and not all serializers initialized&quot;);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if (scriptExecutor == null) &#123;</span><br><span class="line">			this.scriptExecutor = new DefaultScriptExecutor&lt;&gt;(this);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		initialized = true;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>StringRedisTemplate作为子类，在构造方法里面就指定StringRedisSerializer类来做序列化，代码如下：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public StringRedisTemplate() &#123;</span><br><span class="line">		RedisSerializer&lt;String&gt; stringSerializer = new StringRedisSerializer();</span><br><span class="line">		setKeySerializer(stringSerializer);</span><br><span class="line">		setValueSerializer(stringSerializer);</span><br><span class="line">		setHashKeySerializer(stringSerializer);</span><br><span class="line">		setHashValueSerializer(stringSerializer);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>两者有什么不同之处呢，StringRedisSerializer会将数据数列化成字符串，是在redis客户端中是可读的，JdkSerializationRedisSerializer类会将数据序列化为字节数据是不可读的。</p>
+<pre><code>public void afterPropertiesSet() {
+
+        super.afterPropertiesSet();
+
+        boolean defaultUsed = false;
+
+        if (defaultSerializer == null) {
+
+            defaultSerializer = new JdkSerializationRedisSerializer(
+                    classLoader != null ? classLoader : this.getClass().getClassLoader());
+        }
+
+        if (enableDefaultSerializer) {
+
+            if (keySerializer == null) {
+                keySerializer = defaultSerializer;
+                defaultUsed = true;
+            }
+            if (valueSerializer == null) {
+                valueSerializer = defaultSerializer;
+                defaultUsed = true;
+            }
+            if (hashKeySerializer == null) {
+                hashKeySerializer = defaultSerializer;
+                defaultUsed = true;
+            }
+            if (hashValueSerializer == null) {
+                hashValueSerializer = defaultSerializer;
+                defaultUsed = true;
+            }
+        }
+
+        if (enableDefaultSerializer &amp;&amp; defaultUsed) {
+            Assert.notNull(defaultSerializer, &quot;default serializer null and not all serializers initialized&quot;);
+        }
+
+        if (scriptExecutor == null) {
+            this.scriptExecutor = new DefaultScriptExecutor&lt;&gt;(this);
+        }
+
+        initialized = true;
+    }
+
+</code></pre><p>StringRedisTemplate作为子类，在构造方法里面就指定StringRedisSerializer类来做序列化，代码如下：  </p>
+<pre><code>public StringRedisTemplate() {
+        RedisSerializer&lt;String&gt; stringSerializer = new StringRedisSerializer();
+        setKeySerializer(stringSerializer);
+        setValueSerializer(stringSerializer);
+        setHashKeySerializer(stringSerializer);
+        setHashValueSerializer(stringSerializer);
+    }
+</code></pre><p>两者有什么不同之处呢，StringRedisSerializer会将数据数列化成字符串，是在redis客户端中是可读的，JdkSerializationRedisSerializer类会将数据序列化为字节数据是不可读的。</p>
 <p>请看下列代码:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">   * redis 单机模式测试</span><br><span class="line">   */</span><br><span class="line">  private static void redisStandaloneTest()&#123;</span><br><span class="line">      //以单机模式创建redis链接工厂</span><br><span class="line">      RedisStandaloneConfiguration config=new RedisStandaloneConfiguration();</span><br><span class="line">      config.setPassword(RedisPassword.of(&quot;123456&quot;));</span><br><span class="line">      RedisConnectionFactory redisConnectionFactory=new JedisConnectionFactory(config);</span><br><span class="line"></span><br><span class="line">      //创建redis的spring封装类RedisTemplate</span><br><span class="line">      RedisTemplate redisTemplate=new RedisTemplate();</span><br><span class="line">      redisTemplate.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">      redisTemplate.setKeySerializer(new StringRedisSerializer());</span><br><span class="line">      //必须执行初始化操作，否则不会设置序列化，就无法存取值</span><br><span class="line">      redisTemplate.afterPropertiesSet();</span><br><span class="line">      //存取值，并打印</span><br><span class="line">      redisTemplate.opsForValue().set(&quot;jia&quot;,&quot;xinxuain&quot;);</span><br><span class="line">      System.out.println(redisTemplate.opsForValue().get(&quot;jia&quot;));</span><br><span class="line"></span><br><span class="line">      //创建redis的spring封装类StringRedisTemplate</span><br><span class="line">      StringRedisTemplate stringRedisTemplate=new StringRedisTemplate(redisConnectionFactory);</span><br><span class="line">      stringRedisTemplate.opsForValue().set(&quot;xin&quot;,&quot;xuan&quot;);</span><br><span class="line">      System.out.println(stringRedisTemplate.opsForValue().get(&quot;xin&quot;));</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>在redis中的值:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) &quot;test&quot;</span><br><span class="line">2) &quot;jia&quot;</span><br><span class="line">3) &quot;foo&quot;</span><br><span class="line">4) &quot;\xac\xed\x00\x05t\x00\x03jia&quot;</span><br><span class="line">127.0.0.1:6379&gt; get jia</span><br><span class="line">&quot;\xac\xed\x00\x05t\x00\bxinxuain&quot;</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
-<p>程序运行后的值:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/home/jia/java/bin/java ...</span><br><span class="line">xinxuain</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
-<p>对于RedisTemplate的对象，设置其key值使用StringRedisSerializer序列化，其value使用默认的JdkSerializationRedisSerializer序列化。在存取同一个值的时候，如果是不同系统，一定要约定序列化的方式。</p>
+<pre><code>  /**
+     * redis 单机模式测试
+     */
+    private static void redisStandaloneTest(){
+        //以单机模式创建redis链接工厂
+        RedisStandaloneConfiguration config=new RedisStandaloneConfiguration();
+        config.setPassword(RedisPassword.of(&quot;123456&quot;));
+        RedisConnectionFactory redisConnectionFactory=new JedisConnectionFactory(config);
+
+        //创建redis的spring封装类RedisTemplate
+        RedisTemplate redisTemplate=new RedisTemplate();
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        //必须执行初始化操作，否则不会设置序列化，就无法存取值
+        redisTemplate.afterPropertiesSet();
+        //存取值，并打印
+        redisTemplate.opsForValue().set(&quot;jia&quot;,&quot;xinxuain&quot;);
+        System.out.println(redisTemplate.opsForValue().get(&quot;jia&quot;));
+
+        //创建redis的spring封装类StringRedisTemplate
+        StringRedisTemplate stringRedisTemplate=new StringRedisTemplate(redisConnectionFactory);
+        stringRedisTemplate.opsForValue().set(&quot;xin&quot;,&quot;xuan&quot;);
+        System.out.println(stringRedisTemplate.opsForValue().get(&quot;xin&quot;));
+    }
+</code></pre><p>在redis中的值:</p>
+<pre><code>127.0.0.1:6379&gt; keys *
+1) &quot;test&quot;
+2) &quot;jia&quot;
+3) &quot;foo&quot;
+4) &quot;\xac\xed\x00\x05t\x00\x03jia&quot;
+127.0.0.1:6379&gt; get jia
+&quot;\xac\xed\x00\x05t\x00\bxinxuain&quot;
+127.0.0.1:6379&gt; 
+
+</code></pre><p>程序运行后的值:</p>
+<pre><code>/home/jia/java/bin/java ...
+xinxuain
+
+Process finished with exit code 0
+
+</code></pre><p>对于RedisTemplate的对象，设置其key值使用StringRedisSerializer序列化，其value使用默认的JdkSerializationRedisSerializer序列化。在存取同一个值的时候，如果是不同系统，一定要约定序列化的方式。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>spring在操作redis的时候，给提供的这两个封装类，stringRedisTemplate基本上就可以满足大部分需求了。RedisTemplate提供了更为灵活的配置。<br>在学习的过程中，遇到一个版本兼容的问题，一开始我使用的是jedis2.9版本，spring使用的是4.3版本，这时候sping-data-jedis的版本是2.0.2的。最新版本的dedis和spring-data-redis是支持Java8的，其中Java8里面有个重要的lambda表达式，而spring4.3是不支持Java8的。这样就出现bug了，后来把spring提升到5.0版本才好。<br>顺便再提一句，不知道什么时候，sprin-data-redis在创建RedisTemplate的时候，做了修改，反正就是对集群哨兵单机这三种情况，提供了配置文件的封装。</p>
 
     </div>
@@ -330,7 +413,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         if(!$('#myCanvas').tagcanvas({
-                textColour: '#193511',
+                textColour: '#3dc02b',
                 outlineColour: '#d2c828',
                 reverse: true,
                 depth: 1.8,

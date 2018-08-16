@@ -139,7 +139,7 @@
     </nav>
 </div>
 <!-- /#sidebar-wrapper -->
-        <section class="content-wrap" style="background:url(/images/love/baner.png) 0% 0% / cover fixed;">
+        <section class="content-wrap">
             <div style="width:100%;">
                 <div class="container" >
                     <div class="row">
@@ -180,14 +180,266 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>306</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>326</strong>天之前发表，文中内容可能已经过时。
             </p>
             
     </div>
     
     <div class="post-body">
-        <p>国内连接maven官方的仓库更新依赖库，网速一般很慢，收集一些国内快速的maven仓库镜像以备用。  用的时候直接复制到maven 的setting里，覆盖掉或者注释掉原来的配置。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">Licensed to the Apache Software Foundation (ASF) under one</span><br><span class="line">or more contributor license agreements.  See the NOTICE file</span><br><span class="line">distributed with this work for additional information</span><br><span class="line">regarding copyright ownership.  The ASF licenses this file</span><br><span class="line">to you under the Apache License, Version 2.0 (the</span><br><span class="line">&quot;License&quot;); you may not use this file except in compliance</span><br><span class="line">with the License.  You may obtain a copy of the License at</span><br><span class="line">    http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line">Unless required by applicable law or agreed to in writing,</span><br><span class="line">software distributed under the License is distributed on an</span><br><span class="line">&quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span><br><span class="line">KIND, either express or implied.  See the License for the</span><br><span class="line">specific language governing permissions and limitations</span><br><span class="line">under the License.</span><br><span class="line">--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line"> | This is the configuration file for Maven. It can be specified at two levels:</span><br><span class="line"> |</span><br><span class="line"> |  1. User Level. This settings.xml file provides configuration for a single user, </span><br><span class="line"> |                 and is normally provided in $&#123;user.home&#125;/.m2/settings.xml.</span><br><span class="line"> |</span><br><span class="line"> |                 NOTE: This location can be overridden with the CLI option:</span><br><span class="line"> |</span><br><span class="line"> |                 -s /path/to/user/settings.xml</span><br><span class="line"> |</span><br><span class="line"> |  2. Global Level. This settings.xml file provides configuration for all Maven</span><br><span class="line"> |                 users on a machine (assuming they&apos;re all using the same Maven</span><br><span class="line"> |                 installation). It&apos;s normally provided in </span><br><span class="line"> |                 $&#123;maven.home&#125;/conf/settings.xml.</span><br><span class="line"> |</span><br><span class="line"> |                 NOTE: This location can be overridden with the CLI option:</span><br><span class="line"> |</span><br><span class="line"> |                 -gs /path/to/global/settings.xml</span><br><span class="line"> |</span><br><span class="line"> | The sections in this sample file are intended to give you a running start at</span><br><span class="line"> | getting the most out of your Maven installation. Where appropriate, the default</span><br><span class="line"> | values (values used when the setting is not specified) are provided.</span><br><span class="line"> |</span><br><span class="line"> |--&gt;</span><br><span class="line">&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot; </span><br><span class="line">          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </span><br><span class="line">          xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">  &lt;!-- localRepository</span><br><span class="line">   | The path to the local repository maven will use to store artifacts.</span><br><span class="line">   |</span><br><span class="line">   | Default: $&#123;user.home&#125;/.m2/repository</span><br><span class="line">  &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span><br><span class="line">  --&gt;</span><br><span class="line">  &lt;localRepository&gt;F:/data/repository&lt;/localRepository&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- interactiveMode</span><br><span class="line">   | This will determine whether maven prompts you when it needs input. If set to false,</span><br><span class="line">   | maven will use a sensible default value, perhaps based on some other setting, for</span><br><span class="line">   | the parameter in question.</span><br><span class="line">   |</span><br><span class="line">   | Default: true</span><br><span class="line">  &lt;interactiveMode&gt;true&lt;/interactiveMode&gt;</span><br><span class="line">  --&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- offline</span><br><span class="line">   | Determines whether maven should attempt to connect to the network when executing a build.</span><br><span class="line">   | This will have an effect on artifact downloads, artifact deployment, and others.</span><br><span class="line">   |</span><br><span class="line">   | Default: false</span><br><span class="line">  &lt;offline&gt;false&lt;/offline&gt;</span><br><span class="line">  --&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- pluginGroups</span><br><span class="line">   | This is a list of additional group identifiers that will be searched when resolving plugins by their prefix, i.e.</span><br><span class="line">   | when invoking a command line like &quot;mvn prefix:goal&quot;. Maven will automatically add the group identifiers</span><br><span class="line">   | &quot;org.apache.maven.plugins&quot; and &quot;org.codehaus.mojo&quot; if these are not already contained in the list.</span><br><span class="line">   |--&gt;</span><br><span class="line">  &lt;pluginGroups&gt;</span><br><span class="line">    &lt;!-- pluginGroup</span><br><span class="line">     | Specifies a further group identifier to use for plugin lookup.</span><br><span class="line">    &lt;pluginGroup&gt;com.your.plugins&lt;/pluginGroup&gt;</span><br><span class="line">    --&gt;</span><br><span class="line">	&lt;pluginGroup&gt;org.mortbay.jetty&lt;/pluginGroup&gt;</span><br><span class="line">  &lt;/pluginGroups&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- proxies</span><br><span class="line">   | This is a list of proxies which can be used on this machine to connect to the network.</span><br><span class="line">   | Unless otherwise specified (by system property or command-line switch), the first proxy</span><br><span class="line">   | specification in this list marked as active will be used.</span><br><span class="line">   |--&gt;</span><br><span class="line">  &lt;proxies&gt;</span><br><span class="line">    &lt;!-- proxy</span><br><span class="line">     | Specification for one proxy, to be used in connecting to the network.</span><br><span class="line">     |</span><br><span class="line">    &lt;proxy&gt;</span><br><span class="line">      &lt;id&gt;optional&lt;/id&gt;</span><br><span class="line">      &lt;active&gt;true&lt;/active&gt;</span><br><span class="line">      &lt;protocol&gt;http&lt;/protocol&gt;</span><br><span class="line">      &lt;username&gt;proxyuser&lt;/username&gt;</span><br><span class="line">      &lt;password&gt;proxypass&lt;/password&gt;</span><br><span class="line">      &lt;host&gt;proxy.host.net&lt;/host&gt;</span><br><span class="line">      &lt;port&gt;80&lt;/port&gt;</span><br><span class="line">      &lt;nonProxyHosts&gt;local.net|some.host.com&lt;/nonProxyHosts&gt;</span><br><span class="line">    &lt;/proxy&gt;</span><br><span class="line">    --&gt;</span><br><span class="line">  &lt;/proxies&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- servers</span><br><span class="line">   | This is a list of authentication profiles, keyed by the server-id used within the system.</span><br><span class="line">   | Authentication profiles can be used whenever maven must make a connection to a remote server.</span><br><span class="line">   |--&gt;</span><br><span class="line">  &lt;servers&gt;</span><br><span class="line">    &lt;!-- server</span><br><span class="line">     | Specifies the authentication information to use when connecting to a particular server, identified by</span><br><span class="line">     | a unique name within the system (referred to by the &apos;id&apos; attribute below).</span><br><span class="line">     | </span><br><span class="line">     | NOTE: You should either specify username/password OR privateKey/passphrase, since these pairings are </span><br><span class="line">     |       used together.</span><br><span class="line">     |</span><br><span class="line">    &lt;server&gt;</span><br><span class="line">      &lt;id&gt;deploymentRepo&lt;/id&gt;</span><br><span class="line">      &lt;username&gt;repouser&lt;/username&gt;</span><br><span class="line">      &lt;password&gt;repopwd&lt;/password&gt;</span><br><span class="line">    &lt;/server&gt;</span><br><span class="line">    --&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- Another sample, using keys to authenticate.</span><br><span class="line">    &lt;server&gt;</span><br><span class="line">      &lt;id&gt;siteServer&lt;/id&gt;</span><br><span class="line">      &lt;privateKey&gt;/path/to/private/key&lt;/privateKey&gt;</span><br><span class="line">      &lt;passphrase&gt;optional; leave empty if not used.&lt;/passphrase&gt;</span><br><span class="line">    &lt;/server&gt;</span><br><span class="line">    --&gt;</span><br><span class="line">	&lt;server&gt;</span><br><span class="line">		&lt;id&gt;releases&lt;/id&gt;</span><br><span class="line">		&lt;username&gt;ali&lt;/username&gt;</span><br><span class="line">		&lt;password&gt;ali&lt;/password&gt;</span><br><span class="line">	  &lt;/server&gt;</span><br><span class="line">	  &lt;server&gt;</span><br><span class="line">		&lt;id&gt;Snapshots&lt;/id&gt;</span><br><span class="line">		&lt;username&gt;ali&lt;/username&gt;</span><br><span class="line">		&lt;password&gt;ali&lt;/password&gt;</span><br><span class="line">	  &lt;/server&gt;</span><br><span class="line">  &lt;/servers&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- mirrors</span><br><span class="line">   | This is a list of mirrors to be used in downloading artifacts from remote repositories.</span><br><span class="line">   | </span><br><span class="line">   | It works like this: a POM may declare a repository to use in resolving certain artifacts.</span><br><span class="line">   | However, this repository may have problems with heavy traffic at times, so people have mirrored</span><br><span class="line">   | it to several places.</span><br><span class="line">   |</span><br><span class="line">   | That repository definition will have a unique id, so we can create a mirror reference for that</span><br><span class="line">   | repository, to be used as an alternate download site. The mirror site will be the preferred </span><br><span class="line">   | server for that repository.</span><br><span class="line">   |--&gt;</span><br><span class="line">  &lt;mirrors&gt;</span><br><span class="line">    &lt;!-- mirror</span><br><span class="line">     | Specifies a repository mirror site to use instead of a given repository. The repository that</span><br><span class="line">     | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used</span><br><span class="line">     | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.</span><br><span class="line">     |</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;mirrorId&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;repositoryId&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://my.repository.com/repo/path&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">     --&gt;</span><br><span class="line">	&lt;mirror&gt;</span><br><span class="line">      &lt;!--This sends everything else to /public --&gt;</span><br><span class="line">      &lt;id&gt;nexus&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;*&lt;/mirrorOf&gt; </span><br><span class="line">      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">	&lt;mirror&gt;</span><br><span class="line">      &lt;!--This is used to direct the public snapshots repo in the </span><br><span class="line">          profile below over to a different nexus group --&gt;</span><br><span class="line">      &lt;id&gt;nexus-public-snapshots&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;public-snapshots&lt;/mirrorOf&gt; </span><br><span class="line">      &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/snapshots/&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">  &lt;/mirrors&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;!-- profiles</span><br><span class="line">   | This is a list of profiles which can be activated in a variety of ways, and which can modify</span><br><span class="line">   | the build process. Profiles provided in the settings.xml are intended to provide local machine-</span><br><span class="line">   | specific paths and repository locations which allow the build to work in the local environment.</span><br><span class="line">   |</span><br><span class="line">   | For example, if you have an integration testing plugin - like cactus - that needs to know where</span><br><span class="line">   | your Tomcat instance is installed, you can provide a variable here such that the variable is </span><br><span class="line">   | dereferenced during the build process to configure the cactus plugin.</span><br><span class="line">   |</span><br><span class="line">   | As noted above, profiles can be activated in a variety of ways. One way - the activeProfiles</span><br><span class="line">   | section of this document (settings.xml) - will be discussed later. Another way essentially</span><br><span class="line">   | relies on the detection of a system property, either matching a particular value for the property,</span><br><span class="line">   | or merely testing its existence. Profiles can also be activated by JDK version prefix, where a </span><br><span class="line">   | value of &apos;1.4&apos; might activate a profile when the build is executed on a JDK version of &apos;1.4.2_07&apos;.</span><br><span class="line">   | Finally, the list of active profiles can be specified directly from the command line.</span><br><span class="line">   |</span><br><span class="line">   | NOTE: For profiles defined in the settings.xml, you are restricted to specifying only artifact</span><br><span class="line">   |       repositories, plugin repositories, and free-form properties to be used as configuration</span><br><span class="line">   |       variables for plugins in the POM.</span><br><span class="line">   |</span><br><span class="line">   |--&gt;</span><br><span class="line">  &lt;profiles&gt; </span><br><span class="line">	&lt;profile&gt;</span><br><span class="line">      &lt;id&gt;development&lt;/id&gt;</span><br><span class="line">      &lt;repositories&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">          &lt;id&gt;central&lt;/id&gt;</span><br><span class="line">          &lt;url&gt;http://central&lt;/url&gt;</span><br><span class="line">          &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/releases&gt;</span><br><span class="line">          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/snapshots&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">      &lt;/repositories&gt;</span><br><span class="line">     &lt;pluginRepositories&gt;</span><br><span class="line">        &lt;pluginRepository&gt;</span><br><span class="line">          &lt;id&gt;central&lt;/id&gt;</span><br><span class="line">          &lt;url&gt;http://central&lt;/url&gt;</span><br><span class="line">          &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/releases&gt;</span><br><span class="line">          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/snapshots&gt;</span><br><span class="line">        &lt;/pluginRepository&gt;</span><br><span class="line">      &lt;/pluginRepositories&gt;</span><br><span class="line">    &lt;/profile&gt;</span><br><span class="line">    &lt;profile&gt;</span><br><span class="line">      &lt;!--this profile will allow snapshots to be searched when activated--&gt;</span><br><span class="line">      &lt;id&gt;public-snapshots&lt;/id&gt;</span><br><span class="line">      &lt;repositories&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">          &lt;id&gt;public-snapshots&lt;/id&gt;</span><br><span class="line">          &lt;url&gt;http://public-snapshots&lt;/url&gt;</span><br><span class="line">          &lt;releases&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/releases&gt;</span><br><span class="line">          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/snapshots&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">      &lt;/repositories&gt;</span><br><span class="line">     &lt;pluginRepositories&gt;</span><br><span class="line">        &lt;pluginRepository&gt;</span><br><span class="line">          &lt;id&gt;public-snapshots&lt;/id&gt;</span><br><span class="line">          &lt;url&gt;http://public-snapshots&lt;/url&gt;</span><br><span class="line">          &lt;releases&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/releases&gt;</span><br><span class="line">          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/snapshots&gt;</span><br><span class="line">        &lt;/pluginRepository&gt;</span><br><span class="line">      &lt;/pluginRepositories&gt;</span><br><span class="line">    &lt;/profile&gt;</span><br><span class="line">  &lt;/profiles&gt;</span><br><span class="line"> </span><br><span class="line">   &lt;activeProfiles&gt;</span><br><span class="line">    &lt;activeProfile&gt;development&lt;/activeProfile&gt;</span><br><span class="line">    &lt;activeProfile&gt;public-snapshots&lt;/activeProfile&gt;</span><br><span class="line">   &lt;/activeProfiles&gt;</span><br><span class="line">&lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
+        <p>国内连接maven官方的仓库更新依赖库，网速一般很慢，收集一些国内快速的maven仓库镜像以备用。  用的时候直接复制到maven 的setting里，覆盖掉或者注释掉原来的配置。<br><a id="more"></a></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 
+&lt;!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+&quot;License&quot;); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+&quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+--&gt;
+
+&lt;!--
+ | This is the configuration file for Maven. It can be specified at two levels:
+ |
+ |  1. User Level. This settings.xml file provides configuration for a single user, 
+ |                 and is normally provided in ${user.home}/.m2/settings.xml.
+ |
+ |                 NOTE: This location can be overridden with the CLI option:
+ |
+ |                 -s /path/to/user/settings.xml
+ |
+ |  2. Global Level. This settings.xml file provides configuration for all Maven
+ |                 users on a machine (assuming they&#39;re all using the same Maven
+ |                 installation). It&#39;s normally provided in 
+ |                 ${maven.home}/conf/settings.xml.
+ |
+ |                 NOTE: This location can be overridden with the CLI option:
+ |
+ |                 -gs /path/to/global/settings.xml
+ |
+ | The sections in this sample file are intended to give you a running start at
+ | getting the most out of your Maven installation. Where appropriate, the default
+ | values (values used when the setting is not specified) are provided.
+ |
+ |--&gt;
+&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot; 
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+          xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;
+  &lt;!-- localRepository
+   | The path to the local repository maven will use to store artifacts.
+   |
+   | Default: ${user.home}/.m2/repository
+  &lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;
+  --&gt;
+  &lt;localRepository&gt;F:/data/repository&lt;/localRepository&gt;
+
+  &lt;!-- interactiveMode
+   | This will determine whether maven prompts you when it needs input. If set to false,
+   | maven will use a sensible default value, perhaps based on some other setting, for
+   | the parameter in question.
+   |
+   | Default: true
+  &lt;interactiveMode&gt;true&lt;/interactiveMode&gt;
+  --&gt;
+
+  &lt;!-- offline
+   | Determines whether maven should attempt to connect to the network when executing a build.
+   | This will have an effect on artifact downloads, artifact deployment, and others.
+   |
+   | Default: false
+  &lt;offline&gt;false&lt;/offline&gt;
+  --&gt;
+
+  &lt;!-- pluginGroups
+   | This is a list of additional group identifiers that will be searched when resolving plugins by their prefix, i.e.
+   | when invoking a command line like &quot;mvn prefix:goal&quot;. Maven will automatically add the group identifiers
+   | &quot;org.apache.maven.plugins&quot; and &quot;org.codehaus.mojo&quot; if these are not already contained in the list.
+   |--&gt;
+  &lt;pluginGroups&gt;
+    &lt;!-- pluginGroup
+     | Specifies a further group identifier to use for plugin lookup.
+    &lt;pluginGroup&gt;com.your.plugins&lt;/pluginGroup&gt;
+    --&gt;
+    &lt;pluginGroup&gt;org.mortbay.jetty&lt;/pluginGroup&gt;
+  &lt;/pluginGroups&gt;
+
+  &lt;!-- proxies
+   | This is a list of proxies which can be used on this machine to connect to the network.
+   | Unless otherwise specified (by system property or command-line switch), the first proxy
+   | specification in this list marked as active will be used.
+   |--&gt;
+  &lt;proxies&gt;
+    &lt;!-- proxy
+     | Specification for one proxy, to be used in connecting to the network.
+     |
+    &lt;proxy&gt;
+      &lt;id&gt;optional&lt;/id&gt;
+      &lt;active&gt;true&lt;/active&gt;
+      &lt;protocol&gt;http&lt;/protocol&gt;
+      &lt;username&gt;proxyuser&lt;/username&gt;
+      &lt;password&gt;proxypass&lt;/password&gt;
+      &lt;host&gt;proxy.host.net&lt;/host&gt;
+      &lt;port&gt;80&lt;/port&gt;
+      &lt;nonProxyHosts&gt;local.net|some.host.com&lt;/nonProxyHosts&gt;
+    &lt;/proxy&gt;
+    --&gt;
+  &lt;/proxies&gt;
+
+  &lt;!-- servers
+   | This is a list of authentication profiles, keyed by the server-id used within the system.
+   | Authentication profiles can be used whenever maven must make a connection to a remote server.
+   |--&gt;
+  &lt;servers&gt;
+    &lt;!-- server
+     | Specifies the authentication information to use when connecting to a particular server, identified by
+     | a unique name within the system (referred to by the &#39;id&#39; attribute below).
+     | 
+     | NOTE: You should either specify username/password OR privateKey/passphrase, since these pairings are 
+     |       used together.
+     |
+    &lt;server&gt;
+      &lt;id&gt;deploymentRepo&lt;/id&gt;
+      &lt;username&gt;repouser&lt;/username&gt;
+      &lt;password&gt;repopwd&lt;/password&gt;
+    &lt;/server&gt;
+    --&gt;
+
+    &lt;!-- Another sample, using keys to authenticate.
+    &lt;server&gt;
+      &lt;id&gt;siteServer&lt;/id&gt;
+      &lt;privateKey&gt;/path/to/private/key&lt;/privateKey&gt;
+      &lt;passphrase&gt;optional; leave empty if not used.&lt;/passphrase&gt;
+    &lt;/server&gt;
+    --&gt;
+    &lt;server&gt;
+        &lt;id&gt;releases&lt;/id&gt;
+        &lt;username&gt;ali&lt;/username&gt;
+        &lt;password&gt;ali&lt;/password&gt;
+      &lt;/server&gt;
+      &lt;server&gt;
+        &lt;id&gt;Snapshots&lt;/id&gt;
+        &lt;username&gt;ali&lt;/username&gt;
+        &lt;password&gt;ali&lt;/password&gt;
+      &lt;/server&gt;
+  &lt;/servers&gt;
+
+  &lt;!-- mirrors
+   | This is a list of mirrors to be used in downloading artifacts from remote repositories.
+   | 
+   | It works like this: a POM may declare a repository to use in resolving certain artifacts.
+   | However, this repository may have problems with heavy traffic at times, so people have mirrored
+   | it to several places.
+   |
+   | That repository definition will have a unique id, so we can create a mirror reference for that
+   | repository, to be used as an alternate download site. The mirror site will be the preferred 
+   | server for that repository.
+   |--&gt;
+  &lt;mirrors&gt;
+    &lt;!-- mirror
+     | Specifies a repository mirror site to use instead of a given repository. The repository that
+     | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used
+     | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.
+     |
+    &lt;mirror&gt;
+      &lt;id&gt;mirrorId&lt;/id&gt;
+      &lt;mirrorOf&gt;repositoryId&lt;/mirrorOf&gt;
+      &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;
+      &lt;url&gt;http://my.repository.com/repo/path&lt;/url&gt;
+    &lt;/mirror&gt;
+     --&gt;
+    &lt;mirror&gt;
+      &lt;!--This sends everything else to /public --&gt;
+      &lt;id&gt;nexus&lt;/id&gt;
+      &lt;mirrorOf&gt;*&lt;/mirrorOf&gt; 
+      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;
+    &lt;/mirror&gt;
+    &lt;mirror&gt;
+      &lt;!--This is used to direct the public snapshots repo in the 
+          profile below over to a different nexus group --&gt;
+      &lt;id&gt;nexus-public-snapshots&lt;/id&gt;
+      &lt;mirrorOf&gt;public-snapshots&lt;/mirrorOf&gt; 
+      &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/snapshots/&lt;/url&gt;
+    &lt;/mirror&gt;
+  &lt;/mirrors&gt;
+
+  &lt;!-- profiles
+   | This is a list of profiles which can be activated in a variety of ways, and which can modify
+   | the build process. Profiles provided in the settings.xml are intended to provide local machine-
+   | specific paths and repository locations which allow the build to work in the local environment.
+   |
+   | For example, if you have an integration testing plugin - like cactus - that needs to know where
+   | your Tomcat instance is installed, you can provide a variable here such that the variable is 
+   | dereferenced during the build process to configure the cactus plugin.
+   |
+   | As noted above, profiles can be activated in a variety of ways. One way - the activeProfiles
+   | section of this document (settings.xml) - will be discussed later. Another way essentially
+   | relies on the detection of a system property, either matching a particular value for the property,
+   | or merely testing its existence. Profiles can also be activated by JDK version prefix, where a 
+   | value of &#39;1.4&#39; might activate a profile when the build is executed on a JDK version of &#39;1.4.2_07&#39;.
+   | Finally, the list of active profiles can be specified directly from the command line.
+   |
+   | NOTE: For profiles defined in the settings.xml, you are restricted to specifying only artifact
+   |       repositories, plugin repositories, and free-form properties to be used as configuration
+   |       variables for plugins in the POM.
+   |
+   |--&gt;
+  &lt;profiles&gt; 
+    &lt;profile&gt;
+      &lt;id&gt;development&lt;/id&gt;
+      &lt;repositories&gt;
+        &lt;repository&gt;
+          &lt;id&gt;central&lt;/id&gt;
+          &lt;url&gt;http://central&lt;/url&gt;
+          &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/releases&gt;
+          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/snapshots&gt;
+        &lt;/repository&gt;
+      &lt;/repositories&gt;
+     &lt;pluginRepositories&gt;
+        &lt;pluginRepository&gt;
+          &lt;id&gt;central&lt;/id&gt;
+          &lt;url&gt;http://central&lt;/url&gt;
+          &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/releases&gt;
+          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/snapshots&gt;
+        &lt;/pluginRepository&gt;
+      &lt;/pluginRepositories&gt;
+    &lt;/profile&gt;
+    &lt;profile&gt;
+      &lt;!--this profile will allow snapshots to be searched when activated--&gt;
+      &lt;id&gt;public-snapshots&lt;/id&gt;
+      &lt;repositories&gt;
+        &lt;repository&gt;
+          &lt;id&gt;public-snapshots&lt;/id&gt;
+          &lt;url&gt;http://public-snapshots&lt;/url&gt;
+          &lt;releases&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/releases&gt;
+          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/snapshots&gt;
+        &lt;/repository&gt;
+      &lt;/repositories&gt;
+     &lt;pluginRepositories&gt;
+        &lt;pluginRepository&gt;
+          &lt;id&gt;public-snapshots&lt;/id&gt;
+          &lt;url&gt;http://public-snapshots&lt;/url&gt;
+          &lt;releases&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/releases&gt;
+          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;updatePolicy&gt;always&lt;/updatePolicy&gt;&lt;/snapshots&gt;
+        &lt;/pluginRepository&gt;
+      &lt;/pluginRepositories&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
+
+   &lt;activeProfiles&gt;
+    &lt;activeProfile&gt;development&lt;/activeProfile&gt;
+    &lt;activeProfile&gt;public-snapshots&lt;/activeProfile&gt;
+   &lt;/activeProfiles&gt;
+&lt;/settings&gt;  
+
+</code></pre>
     </div>
 
     <div class="post-footer">   
@@ -313,7 +565,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         if(!$('#myCanvas').tagcanvas({
-                textColour: '#193511',
+                textColour: '#3dc02b',
                 outlineColour: '#d2c828',
                 reverse: true,
                 depth: 1.8,

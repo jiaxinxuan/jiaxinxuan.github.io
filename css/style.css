@@ -22,9 +22,10 @@ body {
   position:relative;
   z-index: 2;
   height: 100%;
-  background-color: #eee;
+  background-color: rgba(4, 8, 5, 0.93);
   font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
 }
+
 h1,
 h2,
 h3,
@@ -55,7 +56,7 @@ h6 {
   font-size: 0.5em;
 }
 a {
-  color: #11080f;
+  color: #dc16b0;
   outline: none;
 }
 a:hover {
@@ -69,6 +70,9 @@ a:focus {
 }
 a img {
   outline: none;
+}
+ol, ul {
+  COLOR: #b387ca;
 }
 .btn {
   padding: 7px 14px;
@@ -167,9 +171,7 @@ blockquote {
   background-color: #f9f9f9;
 }
 pre {
-  padding: 0;
-  background: none;
-  border: none;
+
 }
 ::-moz-selection {
   color: #fff;
@@ -218,7 +220,7 @@ pre {
   width: 100%;
 }
 /*====================================================
-    header 
+    header
 ====================================================*/
 .main-header {
   position: relative;
@@ -345,7 +347,7 @@ pre {
   font-size: 1.1em;
   line-height: 1.75;
   font-style: inherit;
-  color: #1c22cd;
+  color: #666666;
 }
 .post .post-body p img {
   max-width: 100%;
@@ -733,6 +735,9 @@ pre {
 .widget {
   margin-bottom: 15px;
 }
+.notification {
+  COLOR: #b387ca;
+}
 .widget .title {
   margin-top: 0;
   padding-bottom: 7px;
@@ -946,18 +951,18 @@ pre {
 }
 #myCanvas{
   position: relative;
-  z-index:1;
+  z-index:0;
 }
 
 /*-------------------------------*/
 /*           Wrappers            */
 /*-------------------------------*/
 #wrapper {
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
   padding-left: 0;
   transition: all 0.5s ease;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 #wrapper.toggled {
   padding-left: 220px;
@@ -1099,7 +1104,7 @@ pre {
   margin-left: 0px;
   position: fixed;
   top: 50%;;
-  width: 32px;
+  width: 28px;
   z-index: 999;
 }
 .hamburger:hover {
@@ -1139,17 +1144,17 @@ pre {
 }
 .hamburger.is-closed .hamb-top {
   -webkit-transition: all 0.35s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(21, 222, 111, 0.7);
   top: 5px;
 }
 .hamburger.is-closed .hamb-middle {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(224, 12, 43, 0.7);
   margin-top: -2px;
   top: 50%;
 }
 .hamburger.is-closed .hamb-bottom {
   -webkit-transition: all 0.35s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(35, 28, 167);
   bottom: 5px;
 }
 .hamburger.is-closed .hamb-top,
@@ -1263,6 +1268,9 @@ header {
 }
 .container{
   margin: auto;
-  opacity: 0.6;
-  background: #bd979e;
+  opacity: 1;
+  background: #031025;
+}
+.content-wrap {
+  padding-top:  124px;
 }
